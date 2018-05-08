@@ -1,8 +1,8 @@
-# Pdf4me.Client - the java library for the Pdf4me Saas API
+# Pdf4me.Client - the python package for the Pdf4me Saas API
 
 
 
-![PyPI](https://img.shields.io/pypi/v/pdf4m3.svg) ![license](https://img.shields.io/github/license/mashape/apistatus.svg) ![Maintenance](https://img.shields.io/maintenance/yes/2018.svg) ![Build](https://ynoox.visualstudio.com/_apis/public/build/definitions/2e29c2f0-3f4a-40e1-a4b1-1cc465571206/290/badge)
+![PyPI](https://img.shields.io/pypi/v/pdf4me.svg) ![license](https://img.shields.io/github/license/mashape/apistatus.svg) ![Maintenance](https://img.shields.io/maintenance/yes/2018.svg) ![Build](https://ynoox.visualstudio.com/_apis/public/build/definitions/2e29c2f0-3f4a-40e1-a4b1-1cc465571206/290/badge)
 
 
 The Pdf4me Client API is a python package which connects to its highly scalable SaaS cloud service with many functionalities to solve your document and PDF requirements. The SaaS API provides expert functionality to convert, optimize, compress, produce, merge, split, ocr, enrich, archive, print documents and PDF's.
