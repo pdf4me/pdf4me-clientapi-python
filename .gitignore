@@ -94,7 +94,7 @@ ENV/
 .pytest_cache
 
 # config.properties
-*/config.properties
+pdf4me/Pdf4mePythonClientApiTest/config.properties
 
 # Spyder project settings
 .spyderproject

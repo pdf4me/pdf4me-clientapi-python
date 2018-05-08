@@ -7,7 +7,7 @@ with open('README.md') as f:
 
 setup(
     name='pdf4me_cl',
-    version='0.0.22',
+    version='0.0.23',
     description='Provides expert functionality to convert, optimize, compress, produce, merge, split, ocr, enrich, archive, print documents and PDFs.',
     long_description=long_description,
     long_description_content_type='text/markdown',
