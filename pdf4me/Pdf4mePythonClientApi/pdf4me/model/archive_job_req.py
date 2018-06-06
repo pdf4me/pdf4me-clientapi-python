@@ -60,7 +60,8 @@ class ArchiveJobReq(object):
         self._target_folder = None
         self.discriminator = None
 
-        self.job_id = job_id
+        if job_id is not None:
+            self.job_id = job_id
         self.source_folder = source_folder
         self.execution_trigger = execution_trigger
         self.archive_config = archive_config
@@ -84,8 +85,6 @@ class ArchiveJobReq(object):
         :param job_id: The job_id of this ArchiveJobReq.  # noqa: E501
         :type: str
         """
-        if job_id is None:
-            raise ValueError("Invalid value for `job_id`, must not be `None`")  # noqa: E501
 
         self._job_id = job_id
 

@@ -2,7 +2,7 @@
 
 
 
-![PyPI](https://img.shields.io/pypi/v/pdf4me.svg) ![license](https://img.shields.io/github/license/mashape/apistatus.svg) ![Maintenance](https://img.shields.io/maintenance/yes/2018.svg) ![Build](https://ynoox.visualstudio.com/_apis/public/build/definitions/2e29c2f0-3f4a-40e1-a4b1-1cc465571206/290/badge)
+![PyPI](https://img.shields.io/pypi/v/pdf4me.svg) ![license](https://img.shields.io/github/license/mashape/apistatus.svg) ![Maintenance](https://img.shields.io/maintenance/yes/2018.svg) ![Build](https://ynoox.visualstudio.com/_apis/public/build/definitions/2e29c2f0-3f4a-40e1-a4b1-1cc465571206/290/badge) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pdf4me.svg) ![PyPI - Status](https://img.shields.io/pypi/status/pdf4me.svg)
 
 
 The Pdf4me Client API is a python package which connects to its highly scalable SaaS cloud service with many functionalities to solve your document and PDF requirements. The SaaS API provides expert functionality to convert, optimize, compress, produce, merge, split, ocr, enrich, archive, print documents and PDF's.
@@ -46,6 +46,10 @@ merged_pdf = merge_client.merge_2_pdfs(
     file2=FileReader().get_file_handler(path='my_second_pdf.pdf')
 )
 ```
+
+## Documentation
+
+Please visit our [documentation]() for more information about all the functionalities provided and on how to use pdf4me.
 
 ## Recommendation
 

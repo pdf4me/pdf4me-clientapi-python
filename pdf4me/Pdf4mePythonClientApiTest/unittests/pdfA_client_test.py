@@ -124,3 +124,26 @@ class PdfAClientTest(unittest.TestCase):
         pdfA = self.check.get_doc_base64_length(res)
 
         self.assertTrue(self.check.below_not_zero(pdfA, original_length))
+
+    def test_create_pdfA_without_compliance_no_none_response(self):
+
+        # request
+        res = self.pdfA_client.create_pdfA(
+            file=self.file_reader.get_file_handler(path=self.test_files.pdf_path)
+        )
+
+        # validation
+        self.assertIsNotNone(res)
+
+    def test_create_pdfA_without_compliance_doc_length(self):
+
+        # request
+        res = self.pdfA_client.create_pdfA(
+            file=self.file_reader.get_file_handler(path=self.test_files.pdf_path)
+        )
+
+        # validation
+        original_length = self.test_files.pdf_length
+        pdfA = self.check.get_doc_base64_length(res)
+
+        self.assertTrue(self.check.below_not_zero(pdfA, original_length))

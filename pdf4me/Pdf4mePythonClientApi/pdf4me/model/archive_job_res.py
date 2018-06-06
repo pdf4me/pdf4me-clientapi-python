@@ -47,8 +47,10 @@ class ArchiveJobRes(object):
         self._created_successfully = None
         self.discriminator = None
 
-        self.job_id = job_id
-        self.created_successfully = created_successfully
+        if job_id is not None:
+            self.job_id = job_id
+        if created_successfully is not None:
+            self.created_successfully = created_successfully
 
     @property
     def job_id(self):
@@ -68,8 +70,6 @@ class ArchiveJobRes(object):
         :param job_id: The job_id of this ArchiveJobRes.  # noqa: E501
         :type: str
         """
-        if job_id is None:
-            raise ValueError("Invalid value for `job_id`, must not be `None`")  # noqa: E501
 
         self._job_id = job_id
 
@@ -91,8 +91,6 @@ class ArchiveJobRes(object):
         :param created_successfully: The created_successfully of this ArchiveJobRes.  # noqa: E501
         :type: bool
         """
-        if created_successfully is None:
-            raise ValueError("Invalid value for `created_successfully`, must not be `None`")  # noqa: E501
 
         self._created_successfully = created_successfully
 

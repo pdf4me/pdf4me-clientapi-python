@@ -59,12 +59,18 @@ class Transform(object):
         self._y = None
         self.discriminator = None
 
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
-        self.x = x
-        self.y = y
+        if a is not None:
+            self.a = a
+        if b is not None:
+            self.b = b
+        if c is not None:
+            self.c = c
+        if d is not None:
+            self.d = d
+        if x is not None:
+            self.x = x
+        if y is not None:
+            self.y = y
 
     @property
     def a(self):
@@ -84,8 +90,6 @@ class Transform(object):
         :param a: The a of this Transform.  # noqa: E501
         :type: int
         """
-        if a is None:
-            raise ValueError("Invalid value for `a`, must not be `None`")  # noqa: E501
 
         self._a = a
 
@@ -107,8 +111,6 @@ class Transform(object):
         :param b: The b of this Transform.  # noqa: E501
         :type: int
         """
-        if b is None:
-            raise ValueError("Invalid value for `b`, must not be `None`")  # noqa: E501
 
         self._b = b
 
@@ -130,8 +132,6 @@ class Transform(object):
         :param c: The c of this Transform.  # noqa: E501
         :type: int
         """
-        if c is None:
-            raise ValueError("Invalid value for `c`, must not be `None`")  # noqa: E501
 
         self._c = c
 
@@ -153,8 +153,6 @@ class Transform(object):
         :param d: The d of this Transform.  # noqa: E501
         :type: int
         """
-        if d is None:
-            raise ValueError("Invalid value for `d`, must not be `None`")  # noqa: E501
 
         self._d = d
 
@@ -176,8 +174,6 @@ class Transform(object):
         :param x: The x of this Transform.  # noqa: E501
         :type: int
         """
-        if x is None:
-            raise ValueError("Invalid value for `x`, must not be `None`")  # noqa: E501
 
         self._x = x
 
@@ -199,8 +195,6 @@ class Transform(object):
         :param y: The y of this Transform.  # noqa: E501
         :type: int
         """
-        if y is None:
-            raise ValueError("Invalid value for `y`, must not be `None`")  # noqa: E501
 
         self._y = y
 

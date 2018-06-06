@@ -50,9 +50,12 @@ class Rotate(object):
         self._origin_y = None
         self.discriminator = None
 
-        self.angle = angle
-        self.origin_x = origin_x
-        self.origin_y = origin_y
+        if angle is not None:
+            self.angle = angle
+        if origin_x is not None:
+            self.origin_x = origin_x
+        if origin_y is not None:
+            self.origin_y = origin_y
 
     @property
     def angle(self):
@@ -72,8 +75,6 @@ class Rotate(object):
         :param angle: The angle of this Rotate.  # noqa: E501
         :type: float
         """
-        if angle is None:
-            raise ValueError("Invalid value for `angle`, must not be `None`")  # noqa: E501
 
         self._angle = angle
 
@@ -95,8 +96,6 @@ class Rotate(object):
         :param origin_x: The origin_x of this Rotate.  # noqa: E501
         :type: int
         """
-        if origin_x is None:
-            raise ValueError("Invalid value for `origin_x`, must not be `None`")  # noqa: E501
 
         self._origin_x = origin_x
 
@@ -118,8 +117,6 @@ class Rotate(object):
         :param origin_y: The origin_y of this Rotate.  # noqa: E501
         :type: int
         """
-        if origin_y is None:
-            raise ValueError("Invalid value for `origin_y`, must not be `None`")  # noqa: E501
 
         self._origin_y = origin_y
 

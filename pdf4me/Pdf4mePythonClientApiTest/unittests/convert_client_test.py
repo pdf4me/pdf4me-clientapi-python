@@ -66,6 +66,17 @@ class ConvertClientTest(unittest.TestCase):
 
         assert_equal(e.exception.msg, 'The convert_to_pdf document cannot be None.')
 
+    def test_convert_to_pdf_document_name_throws_exception(self):
+
+        # prepare args
+        convert_to_pdf = self.create_convert_to_pdf(self.test_files.text_data, self.test_files.text_name)
+        convert_to_pdf.document.name = None
+
+        with assert_raises(Pdf4meClientException) as e:
+            self.convert_client.convert_to_pdf(convert_to_pdf=convert_to_pdf)
+
+        assert_equal(e.exception.msg, 'The name field of convertToPdf\'s document cannot be None (name must incl. file extension).')
+
     def test_convert_to_pdf_action_throws_exception(self):
 
         # prepare args
@@ -248,8 +259,8 @@ class ConvertClientTest(unittest.TestCase):
 
         # request
         res = self.convert_client.convert_file_to_pdf(
-            file=self.file_reader.get_file_handler(self.test_files.text_path),
-            file_name=self.test_files.text_name
+            file_name=self.test_files.text_name,
+            file=self.file_reader.get_file_handler(self.test_files.text_path)
         )
 
         # validation
@@ -259,8 +270,8 @@ class ConvertClientTest(unittest.TestCase):
 
         # request
         res = self.convert_client.convert_file_to_pdf(
-            file=self.file_reader.get_file_handler(self.test_files.text_path),
-            file_name=self.test_files.text_name
+            file_name=self.test_files.text_name,
+            file=self.file_reader.get_file_handler(self.test_files.text_path)
         )
 
         # validation
@@ -274,8 +285,8 @@ class ConvertClientTest(unittest.TestCase):
     def test_convert_file_to_pdf_word_no_none_response(self):
         # request
         res = self.convert_client.convert_file_to_pdf(
-            file=self.file_reader.get_file_handler(self.test_files.word_path),
-            file_name=self.test_files.word_name
+            file_name=self.test_files.word_name,
+            file=self.file_reader.get_file_handler(self.test_files.word_path)
         )
 
         # validation
@@ -284,8 +295,8 @@ class ConvertClientTest(unittest.TestCase):
     def test_convert_file_to_pdf_word_doc_length(self):
         # request
         res = self.convert_client.convert_file_to_pdf(
-            file=self.file_reader.get_file_handler(self.test_files.word_path),
-            file_name=self.test_files.word_name
+            file_name=self.test_files.word_name,
+            file=self.file_reader.get_file_handler(self.test_files.word_path)
         )
 
         # validation
@@ -299,8 +310,8 @@ class ConvertClientTest(unittest.TestCase):
     def test_convert_file_to_pdf_excel_no_none_response(self):
         # request
         res = self.convert_client.convert_file_to_pdf(
-            file=self.file_reader.get_file_handler(self.test_files.excel_path),
-            file_name=self.test_files.excel_name
+            file_name=self.test_files.excel_name,
+            file=self.file_reader.get_file_handler(self.test_files.excel_path)
         )
 
         # validation
@@ -309,8 +320,8 @@ class ConvertClientTest(unittest.TestCase):
     def test_convert_file_to_pdf_excel_doc_length(self):
         # request
         res = self.convert_client.convert_file_to_pdf(
-            file=self.file_reader.get_file_handler(self.test_files.excel_path),
-            file_name=self.test_files.excel_name
+            file_name=self.test_files.excel_name,
+            file=self.file_reader.get_file_handler(self.test_files.excel_path)
         )
 
         # validation
@@ -324,8 +335,8 @@ class ConvertClientTest(unittest.TestCase):
     def test_convert_file_to_pdf_eml_no_none_response(self):
         # request
         res = self.convert_client.convert_file_to_pdf(
-            file=self.file_reader.get_file_handler(self.test_files.eml_path),
-            file_name=self.test_files.eml_name
+            file_name=self.test_files.eml_name,
+            file=self.file_reader.get_file_handler(self.test_files.eml_path)
         )
 
         # validation
@@ -334,8 +345,8 @@ class ConvertClientTest(unittest.TestCase):
     def test_convert_file_to_pdf_eml_doc_length(self):
         # request
         res = self.convert_client.convert_file_to_pdf(
-            file=self.file_reader.get_file_handler(self.test_files.eml_path),
-            file_name=self.test_files.eml_name
+            file_name=self.test_files.eml_name,
+            file=self.file_reader.get_file_handler(self.test_files.eml_path)
         )
 
         # validation
@@ -349,8 +360,8 @@ class ConvertClientTest(unittest.TestCase):
     def test_convert_file_to_pdf_msg_no_none_response(self):
         # request
         res = self.convert_client.convert_file_to_pdf(
-            file=self.file_reader.get_file_handler(self.test_files.msg_path),
-            file_name=self.test_files.msg_name
+            file_name=self.test_files.msg_name,
+            file=self.file_reader.get_file_handler(self.test_files.msg_path)
         )
 
         # validation
@@ -359,8 +370,8 @@ class ConvertClientTest(unittest.TestCase):
     def test_convert_file_to_pdf_msg_doc_length(self):
         # request
         res = self.convert_client.convert_file_to_pdf(
-            file=self.file_reader.get_file_handler(self.test_files.msg_path),
-            file_name=self.test_files.msg_name
+            file_name=self.test_files.msg_name,
+            file=self.file_reader.get_file_handler(self.test_files.msg_path)
         )
 
         # validation
@@ -374,8 +385,8 @@ class ConvertClientTest(unittest.TestCase):
     def test_convert_file_to_pdf_jpg_no_none_response(self):
         # request
         res = self.convert_client.convert_file_to_pdf(
-            file=self.file_reader.get_file_handler(self.test_files.jpg_path),
-            file_name=self.test_files.jpg_name
+            file_name=self.test_files.jpg_name,
+            file=self.file_reader.get_file_handler(self.test_files.jpg_path)
         )
 
         # validation
@@ -384,8 +395,8 @@ class ConvertClientTest(unittest.TestCase):
     def test_convert_file_to_pdf_jpg_doc_length(self):
         # request
         res = self.convert_client.convert_file_to_pdf(
-            file=self.file_reader.get_file_handler(self.test_files.jpg_path),
-            file_name=self.test_files.jpg_name
+            file_name=self.test_files.jpg_name,
+            file=self.file_reader.get_file_handler(self.test_files.jpg_path)
         )
 
         # validation
@@ -399,8 +410,8 @@ class ConvertClientTest(unittest.TestCase):
     def test_convert_file_to_pdf_zip_no_none_response(self):
         # request
         res = self.convert_client.convert_file_to_pdf(
-            file=self.file_reader.get_file_handler(self.test_files.zip_path),
-            file_name=self.test_files.zip_name
+            file_name=self.test_files.zip_name,
+            file=self.file_reader.get_file_handler(self.test_files.zip_path)
         )
 
         # validation
@@ -409,8 +420,8 @@ class ConvertClientTest(unittest.TestCase):
     def test_convert_file_to_pdf_zip_doc_length(self):
         # request
         res = self.convert_client.convert_file_to_pdf(
-            file=self.file_reader.get_file_handler(self.test_files.zip_path),
-            file_name=self.test_files.zip_name
+            file_name=self.test_files.zip_name,
+            file=self.file_reader.get_file_handler(self.test_files.zip_path)
         )
 
         # validation

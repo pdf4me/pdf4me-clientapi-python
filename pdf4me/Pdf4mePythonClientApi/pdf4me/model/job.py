@@ -54,7 +54,8 @@ class Job(object):
 
         if job_id is not None:
             self.job_id = job_id
-        self.job_config_id = job_config_id
+        if job_config_id is not None:
+            self.job_config_id = job_config_id
         if documents is not None:
             self.documents = documents
 
@@ -97,8 +98,6 @@ class Job(object):
         :param job_config_id: The job_config_id of this Job.  # noqa: E501
         :type: str
         """
-        if job_config_id is None:
-            raise ValueError("Invalid value for `job_config_id`, must not be `None`")  # noqa: E501
 
         self._job_config_id = job_config_id
 

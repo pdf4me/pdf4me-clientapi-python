@@ -60,3 +60,5 @@ class StampClient(object):
             raise Pdf4meClientException('The stamp_action cannot be None.')
         elif stamp.stamp_action.alpha is None:
             raise Pdf4meClientException('The alpha parameter of stamp_action cannot be None.')
+        elif stamp.stamp_action.text is None and stamp.stamp_action.image is None:
+            raise Pdf4meClientException('The image and text parameter of stampAction cannot both be None.')

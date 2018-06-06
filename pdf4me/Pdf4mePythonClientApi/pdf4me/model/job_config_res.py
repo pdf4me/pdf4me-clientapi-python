@@ -44,7 +44,8 @@ class JobConfigRes(object):
         self._job_config_id = None
         self.discriminator = None
 
-        self.job_config_id = job_config_id
+        if job_config_id is not None:
+            self.job_config_id = job_config_id
 
     @property
     def job_config_id(self):
@@ -64,8 +65,6 @@ class JobConfigRes(object):
         :param job_config_id: The job_config_id of this JobConfigRes.  # noqa: E501
         :type: str
         """
-        if job_config_id is None:
-            raise ValueError("Invalid value for `job_config_id`, must not be `None`")  # noqa: E501
 
         self._job_config_id = job_config_id
 

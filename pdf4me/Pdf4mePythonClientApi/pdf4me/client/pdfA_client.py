@@ -28,7 +28,7 @@ class PdfAClient(object):
 
         return res
 
-    def create_pdfA(self, pdf_compliance, file):
+    def create_pdfA(self, file, pdf_compliance=None):
         """Converts PDF documents to the PDF/A format for long-term archiving.
 
         :param pdf_compliance: PDF/A compliance level
@@ -39,7 +39,11 @@ class PdfAClient(object):
         """
 
         streams = [('file', file)]
-        params = [('pdfCompliance', pdf_compliance)]
+
+        if(pdf_compliance is None):
+            params =[]
+        else:
+            params = [('pdfCompliance', pdf_compliance)]
 
         return self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
                                                           controller='PdfA/CreatePdfA')

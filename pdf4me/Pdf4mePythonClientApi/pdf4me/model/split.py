@@ -42,7 +42,7 @@ class Split(object):
 
     attribute_map = {
         'document': 'document',
-        'split_action': 'SplitAction',
+        'split_action': 'splitAction',
         'notification': 'notification'
     }
 

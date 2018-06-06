@@ -78,8 +78,10 @@ class JobConfig(object):
         self._target_folder = None
         self.discriminator = None
 
-        self.job_config_id = job_config_id
-        self.enabled = enabled
+        if job_config_id is not None:
+            self.job_config_id = job_config_id
+        if enabled is not None:
+            self.enabled = enabled
         if active is not None:
             self.active = active
         if creation_date is not None:
@@ -87,7 +89,8 @@ class JobConfig(object):
         if mod_date is not None:
             self.mod_date = mod_date
         self.name = name
-        self.user_id = user_id
+        if user_id is not None:
+            self.user_id = user_id
         if source_folder is not None:
             self.source_folder = source_folder
         if execution_trigger is not None:
@@ -115,8 +118,6 @@ class JobConfig(object):
         :param job_config_id: The job_config_id of this JobConfig.  # noqa: E501
         :type: str
         """
-        if job_config_id is None:
-            raise ValueError("Invalid value for `job_config_id`, must not be `None`")  # noqa: E501
 
         self._job_config_id = job_config_id
 
@@ -138,8 +139,6 @@ class JobConfig(object):
         :param enabled: The enabled of this JobConfig.  # noqa: E501
         :type: bool
         """
-        if enabled is None:
-            raise ValueError("Invalid value for `enabled`, must not be `None`")  # noqa: E501
 
         self._enabled = enabled
 
@@ -247,8 +246,6 @@ class JobConfig(object):
         :param user_id: The user_id of this JobConfig.  # noqa: E501
         :type: str
         """
-        if user_id is None:
-            raise ValueError("Invalid value for `user_id`, must not be `None`")  # noqa: E501
 
         self._user_id = user_id
 

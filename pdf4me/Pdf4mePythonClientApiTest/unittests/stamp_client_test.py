@@ -94,6 +94,18 @@ class StampClientTest(unittest.TestCase):
 
         assert_equal(e.exception.msg, 'The alpha parameter of stamp_action cannot be None.')
 
+    def test_stamp_action_text_and_image_throws_exception(self):
+
+        # prepare args
+        stamp = self.create_stamp()
+        stamp.stamp_action.text = None
+        stamp.stamp_action.image = None
+
+        with assert_raises(Pdf4meClientException) as e:
+            self.stamp_client.stamp(stamp=stamp)
+
+        assert_equal(e.exception.msg, 'The image and text parameter of stampAction cannot both be None.')
+
     def test_stamp_no_none_response(self):
 
         # request

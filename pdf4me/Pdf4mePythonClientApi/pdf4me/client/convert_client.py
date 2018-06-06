@@ -27,13 +27,13 @@ class ConvertClient(object):
 
         return res
 
-    def convert_file_to_pdf(self, file, file_name):
+    def convert_file_to_pdf(self, file_name, file):
         """The provided Non-PDF file gets converted to a PDF.
 
-        :param file: to be converted to PDF
-        :type file: file handler, use the method get_file_handler from FileReader to obtain it
         :param file_name: the name of the provided file (including the file extension)
         :type file_name: str
+        :param file: to be converted to PDF
+        :type file: file handler, use the method get_file_handler from FileReader to obtain it
         :return: bytes of resulting PDF file, can be directly written to file on disk
         """
 
@@ -51,5 +51,7 @@ class ConvertClient(object):
             raise Pdf4meClientException('The convert_to_pdf parameter cannot be None.')
         elif convert_to_pdf.document is None or convert_to_pdf.document.doc_data is None:
             raise Pdf4meClientException('The convert_to_pdf document cannot be None.')
+        elif convert_to_pdf.document.name is None:
+            raise Pdf4meClientException('The name field of convertToPdf\'s document cannot be None (name must incl. file extension).')
         elif convert_to_pdf.convert_to_pdf_action is None:
             raise Pdf4meClientException('The convert_to_pdf_action cannot be None.')

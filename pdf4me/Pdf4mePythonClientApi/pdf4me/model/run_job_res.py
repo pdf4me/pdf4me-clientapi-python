@@ -53,7 +53,8 @@ class RunJobRes(object):
         self._notification = None
         self.discriminator = None
 
-        self.job_id = job_id
+        if job_id is not None:
+            self.job_id = job_id
         if documents is not None:
             self.documents = documents
         if notification is not None:
@@ -77,8 +78,6 @@ class RunJobRes(object):
         :param job_id: The job_id of this RunJobRes.  # noqa: E501
         :type: str
         """
-        if job_id is None:
-            raise ValueError("Invalid value for `job_id`, must not be `None`")  # noqa: E501
 
         self._job_id = job_id
 

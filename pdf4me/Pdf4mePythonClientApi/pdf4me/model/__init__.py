@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-# import models into model package
+# import model into model package
 from pdf4me.model.action_flow import ActionFlow
 from pdf4me.model.api_usage_res import ApiUsageRes
 from pdf4me.model.archive_config import ArchiveConfig
@@ -28,7 +28,6 @@ from pdf4me.model.create_images import CreateImages
 from pdf4me.model.create_images_res import CreateImagesRes
 from pdf4me.model.create_pdf_a import CreatePdfA
 from pdf4me.model.create_pdf_a_res import CreatePdfARes
-from pdf4me.model.create_thumbnail_res import CreateThumbnailRes
 from pdf4me.model.custom_cms_config import CustomCMSConfig
 from pdf4me.model.doc_action import DocAction
 from pdf4me.model.doc_log import DocLog

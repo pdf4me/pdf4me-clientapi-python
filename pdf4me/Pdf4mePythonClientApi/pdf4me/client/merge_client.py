@@ -49,11 +49,18 @@ class MergeClient(object):
 
         if merge is None:
             raise Pdf4meClientException('The merge parameter cannot be None.')
-        elif merge.documents is None or len(merge.documents) < 2 \
-                or merge.documents[0] is None \
-                or merge.documents[1] is None \
-                or merge.documents[0].doc_data is None \
-                or merge.documents[1].doc_data is None:
-                raise Pdf4meClientException('The merge document cannot be None.')
+        elif merge.documents is None:
+            raise Pdf4meClientException('The merge documents cannot be None.')
         elif merge.merge_action is None:
             raise Pdf4meClientException('The merge_action cannot be None.')
+
+        numDocs = len(merge.documents)
+        # check whether there are at least two documents
+        if numDocs < 2:
+            raise Pdf4meClientException('The merge documents must contain at least two documents.')
+        # check whether all documents are not undefined neither is their docData
+        docs = merge.documents
+        for i in range(numDocs):
+            currentDoc = docs[i]
+            if currentDoc is None or currentDoc.doc_data is None:
+                raise Pdf4meClientException('The merge documents cannot be None nor can the document.docData.')

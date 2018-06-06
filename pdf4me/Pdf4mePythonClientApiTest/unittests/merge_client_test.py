@@ -57,7 +57,18 @@ class MergeClientTest(unittest.TestCase):
         with assert_raises(Pdf4meClientException) as e:
             self.merge_client.merge(merge=merge)
 
-        assert_equal(e.exception.msg, 'The merge document cannot be None.')
+        assert_equal(e.exception.msg, 'The merge documents cannot be None.')
+
+    def test_merge_documents_less_than_2_throws_exception(self):
+
+        # prepare args
+        merge = self.create_merge()
+        merge.documents = [Document(doc_data=self.test_files.pdf_data)]
+
+        with assert_raises(Pdf4meClientException) as e:
+            self.merge_client.merge(merge=merge)
+
+        assert_equal(e.exception.msg, 'The merge documents must contain at least two documents.')
 
     def test_merge_document1_throws_exception(self):
 
@@ -68,7 +79,7 @@ class MergeClientTest(unittest.TestCase):
         with assert_raises(Pdf4meClientException) as e:
             self.merge_client.merge(merge=merge)
 
-        assert_equal(e.exception.msg, 'The merge document cannot be None.')
+        assert_equal(e.exception.msg, 'The merge documents cannot be None nor can the document.docData.')
 
     def test_merge_document2_throws_exception(self):
 
@@ -79,7 +90,7 @@ class MergeClientTest(unittest.TestCase):
         with assert_raises(Pdf4meClientException) as e:
             self.merge_client.merge(merge=merge)
 
-        assert_equal(e.exception.msg, 'The merge document cannot be None.')
+        assert_equal(e.exception.msg, 'The merge documents cannot be None nor can the document.docData.')
 
     def test_merge_document1_data_throws_exception(self):
 
@@ -90,7 +101,7 @@ class MergeClientTest(unittest.TestCase):
         with assert_raises(Pdf4meClientException) as e:
             self.merge_client.merge(merge=merge)
 
-        assert_equal(e.exception.msg, 'The merge document cannot be None.')
+        assert_equal(e.exception.msg, 'The merge documents cannot be None nor can the document.docData.')
 
     def test_merge_document2_data_throws_exception(self):
 
@@ -101,7 +112,7 @@ class MergeClientTest(unittest.TestCase):
         with assert_raises(Pdf4meClientException) as e:
             self.merge_client.merge(merge=merge)
 
-        assert_equal(e.exception.msg, 'The merge document cannot be None.')
+        assert_equal(e.exception.msg, 'The merge documents cannot be None nor can the document.docData.')
 
     def test_merge_action_throws_exception(self):
 

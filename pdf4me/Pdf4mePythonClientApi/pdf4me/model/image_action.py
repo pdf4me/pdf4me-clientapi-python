@@ -485,7 +485,7 @@ class ImageAction(object):
         :param cms_engine: The cms_engine of this ImageAction.  # noqa: E501
         :type: str
         """
-        allowed_values = ["none", "neugebauer", "lcms", "customCMS"]  # noqa: E501
+        allowed_values = ["none", "neugebauer", "lcms", "customCMSConfig"]  # noqa: E501
         if cms_engine not in allowed_values:
             raise ValueError(
                 "Invalid value for `cms_engine` ({0}), must be one of {1}"  # noqa: E501
@@ -589,7 +589,7 @@ class ImageAction(object):
         :param fill_order: The fill_order of this ImageAction.  # noqa: E501
         :type: str
         """
-        allowed_values = ["mSB", "lSB"]  # noqa: E501
+        allowed_values = ["mostSignificantBit", "leastSignificantBit"]  # noqa: E501
         if fill_order not in allowed_values:
             raise ValueError(
                 "Invalid value for `fill_order` ({0}), must be one of {1}"  # noqa: E501

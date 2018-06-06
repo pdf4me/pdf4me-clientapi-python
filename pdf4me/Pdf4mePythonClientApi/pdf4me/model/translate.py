@@ -47,8 +47,10 @@ class Translate(object):
         self._offset_y = None
         self.discriminator = None
 
-        self.offset_x = offset_x
-        self.offset_y = offset_y
+        if offset_x is not None:
+            self.offset_x = offset_x
+        if offset_y is not None:
+            self.offset_y = offset_y
 
     @property
     def offset_x(self):
@@ -68,8 +70,6 @@ class Translate(object):
         :param offset_x: The offset_x of this Translate.  # noqa: E501
         :type: int
         """
-        if offset_x is None:
-            raise ValueError("Invalid value for `offset_x`, must not be `None`")  # noqa: E501
 
         self._offset_x = offset_x
 
@@ -91,8 +91,6 @@ class Translate(object):
         :param offset_y: The offset_y of this Translate.  # noqa: E501
         :type: int
         """
-        if offset_y is None:
-            raise ValueError("Invalid value for `offset_y`, must not be `None`")  # noqa: E501
 
         self._offset_y = offset_y
 
