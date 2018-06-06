@@ -20,7 +20,7 @@ class ConvertClient(object):
         self.__check_convert_to_pdf_object_validity(convert_to_pdf)
 
         res = self.pdf4me_client.custom_http.post_universal_object(universal_object=convert_to_pdf,
-                                                                 controller='Convert/ConvertToPdf')
+                                                                   controller='Convert/ConvertToPdf')
 
         # check response for errors
         ResponseChecker().check_document_for_errors(res)
@@ -41,7 +41,7 @@ class ConvertClient(object):
         params = [('fileName', file_name)]
 
         return self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
-                                                          controller='Convert/ConvertFileToPdf')
+                                                           controller='Convert/ConvertFileToPdf')
 
     def __check_convert_to_pdf_object_validity(self, convert_to_pdf):
         """Checks whether the convert_to_pdf object contains the essential information to be
@@ -52,6 +52,7 @@ class ConvertClient(object):
         elif convert_to_pdf.document is None or convert_to_pdf.document.doc_data is None:
             raise Pdf4meClientException('The convert_to_pdf document cannot be None.')
         elif convert_to_pdf.document.name is None:
-            raise Pdf4meClientException('The name field of convertToPdf\'s document cannot be None (name must incl. file extension).')
+            raise Pdf4meClientException(
+                'The name field of convertToPdf\'s document cannot be None (name must incl. file extension).')
         elif convert_to_pdf.convert_to_pdf_action is None:
             raise Pdf4meClientException('The convert_to_pdf_action cannot be None.')

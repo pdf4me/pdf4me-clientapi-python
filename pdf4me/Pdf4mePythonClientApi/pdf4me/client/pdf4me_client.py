@@ -28,16 +28,17 @@ class Pdf4meClient(object):
                             prop_secret = value
 
                     if prop_client_id is None:
-                        raise Pdf4meClientException('Please provide your client_id in the Pdf4meClient constructor'
-                                                    ' or store the client_id in the ' + path_to_config_file + 'file.')
+                        raise Pdf4meClientException('Please store the client_id in the ' + path_to_config_file + ' file'
+                                                    ' or provide your client_id in the Pdf4meClient constructor.')
                     elif prop_secret is None:
-                        raise Pdf4meClientException('Please provide your secret in the Pdf4meClient constructor'
-                                                    ' or store the secret in the ' + path_to_config_file + 'file.')
+                        raise Pdf4meClientException('Please store the secret in the ' + path_to_config_file + ' file'
+                                                    ' or provide your secret in the Pdf4meClient constructor.')
             except IOError:
-                raise Pdf4meClientException('The config.properties file is not stored at its default location ' + DEFAULT_CONFIG_PROPERTIES + \
-                                            '. Please initialize the Pdf4meClient object with the correct path to your '
-                                            'conifg.properties file.')
+                raise Pdf4meClientException('The config.properties file is not stored at \'' + path_to_config_file +
+                                            '\'. Please initialize the Pdf4meClient object with the correct path to your '
+                                            'conifg.properties file. Or else provide your clientId AND secret in the '
+                                            'Pdf4meClient constructor.')
 
-            self.custom_http = CustomHttp(prop_client_id, prop_secret, path_to_config_file)
+            self.custom_http = CustomHttp(prop_client_id, prop_secret)
         else:
-            self.custom_http = CustomHttp(client_id, secret, path_to_config_file)
+            self.custom_http = CustomHttp(client_id, secret)

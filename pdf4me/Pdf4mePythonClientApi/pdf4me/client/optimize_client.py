@@ -1,4 +1,3 @@
-
 from pdf4me.helper.pdf4me_exceptions import Pdf4meClientException
 from pdf4me.helper.response_checker import ResponseChecker
 from pdf4me.model import Optimize
@@ -21,7 +20,7 @@ class OptimizeClient(object):
         self.__check_optimize_object_validity(optimize)
 
         res = self.pdf4me_client.custom_http.post_universal_object(universal_object=optimize,
-                                                                 controller='Optimize/Optimize')
+                                                                   controller='Optimize/Optimize')
 
         # check response for errors
         ResponseChecker().check_document_for_errors(res)
@@ -43,11 +42,11 @@ class OptimizeClient(object):
         params = [('profile', profile)]
 
         return self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
-                                                          controller='Optimize/OptimizeByProfile')
+                                                           controller='Optimize/OptimizeByProfile')
 
     def __check_optimize_object_validity(self, optimize):
         """Checks whether the optimize object contains the essential information to be
-                processed by the server"""
+                processed by the server."""
 
         if optimize is None:
             raise Pdf4meClientException('The optimize parameter cannot be None.')

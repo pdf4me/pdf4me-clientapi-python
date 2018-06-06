@@ -9,13 +9,12 @@ URL = "https://api-dev.pdf4me.com/"
 
 class CustomHttp(object):
 
-    def __init__(self, client_id, secret, path_to_config_file):
+    def __init__(self, client_id, secret):
 
         self.client_id = client_id
         self.secret = secret
-        self.path_to_config_file = path_to_config_file
 
-        self.token_generator = TokenGenerator(client_id, secret, path_to_config_file)
+        self.token_generator = TokenGenerator(client_id, secret)
         self.json_converter = JsonConverter()
 
     def post_universal_object(self, universal_object, controller):

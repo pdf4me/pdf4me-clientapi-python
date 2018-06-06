@@ -1,4 +1,3 @@
-
 from pdf4me.helper.pdf4me_exceptions import Pdf4meClientException
 from pdf4me.helper.response_checker import ResponseChecker
 from pdf4me.model import Extract
@@ -21,7 +20,7 @@ class ExtractClient(object):
         self.__check_extract_object_validity(extract)
 
         res = self.pdf4me_client.custom_http.post_universal_object(universal_object=extract,
-                                                                 controller='Extract/Extract')
+                                                                   controller='Extract/Extract')
 
         # check response for errors
         ResponseChecker().check_document_for_errors(res)
@@ -42,11 +41,11 @@ class ExtractClient(object):
         params = [('pageNrs', page_nrs)]
 
         return self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
-                                                          controller='Extract/ExtractPages')
+                                                           controller='Extract/ExtractPages')
 
     def __check_extract_object_validity(self, extract):
         """Checks whether the extract object contains the essential information to be
-        processed by the server"""
+        processed by the server."""
 
         if extract is None:
             raise Pdf4meClientException('The extract parameter cannot be None.')

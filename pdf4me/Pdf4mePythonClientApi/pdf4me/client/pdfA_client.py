@@ -1,4 +1,3 @@
-
 from pdf4me.helper.pdf4me_exceptions import Pdf4meClientException
 from pdf4me.helper.response_checker import ResponseChecker
 from pdf4me.model import CreatePdfA
@@ -21,7 +20,7 @@ class PdfAClient(object):
         self.__check_pdfA_object_validity(create_pdfA)
 
         res = self.pdf4me_client.custom_http.post_universal_object(universal_object=create_pdfA,
-                                                                 controller='PdfA/PdfA')
+                                                                   controller='PdfA/PdfA')
 
         # check response for errors
         ResponseChecker().check_document_for_errors(res)
@@ -40,17 +39,17 @@ class PdfAClient(object):
 
         streams = [('file', file)]
 
-        if(pdf_compliance is None):
-            params =[]
+        if (pdf_compliance is None):
+            params = []
         else:
             params = [('pdfCompliance', pdf_compliance)]
 
         return self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
-                                                          controller='PdfA/CreatePdfA')
+                                                           controller='PdfA/CreatePdfA')
 
     def __check_pdfA_object_validity(self, create_pdfA):
         """checks whether the create_pdfA object contains the essential information to be
-        processed by the server"""
+        processed by the server."""
 
         if create_pdfA is None:
             raise Pdf4meClientException('The create_pdfA parameter cannot be None.')

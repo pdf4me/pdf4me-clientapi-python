@@ -20,7 +20,7 @@ class ImageClient(object):
         self.__check_create_images_object_validity(create_images)
 
         res = self.pdf4me_client.custom_http.post_universal_object(universal_object=create_images,
-                                                                 controller='Image/CreateImages')
+                                                                   controller='Image/CreateImages')
 
         # check response for errors
         ResponseChecker().check_document_for_errors(res)
@@ -45,11 +45,11 @@ class ImageClient(object):
         params = [('width', width), ('pageNr', page_nr), ('imageFormat', image_format)]
 
         return self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
-                                                          controller='Image/CreateThumbnail')
+                                                           controller='Image/CreateThumbnail')
 
     def __check_create_images_object_validity(self, create_images):
         """Checks whether the create_images object contains the essential information to be
-                processed by the server"""
+                processed by the server."""
 
         if create_images is None:
             raise Pdf4meClientException('The create_images parameter cannot be None.')

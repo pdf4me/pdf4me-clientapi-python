@@ -46,11 +46,11 @@ class StampClient(object):
         params = [('text', text), ('pages', pages), ('alignX', align_x), ('alignY', align_y)]
 
         return self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
-                                                          controller='Stamp/TextStamp')
+                                                           controller='Stamp/TextStamp')
 
     def __check_stamp_object_validity(self, stamp):
         """checks whether the stamp object contains the essential information to be
-        processed by the server"""
+        processed by the server."""
 
         if stamp is None:
             raise Pdf4meClientException('The stamp parameter cannot be None.')

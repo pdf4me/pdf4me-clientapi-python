@@ -23,7 +23,7 @@ class SplitClient(object):
         self.__check_split_object_validity(split)
 
         res = self.pdf4me_client.custom_http.post_universal_object(universal_object=split,
-                                                                 controller='Split/Split')
+                                                                   controller='Split/Split')
 
         # check response for errors
         ResponseChecker().check_documents_for_errors(res)
@@ -44,7 +44,7 @@ class SplitClient(object):
         params = [('pageNr', page_nr)]
 
         res = self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
-                                                         controller='Split/SplitByPageNr')
+                                                          controller='Split/SplitByPageNr')
 
         # get json
         res = JsonConverter().load(res)
@@ -60,7 +60,7 @@ class SplitClient(object):
 
     def __check_split_object_validity(self, split):
         """Checks whether the split object contains the essential information to be
-        processed by the server"""
+        processed by the server."""
 
         if split is None:
             raise Pdf4meClientException('The split parameter cannot be None.')

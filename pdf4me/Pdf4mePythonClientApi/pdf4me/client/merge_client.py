@@ -1,4 +1,3 @@
-
 from pdf4me.helper.pdf4me_exceptions import Pdf4meClientException
 from pdf4me.helper.response_checker import ResponseChecker
 from pdf4me.model import Merge
@@ -21,7 +20,7 @@ class MergeClient(object):
         self.__check_merge_object_validity(merge)
 
         res = self.pdf4me_client.custom_http.post_universal_object(universal_object=merge,
-                                                                 controller='Merge/Merge')
+                                                                   controller='Merge/Merge')
         # check response for errors
         ResponseChecker().check_document_for_errors(res)
 
@@ -41,11 +40,11 @@ class MergeClient(object):
         params = []
 
         return self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
-                                                          controller='Merge/Merge2Pdfs')
+                                                           controller='Merge/Merge2Pdfs')
 
     def __check_merge_object_validity(self, merge):
         """Checks whether the merge object contains the essential information to be
-        processed by the server"""
+        processed by the server."""
 
         if merge is None:
             raise Pdf4meClientException('The merge parameter cannot be None.')

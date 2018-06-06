@@ -2,45 +2,37 @@ import base64
 import json
 import time
 
-import jprops
-
-from msrestazure.azure_active_directory import AADTokenCredentials
 import adal
+from msrestazure.azure_active_directory import AADTokenCredentials
 
 TENANT = "devynooxlive.onmicrosoft.com"
 AUTHORITY_URI = "https://login.microsoftonline.com/" + TENANT
 
+# slack: time before expiration, when already a new token is acquired
+SLACK = 60  # 1min
+
 
 class TokenGenerator(object):
 
-    def __init__(self, client_id, secret, path_to_config_file):
+    def __init__(self, client_id, secret):
 
         self.client_id = client_id
         self.resource_uri = self.client_id
         self.secret = secret
-        self.path_to_config_file = path_to_config_file
+        self.token = None
 
     def get_token(self):
         if self.__valid_token() is True:
-            return self.__load_token()
+            return self.token
         else:
             return self.__get_new_token()
 
     def __valid_token(self):
 
-        # load token file
-        with open(self.path_to_config_file) as fp:
-            props = list(jprops.iter_properties(fp))
-            token = None
-            # check whether token exists
-            for key, value in props:
-                if key == 'token':
-                    token = value
+        if self.token is None:
+            return False
 
-            if token is None:
-                return False
-
-        timestamp = token.split('.')[1]
+        timestamp = self.token.split('.')[1]
         # correct padding
         timestamp = timestamp + '=' * (-len(timestamp) % 4)
         # json format
@@ -54,19 +46,10 @@ class TokenGenerator(object):
         now = time.time()
 
         # check
-        if now < expiration:
+        if now < expiration - SLACK:
             return True
         else:
             return False
-
-    def __load_token(self):
-
-        # load token file
-        with open(self.path_to_config_file) as fp:
-            props = jprops.load_properties(fp)
-            token = props['token']
-
-        return token
 
     def __get_new_token(self):
 
@@ -76,16 +59,7 @@ class TokenGenerator(object):
         credentials = AADTokenCredentials(mgmt_token, self.client_id)
         token = credentials.token["access_token"]
 
-        with open(self.path_to_config_file) as fp:
-            props = list(jprops.iter_properties(fp))
-
         # store new token
-        with open(self.path_to_config_file, 'w') as fp:
-            # write all existing values back to file
-            for key, value in props:
-                if key != 'token':
-                    jprops.write_property(fp, key, value)
+        self.token = token
 
-            jprops.write_property(fp, 'token', token)
-
-        return token
+        return self.token
