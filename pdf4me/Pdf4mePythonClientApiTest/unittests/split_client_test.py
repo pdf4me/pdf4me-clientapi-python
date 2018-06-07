@@ -1,4 +1,5 @@
 import sys
+
 sys.path.append('../../Pdf4mePythonClientApi')
 sys.path.append('../../Pdf4mePythonClientApiTest')
 
@@ -16,7 +17,6 @@ from test_helper.test_files import TestFiles
 
 
 class ExtractClientTest(unittest.TestCase):
-
     pdf4me_client = Pdf4meClient()
     split_client = SplitClient(pdf4me_client)
 
@@ -25,7 +25,6 @@ class ExtractClientTest(unittest.TestCase):
     file_reader = FileReader()
 
     def create_split(self):
-
         split = Split(
             document=Document(
                 doc_data=self.test_files.pdf_data
@@ -38,14 +37,12 @@ class ExtractClientTest(unittest.TestCase):
         return split
 
     def test_split_throws_exception(self):
-
         with assert_raises(Pdf4meClientException) as e:
             self.split_client.split(None)
 
         assert_equal(e.exception.msg, 'The split parameter cannot be None.')
 
     def test_split_document_throws_exception(self):
-
         # prepare args
         split = self.create_split()
         split.document = None
@@ -56,7 +53,6 @@ class ExtractClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The split document cannot be None.')
 
     def test_split_document_data_throws_exception(self):
-
         # prepare args
         split = self.create_split()
         split.document.doc_data = None
@@ -67,7 +63,6 @@ class ExtractClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The split document cannot be None.')
 
     def test_split_action_throws_exception(self):
-
         # prepare args
         split = self.create_split()
         split.split_action = None
@@ -78,7 +73,6 @@ class ExtractClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The split_action cannot be None.')
 
     def test_split_action_split_after_page_1_throws_exception(self):
-
         # prepare args
         split = self.create_split()
         split.split_action.split_after_page = None
@@ -87,10 +81,9 @@ class ExtractClientTest(unittest.TestCase):
             self.split_client.split(split=split)
 
         assert_equal(e.exception.msg, 'The split_after_page of split_action cannot be None or zero.'
-                                        'The first page of a PDF corresponds to page number one.')
+                                      'The first page of a PDF corresponds to page number one.')
 
     def test_split_action_split_after_page_2_throws_exception(self):
-
         # prepare args
         split = self.create_split()
         split.split_action.split_after_page = 0
@@ -99,10 +92,9 @@ class ExtractClientTest(unittest.TestCase):
             self.split_client.split(split=split)
 
         assert_equal(e.exception.msg, 'The split_after_page of split_action cannot be None or zero.'
-                                        'The first page of a PDF corresponds to page number one.')
+                                      'The first page of a PDF corresponds to page number one.')
 
     def test_split_no_none_response(self):
-
         # request
         split = self.create_split()
         res = self.split_client.split(split=split)
@@ -117,7 +109,6 @@ class ExtractClientTest(unittest.TestCase):
         self.assertIsNotNone(res['documents'][1]['doc_data'])
 
     def test_split_doc_length(self):
-
         # request
         split = self.create_split()
         res = self.split_client.split(split=split)
@@ -131,8 +122,7 @@ class ExtractClientTest(unittest.TestCase):
         self.assertTrue(self.check.below_not_zero(pdf2, original_length))
 
     def test_split_by_page_nr_no_none_response(self):
-
-        #request
+        # request
         pdf_1, pdf_2 = self.split_client.split_by_page_nr(
             page_nr=2,
             file=self.file_reader.get_file_handler(path=self.test_files.pdf_path)
@@ -143,8 +133,7 @@ class ExtractClientTest(unittest.TestCase):
         self.assertIsNotNone(pdf_2)
 
     def test_split_by_page_nr_doc_length(self):
-
-        #request
+        # request
         pdf_1, pdf_2 = self.split_client.split_by_page_nr(
             page_nr=2,
             file=self.file_reader.get_file_handler(path=self.test_files.pdf_path)

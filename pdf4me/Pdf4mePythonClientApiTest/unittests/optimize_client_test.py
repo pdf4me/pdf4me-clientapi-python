@@ -1,4 +1,5 @@
 import sys
+
 sys.path.append('../../Pdf4mePythonClientApi')
 sys.path.append('../../Pdf4mePythonClientApiTest')
 
@@ -16,7 +17,6 @@ from test_helper.test_files import TestFiles
 
 
 class OptimizeClientTest(unittest.TestCase):
-
     pdf4me_client = Pdf4meClient()
     optimize_client = OptimizeClient(pdf4me_client)
 
@@ -24,9 +24,7 @@ class OptimizeClientTest(unittest.TestCase):
     check = Check()
     file_reader = FileReader()
 
-
     def create_optimize(self):
-
         optimize = Optimize(
             document=Document(
                 doc_data=self.test_files.pdf_data
@@ -40,14 +38,12 @@ class OptimizeClientTest(unittest.TestCase):
         return optimize
 
     def test_optimize_throws_exception(self):
-
         with assert_raises(Pdf4meClientException) as e:
             self.optimize_client.optimize(None)
 
         assert_equal(e.exception.msg, 'The optimize parameter cannot be None.')
 
     def test_optimize_document_throws_exception(self):
-
         # prepare args
         optimize = self.create_optimize()
         optimize.document = None
@@ -58,7 +54,6 @@ class OptimizeClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The optimize document cannot be None.')
 
     def test_optimize_document_data_throws_exception(self):
-
         # prepare args
         optimize = self.create_optimize()
         optimize.document.doc_data = None
@@ -69,7 +64,6 @@ class OptimizeClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The optimize document cannot be None.')
 
     def test_optimize_action_throws_exception(self):
-
         # prepare args
         optimize = self.create_optimize()
         optimize.optimize_action = None
@@ -80,7 +74,6 @@ class OptimizeClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The optimize_action cannot be None.')
 
     def test_optimize_action_use_profile_throws_exception(self):
-
         # prepare args
         optimize = self.create_optimize()
         optimize.optimize_action.use_profile = False
@@ -91,7 +84,6 @@ class OptimizeClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The use_profile parameter of optimize_action has to be set to true.')
 
     def test_optimize_no_none_response(self):
-
         # request
         optimize = self.create_optimize()
         res = self.optimize_client.optimize(optimize=optimize)
@@ -102,7 +94,6 @@ class OptimizeClientTest(unittest.TestCase):
         self.assertIsNotNone(res['document']['doc_data'])
 
     def test_optimize_doc_length(self):
-
         # request
         optimize = self.create_optimize()
         res = self.optimize_client.optimize(optimize=optimize)
@@ -114,7 +105,6 @@ class OptimizeClientTest(unittest.TestCase):
         self.assertTrue(self.check.below_not_zero(optimized_pdf, original_length))
 
     def test_optimize_by_profile_no_none_response(self):
-
         # request
         res = self.optimize_client.optimize_by_profile(
             profile='default',
@@ -125,7 +115,6 @@ class OptimizeClientTest(unittest.TestCase):
         self.assertIsNotNone(res)
 
     def test_optimize_by_profile_doc_length(self):
-
         # request
         res = self.optimize_client.optimize_by_profile(
             profile='default',

@@ -1,5 +1,3 @@
-
-
 class Pdf4meClientException(Exception):
     """Raised when wrong arguments have been provided."""
 

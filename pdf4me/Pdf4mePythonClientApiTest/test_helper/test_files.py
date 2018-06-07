@@ -24,8 +24,8 @@ class TestFiles(object):
         self.text_data = self.file_reader.get_file_data(self.text_path)
         self.text_length = len(self.text_data)
 
-        self.word_name = 'wordDoc.docx'
-        self.word_path = os.getcwd() + '/../wordDoc.docx'
+        self.word_name = 'word_doc.docx'
+        self.word_path = os.getcwd() + '/../word_doc.docx'
         self.word_data = self.file_reader.get_file_data(self.word_path)
         self.word_length = len(self.word_data)
 

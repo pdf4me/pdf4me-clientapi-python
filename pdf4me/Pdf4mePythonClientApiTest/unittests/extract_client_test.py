@@ -1,4 +1,5 @@
 import sys
+
 sys.path.append('../../Pdf4mePythonClientApi')
 sys.path.append('../../Pdf4mePythonClientApiTest')
 
@@ -16,7 +17,6 @@ from test_helper.test_files import TestFiles
 
 
 class ExtractClientTest(unittest.TestCase):
-
     pdf4me_client = Pdf4meClient()
     extract_client = ExtractClient(pdf4me_client)
 
@@ -24,29 +24,25 @@ class ExtractClientTest(unittest.TestCase):
     check = Check()
     file_reader = FileReader()
 
-
     def create_extract(self):
-
         extract = Extract(
             document=Document(
                 doc_data=self.test_files.pdf_data
             ),
             extract_action=ExtractAction(
-                extract_pages=[1,4]
+                extract_pages=[1, 4]
             )
         )
 
         return extract
 
     def test_extract_throws_exception(self):
-
         with assert_raises(Pdf4meClientException) as e:
             self.extract_client.extract(None)
 
         assert_equal(e.exception.msg, 'The extract parameter cannot be None.')
 
     def test_extract_document_throws_exception(self):
-
         # prepare args
         extract = self.create_extract()
         extract.document = None
@@ -57,7 +53,6 @@ class ExtractClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The extract document cannot be None.')
 
     def test_extract_document_data_throws_exception(self):
-
         # prepare args
         extract = self.create_extract()
         extract.document.doc_data = None
@@ -68,7 +63,6 @@ class ExtractClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The extract document cannot be None.')
 
     def test_extract_action_throws_exception(self):
-
         # prepare args
         extract = self.create_extract()
         extract.extract_action = None
@@ -79,7 +73,6 @@ class ExtractClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The extract_action cannot be None.')
 
     def test_extract_action_extract_pages_throws_exception(self):
-
         # prepare args
         extract = self.create_extract()
         extract.extract_action.extract_pages = None
@@ -90,7 +83,6 @@ class ExtractClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The extract_pages of extract_action cannot be None or empty.')
 
     def test_extract_action_extract_pages_throws_exception2(self):
-
         # prepare args
         extract = self.create_extract()
         extract.extract_action.extract_pages = []
@@ -101,7 +93,6 @@ class ExtractClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The extract_pages of extract_action cannot be None or empty.')
 
     def test_extract_no_none_response(self):
-
         # request
         extract = self.create_extract()
         res = self.extract_client.extract(extract=extract)
@@ -112,7 +103,6 @@ class ExtractClientTest(unittest.TestCase):
         self.assertIsNotNone(res['document']['doc_data'])
 
     def test_extract_doc_length(self):
-
         # request
         extract = self.create_extract()
         res = self.extract_client.extract(extract=extract)
@@ -134,7 +124,6 @@ class ExtractClientTest(unittest.TestCase):
         self.assertIsNotNone(res)
 
     def test_extract_pages_doc_length(self):
-
         # request
         res = self.extract_client.extract_pages(
             page_nrs='1,4',

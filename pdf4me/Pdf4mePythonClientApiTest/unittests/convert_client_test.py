@@ -1,5 +1,5 @@
-
 import sys
+
 sys.path.append('../../Pdf4mePythonClientApi')
 sys.path.append('../../Pdf4mePythonClientApiTest')
 
@@ -17,7 +17,6 @@ from nose.tools import assert_raises, assert_equal
 
 
 class ConvertClientTest(unittest.TestCase):
-
     pdf4me_client = Pdf4meClient()
     convert_client = ConvertClient(pdf4me_client)
 
@@ -26,7 +25,6 @@ class ConvertClientTest(unittest.TestCase):
     file_reader = FileReader()
 
     def create_convert_to_pdf(self, file, file_name):
-
         convert_to_pdf = ConvertToPdf(
             document=Document(
                 doc_data=file,
@@ -38,14 +36,12 @@ class ConvertClientTest(unittest.TestCase):
         return convert_to_pdf
 
     def test_convert_to_pdf_throws_exception(self):
-
         with assert_raises(Pdf4meClientException) as e:
             self.convert_client.convert_to_pdf(None)
 
         assert_equal(e.exception.msg, 'The convert_to_pdf parameter cannot be None.')
 
     def test_convert_to_pdf_document_throws_exception(self):
-
         # prepare args
         convert_to_pdf = self.create_convert_to_pdf(self.test_files.text_data, self.test_files.text_name)
         convert_to_pdf._document = None
@@ -56,7 +52,6 @@ class ConvertClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The convert_to_pdf document cannot be None.')
 
     def test_convert_to_pdf_document_data_throws_exception(self):
-
         # prepare args
         convert_to_pdf = self.create_convert_to_pdf(self.test_files.text_data, self.test_files.text_name)
         convert_to_pdf.document.doc_data = None
@@ -67,7 +62,6 @@ class ConvertClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The convert_to_pdf document cannot be None.')
 
     def test_convert_to_pdf_document_name_throws_exception(self):
-
         # prepare args
         convert_to_pdf = self.create_convert_to_pdf(self.test_files.text_data, self.test_files.text_name)
         convert_to_pdf.document.name = None
@@ -75,10 +69,10 @@ class ConvertClientTest(unittest.TestCase):
         with assert_raises(Pdf4meClientException) as e:
             self.convert_client.convert_to_pdf(convert_to_pdf=convert_to_pdf)
 
-        assert_equal(e.exception.msg, 'The name field of convertToPdf\'s document cannot be None (name must incl. file extension).')
+        assert_equal(e.exception.msg,
+                     'The name field of convertToPdf\'s document cannot be None (name must incl. file extension).')
 
     def test_convert_to_pdf_action_throws_exception(self):
-
         # prepare args
         convert_to_pdf = self.create_convert_to_pdf(self.test_files.text_data, self.test_files.text_name)
         convert_to_pdf.convert_to_pdf_action = None
@@ -91,7 +85,6 @@ class ConvertClientTest(unittest.TestCase):
     """text file"""
 
     def test_convert_to_pdf_text_no_none_response(self):
-
         # request
         convert_to_pdf = self.create_convert_to_pdf(self.test_files.text_data, self.test_files.text_name)
         res = self.convert_client.convert_to_pdf(convert_to_pdf=convert_to_pdf)
@@ -102,7 +95,6 @@ class ConvertClientTest(unittest.TestCase):
         self.assertIsNotNone(res['document']['doc_data'])
 
     def test_convert_to_pdf_text_doc_length(self):
-
         # request
         convert_to_pdf = self.create_convert_to_pdf(self.test_files.text_data, self.test_files.text_name)
         res = self.convert_client.convert_to_pdf(convert_to_pdf=convert_to_pdf)
@@ -256,7 +248,6 @@ class ConvertClientTest(unittest.TestCase):
     """text file"""
 
     def test_convert_file_to_pdf_text_no_none_response(self):
-
         # request
         res = self.convert_client.convert_file_to_pdf(
             file_name=self.test_files.text_name,
@@ -267,7 +258,6 @@ class ConvertClientTest(unittest.TestCase):
         self.assertIsNotNone(res)
 
     def test_convert_file_to_pdf_text_doc_length(self):
-
         # request
         res = self.convert_client.convert_file_to_pdf(
             file_name=self.test_files.text_name,

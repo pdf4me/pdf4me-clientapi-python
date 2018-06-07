@@ -1,5 +1,4 @@
 from pdf4me.helper.pdf4me_exceptions import Pdf4meClientException
-from pdf4me.helper.response_checker import ResponseChecker
 from pdf4me.model import Stamp
 
 
@@ -20,9 +19,6 @@ class StampClient(object):
         self.__check_stamp_object_validity(stamp)
 
         res = self.pdf4me_client.custom_http.post_universal_object(universal_object=stamp, controller='Stamp/Stamp')
-
-        # check response for errors
-        ResponseChecker().check_document_for_errors(res)
 
         return res
 

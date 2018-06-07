@@ -25,9 +25,6 @@ class SplitClient(object):
         res = self.pdf4me_client.custom_http.post_universal_object(universal_object=split,
                                                                    controller='Split/Split')
 
-        # check response for errors
-        ResponseChecker().check_documents_for_errors(res)
-
         return res
 
     def split_by_page_nr(self, page_nr, file):

@@ -1,4 +1,5 @@
 import sys
+
 sys.path.append('../../Pdf4mePythonClientApi')
 sys.path.append('../../Pdf4mePythonClientApiTest')
 
@@ -16,7 +17,6 @@ from test_helper.test_files import TestFiles
 
 
 class ImageClientTest(unittest.TestCase):
-
     pdf4me_client = Pdf4meClient()
     image_client = ImageClient(pdf4me_client)
 
@@ -25,7 +25,6 @@ class ImageClientTest(unittest.TestCase):
     file_reader = FileReader()
 
     def create_create_images(self):
-
         create_images = CreateImages(
             document=Document(
                 doc_data=self.test_files.pdf_data
@@ -42,14 +41,12 @@ class ImageClientTest(unittest.TestCase):
         return create_images
 
     def test_create_images_throws_exception(self):
-
         with assert_raises(Pdf4meClientException) as e:
             self.image_client.create_images(None)
 
         assert_equal(e.exception.msg, 'The create_images parameter cannot be None.')
 
     def test_create_images_document_throws_exception(self):
-
         # prepare args
         create_images = self.create_create_images()
         create_images.document = None
@@ -60,7 +57,6 @@ class ImageClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The create_images document cannot be None.')
 
     def test_create_images_document_data_throws_exception(self):
-
         # prepare args
         create_images = self.create_create_images()
         create_images.document.doc_data = None
@@ -71,7 +67,6 @@ class ImageClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The create_images document cannot be None.')
 
     def test_create_images_action_throws_exception(self):
-
         # prepare args
         create_images = self.create_create_images()
         create_images.image_action = None
@@ -92,7 +87,6 @@ class ImageClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The page_selection of the image_action cannot be None.')
 
     def test_create_images_no_none_response(self):
-
         # request
         create_images = self.create_create_images()
         res = self.image_client.create_images(create_images=create_images)
@@ -103,9 +97,7 @@ class ImageClientTest(unittest.TestCase):
         self.assertIsNotNone(res['document']['pages'])
         self.assertIsNotNone(res['document']['pages'][0]['thumbnail'])
 
-
     def test_create_images_doc_length(self):
-
         # request
         create_images = self.create_create_images()
         res = self.image_client.create_images(create_images=create_images)
@@ -115,7 +107,6 @@ class ImageClientTest(unittest.TestCase):
         self.assertIsNotNone(self.check.not_zero(thumbnail_length))
 
     def test_create_thumbnail_no_none_response(self):
-
         # request
         res = self.image_client.create_thumbnail(
             width=4000,
@@ -128,7 +119,6 @@ class ImageClientTest(unittest.TestCase):
         self.assertIsNotNone(res)
 
     def test_create_thumbnail_doc_length(self):
-
         # request
         res = self.image_client.create_thumbnail(
             width=4000,

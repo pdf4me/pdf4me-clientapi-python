@@ -1,5 +1,4 @@
 from pdf4me.helper.pdf4me_exceptions import Pdf4meClientException
-from pdf4me.helper.response_checker import ResponseChecker
 from pdf4me.model import CreateImages
 
 
@@ -21,9 +20,6 @@ class ImageClient(object):
 
         res = self.pdf4me_client.custom_http.post_universal_object(universal_object=create_images,
                                                                    controller='Image/CreateImages')
-
-        # check response for errors
-        ResponseChecker().check_document_for_errors(res)
 
         return res
 

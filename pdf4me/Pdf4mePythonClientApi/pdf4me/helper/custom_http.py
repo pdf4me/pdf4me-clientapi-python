@@ -1,7 +1,8 @@
 import requests
 
 from pdf4me.helper.json_converter import JsonConverter
-from pdf4me.helper.pdf4me_exceptions import Pdf4meClientException
+from pdf4me.helper.pdf4me_exceptions import Pdf4meClientException, Pdf4meBackendException
+from pdf4me.helper.response_checker import ResponseChecker
 from pdf4me.helper.token_generator import TokenGenerator
 
 URL = "https://api-dev.pdf4me.com/"
@@ -38,6 +39,12 @@ class CustomHttp(object):
 
         # send request
         res = requests.post(request_url, data=body, headers=headers)
+
+        # check status code
+        self.__check_status_code(res)
+
+        # check docLogs for error messages
+        self.__check_docLogs_for_error_messages(res)
 
         # read content from response
         json_response = self.json_converter.load(res.text)
@@ -85,4 +92,39 @@ class CustomHttp(object):
             else:
                 res = requests.post(request_url, files=files, data=data, headers=header)
 
+        # check status code
+        self.__check_status_code(res)
+
+        # check docLogs for error messages
+        self.__check_docLogs_for_error_messages(res)
+
         return res.content
+
+    def __check_status_code(self, response):
+        '''
+        Checks whether the status code is either 200 or 204, otw. throws a Pdf4meBackendException.
+        :param response: post response
+        :type response: requests.Response
+        :return: None
+        '''
+
+        status_code = response.status_code
+        status_reason = response.reason
+
+        if status_code == 500:
+            server_error = self.json_converter.load(response.text)['error_message']
+            raise Pdf4meBackendException('HTTP 500 ' + status_reason + " : " + server_error)
+        elif status_code != 200 and status_code != 204:
+            error = response.text
+            raise Pdf4meBackendException('HTTP ' + status_code + ': ' + status_reason + " : " + error)
+
+    def __check_docLogs_for_error_messages(self, response):
+        '''
+        Checks whether the HTTP response's docLogs contain any error message, in case of an error
+         a Pdf4meBackendException is thrown.
+        :param response: post response
+        :type response: requests.Response
+        :return: None
+        '''
+
+        ResponseChecker().check_response_for_errors(response.text)

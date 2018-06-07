@@ -1,4 +1,5 @@
 import sys
+
 sys.path.append('../../Pdf4mePythonClientApi')
 sys.path.append('../../Pdf4mePythonClientApiTest')
 
@@ -16,7 +17,6 @@ from test_helper.test_files import TestFiles
 
 
 class PdfAClientTest(unittest.TestCase):
-
     pdf4me_client = Pdf4meClient()
     pdfA_client = PdfAClient(pdf4me_client)
 
@@ -25,7 +25,6 @@ class PdfAClientTest(unittest.TestCase):
     file_reader = FileReader()
 
     def create_craete_pdfA(self):
-
         create_pdfA = CreatePdfA(
             document=Document(
                 doc_data=self.test_files.pdf_data
@@ -38,14 +37,12 @@ class PdfAClientTest(unittest.TestCase):
         return create_pdfA
 
     def test_pdfA_throws_exception(self):
-
         with assert_raises(Pdf4meClientException) as e:
             self.pdfA_client.pdfA(None)
 
         assert_equal(e.exception.msg, 'The create_pdfA parameter cannot be None.')
 
     def test_pdfA_document_throws_exception(self):
-
         # prepare args
         create_pdfA = self.create_craete_pdfA()
         create_pdfA.document = None
@@ -56,7 +53,6 @@ class PdfAClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The create_pdfA document cannot be None.')
 
     def test_pdfA_document_data_throws_exception(self):
-
         # prepare args
         create_pdfA = self.create_craete_pdfA()
         create_pdfA.document.doc_data = None
@@ -67,7 +63,6 @@ class PdfAClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The create_pdfA document cannot be None.')
 
     def test_pdfA_action_data_throws_exception(self):
-
         # prepare args
         create_pdfA = self.create_craete_pdfA()
         create_pdfA.pdf_a_action = None
@@ -78,7 +73,6 @@ class PdfAClientTest(unittest.TestCase):
         assert_equal(e.exception.msg, 'The pdf_a_action cannot be None.')
 
     def test_pdfA_no_none_response(self):
-
         # request
         create_pdfA = self.create_craete_pdfA()
         res = self.pdfA_client.pdfA(create_pdfA)
@@ -89,7 +83,6 @@ class PdfAClientTest(unittest.TestCase):
         self.assertIsNotNone(res['document']['doc_data'])
 
     def test_pdfA_doc_length(self):
-
         # request
         create_pdfA = self.create_craete_pdfA()
         res = self.pdfA_client.pdfA(create_pdfA)
@@ -101,7 +94,6 @@ class PdfAClientTest(unittest.TestCase):
         self.assertTrue(self.check.below_not_zero(pdfA, original_length))
 
     def test_create_pdfA_no_none_response(self):
-
         # request
         res = self.pdfA_client.create_pdfA(
             pdf_compliance='pdfA2u',
@@ -112,7 +104,6 @@ class PdfAClientTest(unittest.TestCase):
         self.assertIsNotNone(res)
 
     def test_create_pdfA_doc_length(self):
-
         # request
         res = self.pdfA_client.create_pdfA(
             pdf_compliance='pdfA2u',
@@ -126,7 +117,6 @@ class PdfAClientTest(unittest.TestCase):
         self.assertTrue(self.check.below_not_zero(pdfA, original_length))
 
     def test_create_pdfA_without_compliance_no_none_response(self):
-
         # request
         res = self.pdfA_client.create_pdfA(
             file=self.file_reader.get_file_handler(path=self.test_files.pdf_path)
@@ -136,7 +126,6 @@ class PdfAClientTest(unittest.TestCase):
         self.assertIsNotNone(res)
 
     def test_create_pdfA_without_compliance_doc_length(self):
-
         # request
         res = self.pdfA_client.create_pdfA(
             file=self.file_reader.get_file_handler(path=self.test_files.pdf_path)
