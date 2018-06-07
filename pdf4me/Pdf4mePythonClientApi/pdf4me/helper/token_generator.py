@@ -22,12 +22,20 @@ class TokenGenerator(object):
         self.token = None
 
     def get_token(self):
+        '''
+        Loads or aquires the authorization token.
+        :return: token string
+        '''
         if self.__valid_token() is True:
             return self.token
         else:
             return self.__get_new_token()
 
     def __valid_token(self):
+        '''
+        Checks whether the stored token has not expired yet.
+        :return: whether the stored token is still valid
+        '''
 
         if self.token is None:
             return False
@@ -52,6 +60,10 @@ class TokenGenerator(object):
             return False
 
     def __get_new_token(self):
+        '''
+        Acquires a new token using the clientID and secret.
+        :return: newly generated token
+        '''
 
         # generate token
         context = adal.AuthenticationContext(AUTHORITY_URI, api_version=None)

@@ -73,4 +73,4 @@ Contributions are very welcome. Please have a look at the instructions below for
 3. Add the two project folders: *Pdf4mePythonClientApi* and *Pdf4mePythonClientApiTest* to the python path. 
 In PyCharm they must be added to the project interpreter:
 > - Click on the settings symbol in the upper right corner, choose: *'Show All...'* and select the newly defined project interpreter. Then click on *'Show paths for the selected interpreter'*, the symbol displayed on the bottom of right taskbar. Hit the '+' symbol to add the paths to the *Pdf4mePythonClientApi* and *Pdf4mePythonClientApiTest* folders.
-4. You are ready to go.
+1. You are ready to go
