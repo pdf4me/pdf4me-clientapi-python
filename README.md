@@ -55,14 +55,13 @@ Please visit our [documentation]() for more information about all the functional
 
 It's recommended to create an instance of `Pdf4meClient` per thread in a multithreaded environment to avoid any potential issues.
 
-### Contribution
+## Contribution
 
 Contributions are very welcome. Please have a look at the instructions below for a smooth project setup.
 
 1. Fork pdf4me
 2. Clone your copy of pdf4me
 3. Setup the project interpreter of your choice. In PyCharm it is done the following way:
-</br>
  > - Click on File -> Settings... -> 
  > - Navigate to: Project: pdf4me-clientApi-python -> Project Interpreter
  > - Click on the settings symbol in the upper right corner, choose: *'Show All...'*
