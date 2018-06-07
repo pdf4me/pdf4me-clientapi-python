@@ -69,7 +69,7 @@ Contributions are very welcome. Please have a look at the instructions below for
  > - Create a new environment: 
         - `Location`: the path to the pdf4me-clientApi-python/env folder, env is a new folder where the environment will be stored in.
         - `Base Interperter`: the path to your python.exe file, e.g., in case you have Anaconda installed, it is found in the top level folder of the Anaconda installation.
- > - Once you have added the new interpreter, click on the '+' sign to install all necessary dependencies. You find them in the [setup.py](pdf4me/Pdf4mePythonClientApi/pdf4me/setup.py) below the keyword: `install_requires`. On top of that, the following two dependencies are needed for testing: `nose` & `pytest`. 
+ > - Once you have added the new interpreter, click on the '+' sign to install all necessary dependencies. You find them in the [setup.py](https://github.com/pdf4me/pdf4me-clientapi-python/blob/master/pdf4me/Pdf4mePythonClientApi/setup.py) below the keyword: `install_requires`. On top of that, the following two dependencies are needed for testing: `nose` & `pytest`. 
 3. Add the two project folders: *Pdf4mePythonClientApi* and *Pdf4mePythonClientApiTest* to the python path. 
 In PyCharm they must be added to the project interpreter:
 > - Click on the settings symbol in the upper right corner, choose: *'Show All...'* and select the newly defined project interpreter. Then click on *'Show paths for the selected interpreter'*, the symbol displayed on the bottom of right taskbar. Hit the '+' symbol to add the paths to the *Pdf4mePythonClientApi* and *Pdf4mePythonClientApiTest* folders.
