@@ -1,8 +1,11 @@
 # Pdf4me.Client - the python package for the Pdf4me Saas API
 
 
+![PyPI](https://img.shields.io/pypi/v/pdf4me.svg) ![license](https://img.shields.io/github/license/mashape/apistatus.svg) ![Maintenance](https://img.shields.io/maintenance/yes/2018.svg) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pdf4me.svg) ![PyPI - Status](https://img.shields.io/pypi/status/pdf4me.svg)
 
-![PyPI](https://img.shields.io/pypi/v/pdf4me.svg) ![license](https://img.shields.io/github/license/mashape/apistatus.svg) ![Maintenance](https://img.shields.io/maintenance/yes/2018.svg) ![Build](https://ynoox.visualstudio.com/_apis/public/build/definitions/2e29c2f0-3f4a-40e1-a4b1-1cc465571206/290/badge) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pdf4me.svg) ![PyPI - Status](https://img.shields.io/pypi/status/pdf4me.svg)
+We have integrated our unittests into the build process.
+ > python 2.7: ![Build](https://ynoox.visualstudio.com/_apis/public/build/definitions/2e29c2f0-3f4a-40e1-a4b1-1cc465571206/312/badge)
+ > python 3.6: ![Build](https://ynoox.visualstudio.com/_apis/public/build/definitions/2e29c2f0-3f4a-40e1-a4b1-1cc465571206/290/badge)
 
 
 The Pdf4me Client API is a python package which connects to its highly scalable SaaS cloud service with many functionalities to solve your document and PDF requirements. The SaaS API provides expert functionality to convert, optimize, compress, produce, merge, split, ocr, enrich, archive, print documents and PDF's.
@@ -70,7 +73,7 @@ Contributions are very welcome. Please have a look at the instructions below for
         - `Location`: the path to the pdf4me-clientApi-python/env folder, env is a new folder where the environment will be stored in.
         - `Base Interperter`: the path to your python.exe file, e.g., in case you have Anaconda installed, it is found in the top level folder of the Anaconda installation.
  > - Once you have added the new interpreter, click on the '+' sign to install all necessary dependencies. You find them in the [setup.py](https://github.com/pdf4me/pdf4me-clientapi-python/blob/master/pdf4me/Pdf4mePythonClientApi/setup.py) below the keyword: `install_requires`. On top of that, the following two dependencies are needed for testing: `nose` & `pytest`. 
-3. Add the two project folders: *Pdf4mePythonClientApi* and *Pdf4mePythonClientApiTest* to the python path. 
+4. Add the two project folders: *Pdf4mePythonClientApi* and *Pdf4mePythonClientApiTest* to the python path. 
 In PyCharm they must be added to the project interpreter:
 > - Click on the settings symbol in the upper right corner, choose: *'Show All...'* and select the newly defined project interpreter. Then click on *'Show paths for the selected interpreter'*, the symbol displayed on the bottom of right taskbar. Hit the '+' symbol to add the paths to the *Pdf4mePythonClientApi* and *Pdf4mePythonClientApiTest* folders.
-1. You are ready to go
+5. You are ready to go
