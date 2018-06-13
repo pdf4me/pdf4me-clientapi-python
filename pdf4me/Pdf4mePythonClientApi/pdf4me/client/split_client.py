@@ -46,9 +46,6 @@ class SplitClient(object):
         # get json
         res = JsonConverter().load(res)
 
-        # check response for errors
-        ResponseChecker().check_documents_for_errors(res)
-
         # extract the two documents
         pdf_1 = base64.b64decode(res['documents'][0]['doc_data'])
         pdf_2 = base64.b64decode(res['documents'][1]['doc_data'])

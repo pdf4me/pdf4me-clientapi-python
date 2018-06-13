@@ -30,6 +30,14 @@ class ResponseChecker(object):
 
         try:
             one_doc = jsonConverter.load(res)['document']
+        except KeyError:
+            pass
+        except ValueError:
+            pass
+        except JSONDecoder:
+            pass
+
+        try:
             multiple_docs = jsonConverter.load(res)['documents']
         except KeyError:
             pass
