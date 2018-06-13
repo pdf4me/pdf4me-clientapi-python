@@ -11,7 +11,7 @@ setup(
     description='Provides expert functionality to convert, optimize, compress, produce, merge, split, ocr, enrich, archive, print documents and PDFs.',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='http://pdf4me.com/',
+    url='https://dev-dev.pdf4me.com',
     author='Pdf4me',
     author_email='support-dev@pdf4me.com',
     classifiers=[
