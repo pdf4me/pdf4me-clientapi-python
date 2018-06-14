@@ -77,3 +77,7 @@ Contributions are very welcome. Please have a look at the instructions below for
 In PyCharm they must be added to the project interpreter:
 > - Click on the settings symbol in the upper right corner, choose: *'Show All...'* and select the newly defined project interpreter. Then click on *'Show paths for the selected interpreter'*, the symbol displayed on the bottom of right taskbar. Hit the '+' symbol to add the paths to the *Pdf4mePythonClientApi* and *Pdf4mePythonClientApiTest* folders.
 5. You are ready to go
+
+#### Running the Test Cases
+In order for the test cases to run, a config.properties file containing the client_id and secret must be stored in the pdf4me\Pdf4mePythonClientApiTest folder. Please drop us an email (support-dev@pdf4me.com), so we can provide you the developer (clientId, secret) pair for testing the code of your pull request.
+The test cases are found in pdf4me\Pdf4mePythonClientApiTest\unittests.
