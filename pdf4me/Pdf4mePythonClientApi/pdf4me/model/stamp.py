@@ -88,8 +88,8 @@ class Stamp(object):
         :param document: The document of this Stamp.  # noqa: E501
         :type: Document
         """
-        if document is None:
-            raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
+        # if document is None:
+        #     raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
 
         self._document = document
 
@@ -113,8 +113,8 @@ class Stamp(object):
         :param stamp_action: The stamp_action of this Stamp.  # noqa: E501
         :type: StampAction
         """
-        if stamp_action is None:
-            raise ValueError("Invalid value for `stamp_action`, must not be `None`")  # noqa: E501
+        # if stamp_action is None:
+        #    raise ValueError("Invalid value for `stamp_action`, must not be `None`")  # noqa: E501
 
         self._stamp_action = stamp_action
 

@@ -1,3 +1,4 @@
+from pdf4me.helper.json_converter import JsonConverter
 from pdf4me.helper.pdf4me_exceptions import Pdf4meClientException
 from pdf4me.model import CreatePdfA, Rotate, Protect, Validate, Repair
 
@@ -208,8 +209,12 @@ class PdfAClient(object):
         streams = [('file', file)]
         params = [('pdfCompliance', pdf_compliance)]
 
-        return self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
+        res = self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
                                                            controller='PdfA/ValidateDocument')
+        # get json
+        res = JsonConverter().load(res)
+
+        return res
 
     def __check_validate_object_validity(self, validate):
         """checks whether the validate object contains the essential information to be

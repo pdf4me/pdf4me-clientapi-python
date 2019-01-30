@@ -87,8 +87,8 @@ class ReadBarcodes(object):
         :param document: The document of this ReadBarcodes.  # noqa: E501
         :type: Document
         """
-        if document is None:
-            raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
+        # if document is None:
+        #     raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
 
         self._document = document
 

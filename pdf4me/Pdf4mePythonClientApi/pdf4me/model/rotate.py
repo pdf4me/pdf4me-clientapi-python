@@ -86,8 +86,8 @@ class Rotate(object):
         :param document: The document of this Rotate.  # noqa: E501
         :type: Document
         """
-        if document is None:
-            raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
+        # if document is None:
+        #     raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
 
         self._document = document
 
@@ -109,8 +109,8 @@ class Rotate(object):
         :param rotate_action: The rotate_action of this Rotate.  # noqa: E501
         :type: RotateAction
         """
-        if rotate_action is None:
-            raise ValueError("Invalid value for `rotate_action`, must not be `None`")  # noqa: E501
+        # if rotate_action is None:
+        #    raise ValueError("Invalid value for `rotate_action`, must not be `None`")  # noqa: E501
 
         self._rotate_action = rotate_action
 

@@ -88,8 +88,8 @@ class CreatePdfA(object):
         :param document: The document of this CreatePdfA.  # noqa: E501
         :type: Document
         """
-        if document is None:
-            raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
+        # if document is None:
+        #     raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
 
         self._document = document
 
@@ -113,8 +113,8 @@ class CreatePdfA(object):
         :param pdf_a_action: The pdf_a_action of this CreatePdfA.  # noqa: E501
         :type: PdfAAction
         """
-        if pdf_a_action is None:
-            raise ValueError("Invalid value for `pdf_a_action`, must not be `None`")  # noqa: E501
+        # if pdf_a_action is None:
+        #    raise ValueError("Invalid value for `pdf_a_action`, must not be `None`")  # noqa: E501
 
         self._pdf_a_action = pdf_a_action
 

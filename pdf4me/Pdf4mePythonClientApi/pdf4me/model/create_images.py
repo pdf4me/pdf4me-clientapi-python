@@ -88,8 +88,8 @@ class CreateImages(object):
         :param document: The document of this CreateImages.  # noqa: E501
         :type: Document
         """
-        if document is None:
-            raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
+        # if document is None:
+        #     raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
 
         self._document = document
 
@@ -113,8 +113,8 @@ class CreateImages(object):
         :param image_action: The image_action of this CreateImages.  # noqa: E501
         :type: ImageAction
         """
-        if image_action is None:
-            raise ValueError("Invalid value for `image_action`, must not be `None`")  # noqa: E501
+        # if image_action is None:
+        #    raise ValueError("Invalid value for `image_action`, must not be `None`")  # noqa: E501
 
         self._image_action = image_action
 

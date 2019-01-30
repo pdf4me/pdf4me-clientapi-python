@@ -86,8 +86,8 @@ class Extract(object):
         :param document: The document of this Extract.  # noqa: E501
         :type: Document
         """
-        if document is None:
-            raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
+        # if document is None:
+        #     raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
 
         self._document = document
 
@@ -109,8 +109,8 @@ class Extract(object):
         :param extract_action: The extract_action of this Extract.  # noqa: E501
         :type: ExtractAction
         """
-        if extract_action is None:
-            raise ValueError("Invalid value for `extract_action`, must not be `None`")  # noqa: E501
+        # if extract_action is None:
+        #    raise ValueError("Invalid value for `extract_action`, must not be `None`")  # noqa: E501
 
         self._extract_action = extract_action
 

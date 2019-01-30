@@ -86,8 +86,8 @@ class Validate(object):
         :param document: The document of this Validate.  # noqa: E501
         :type: Document
         """
-        if document is None:
-            raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
+        # if document is None:
+        #     raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
 
         self._document = document
 
@@ -109,8 +109,8 @@ class Validate(object):
         :param validate_action: The validate_action of this Validate.  # noqa: E501
         :type: ValidateAction
         """
-        if validate_action is None:
-            raise ValueError("Invalid value for `validate_action`, must not be `None`")  # noqa: E501
+        # if validate_action is None:
+        #    raise ValueError("Invalid value for `validate_action`, must not be `None`")  # noqa: E501
 
         self._validate_action = validate_action
 

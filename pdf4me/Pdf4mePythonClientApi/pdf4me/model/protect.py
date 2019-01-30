@@ -86,8 +86,8 @@ class Protect(object):
         :param document: The document of this Protect.  # noqa: E501
         :type: Document
         """
-        if document is None:
-            raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
+        # if document is None:
+        #     raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
 
         self._document = document
 
@@ -109,8 +109,8 @@ class Protect(object):
         :param protect_action: The protect_action of this Protect.  # noqa: E501
         :type: ProtectAction
         """
-        if protect_action is None:
-            raise ValueError("Invalid value for `protect_action`, must not be `None`")  # noqa: E501
+        # if protect_action is None:
+        #    raise ValueError("Invalid value for `protect_action`, must not be `None`")  # noqa: E501
 
         self._protect_action = protect_action
 

@@ -86,8 +86,8 @@ class Split(object):
         :param document: The document of this Split.  # noqa: E501
         :type: Document
         """
-        if document is None:
-            raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
+        # if document is None:
+        #     raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
 
         self._document = document
 
@@ -109,8 +109,8 @@ class Split(object):
         :param split_action: The split_action of this Split.  # noqa: E501
         :type: SplitAction
         """
-        if split_action is None:
-            raise ValueError("Invalid value for `split_action`, must not be `None`")  # noqa: E501
+        # if split_action is None:
+        #    raise ValueError("Invalid value for `split_action`, must not be `None`")  # noqa: E501
 
         self._split_action = split_action
 
