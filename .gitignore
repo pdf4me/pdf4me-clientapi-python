@@ -108,3 +108,5 @@ pdf4me/Pdf4mePythonClientApiTest/config.properties
 
 # mypy
 .mypy_cache/
+/.vs
+/.vscode

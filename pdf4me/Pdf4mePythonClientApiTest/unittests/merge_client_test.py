@@ -12,8 +12,8 @@ from pdf4me.client.pdf4me_client import Pdf4meClient
 from pdf4me.helper.file_reader import FileReader
 from pdf4me.helper.pdf4me_exceptions import Pdf4meClientException
 from pdf4me.model import Merge, Document, MergeAction
-from Pdf4mePythonClientApiTest.test_helper.check import Check
-from Pdf4mePythonClientApiTest.test_helper.test_files import TestFiles
+from test_helper.check import Check
+from test_helper.test_files import TestFiles
 
 
 class MergeClientTest(unittest.TestCase):

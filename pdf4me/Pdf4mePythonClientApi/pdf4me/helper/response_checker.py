@@ -34,6 +34,8 @@ class ResponseChecker(object):
             pass
         except ValueError:
             pass
+        except TypeError:
+            pass
         except JSONDecoder:
             pass
 
@@ -42,6 +44,8 @@ class ResponseChecker(object):
         except KeyError:
             pass
         except ValueError:
+            pass
+        except TypeError:
             pass
         except JSONDecoder:
             pass

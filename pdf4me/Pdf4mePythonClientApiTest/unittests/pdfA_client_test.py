@@ -24,7 +24,7 @@ class PdfAClientTest(unittest.TestCase):
     check = Check()
     file_reader = FileReader()
 
-    def create_craete_pdfA(self):
+    def create_create_pdfA(self):
         create_pdfA = CreatePdfA(
             document=Document(
                 doc_data=self.test_files.pdf_data
@@ -44,7 +44,7 @@ class PdfAClientTest(unittest.TestCase):
 
     def test_pdfA_document_throws_exception(self):
         # prepare args
-        create_pdfA = self.create_craete_pdfA()
+        create_pdfA = self.create_create_pdfA()
         create_pdfA.document = None
 
         with assert_raises(Pdf4meClientException) as e:
@@ -54,7 +54,7 @@ class PdfAClientTest(unittest.TestCase):
 
     def test_pdfA_document_data_throws_exception(self):
         # prepare args
-        create_pdfA = self.create_craete_pdfA()
+        create_pdfA = self.create_create_pdfA()
         create_pdfA.document.doc_data = None
 
         with assert_raises(Pdf4meClientException) as e:
@@ -64,7 +64,7 @@ class PdfAClientTest(unittest.TestCase):
 
     def test_pdfA_action_data_throws_exception(self):
         # prepare args
-        create_pdfA = self.create_craete_pdfA()
+        create_pdfA = self.create_create_pdfA()
         create_pdfA.pdf_a_action = None
 
         with assert_raises(Pdf4meClientException) as e:
@@ -74,7 +74,7 @@ class PdfAClientTest(unittest.TestCase):
 
     def test_pdfA_no_none_response(self):
         # request
-        create_pdfA = self.create_craete_pdfA()
+        create_pdfA = self.create_create_pdfA()
         res = self.pdfA_client.pdfA(create_pdfA)
 
         # validation
@@ -84,7 +84,7 @@ class PdfAClientTest(unittest.TestCase):
 
     def test_pdfA_doc_length(self):
         # request
-        create_pdfA = self.create_craete_pdfA()
+        create_pdfA = self.create_create_pdfA()
         res = self.pdfA_client.pdfA(create_pdfA)
 
         # validation

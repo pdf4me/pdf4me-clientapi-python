@@ -26,5 +26,4 @@ class FileReader(object):
         :type path: str
         :return: the file handler of the provided file
         """
-
         return open(path, 'rb')

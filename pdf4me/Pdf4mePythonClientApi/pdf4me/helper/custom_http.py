@@ -3,20 +3,18 @@ import requests
 from pdf4me.helper.json_converter import JsonConverter
 from pdf4me.helper.pdf4me_exceptions import Pdf4meClientException, Pdf4meBackendException
 from pdf4me.helper.response_checker import ResponseChecker
-from pdf4me.helper.token_generator import TokenGenerator
 
-URL = "https://api-dev.pdf4me.com/"
 
+# from pdf4me.helper.token_generator import TokenGenerator
 
 class CustomHttp(object):
 
-    def __init__(self, client_id, secret):
+    def __init__(self, token):
 
-        self.client_id = client_id
-        self.secret = secret
-
-        self.token_generator = TokenGenerator(client_id, secret)
+        self.token = token
         self.json_converter = JsonConverter()
+        self.url = "https://api-dev.pdf4me.com/"
+        self.userAgent = "pdf4me-python/0.8.2"
 
     def post_universal_object(self, universal_object, controller):
         """Sends a post request to the specified controller with the given
@@ -30,9 +28,13 @@ class CustomHttp(object):
         """
 
         # prepare post request
-        token = self.token_generator.get_token()
-        request_url = URL + controller
-        headers = {'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token}
+        request_url = self.url + controller
+        headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Basic ' + self.token,
+            'User-Agent': self.userAgent
+        }
 
         # convert body to json
         body = self.json_converter.dump(element=universal_object)
@@ -64,9 +66,8 @@ class CustomHttp(object):
         """
 
         # prepare post request
-        token = self.token_generator.get_token()
-        request_url = URL + controller
-        header = {'Authorization': 'Bearer ' + token}
+        request_url = self.url + controller
+        header = {'Authorization': 'Basic ' + self.token, 'User-Agent': self.userAgent}
 
         # build files
         if len(octet_streams) != 0:

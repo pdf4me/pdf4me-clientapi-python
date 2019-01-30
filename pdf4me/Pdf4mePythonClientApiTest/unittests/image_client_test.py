@@ -129,3 +129,33 @@ class ImageClientTest(unittest.TestCase):
 
         # validation
         self.assertTrue(self.check.not_zero(len(res)))
+
+    def test_create_thumbnails_no_none_response(self):
+        # request
+        pdfs = self.image_client.create_thumbnails(
+            width=4000,
+            page_nrs='1,3',
+            image_format='jpg',
+            file=self.file_reader.get_file_handler(path=self.test_files.pdf_path)
+        )
+
+        # validation
+        self.assertIsNotNone(pdfs)
+        self.assertTrue(len(pdfs) == 2)
+
+    def test_create_thumbnails_doc_length(self):
+        # request
+        pdfs = self.image_client.create_thumbnails(
+            width=4000,
+            page_nrs='1,3',
+            image_format='jpg',
+            file=self.file_reader.get_file_handler(path=self.test_files.pdf_path)
+        )
+
+        # validation
+        pdf_1_length = len(pdfs[0])
+        pdf_2_length = len(pdfs[1])
+
+        self.assertTrue(pdf_1_length != 0)
+        self.assertTrue(pdf_2_length != 0)
+

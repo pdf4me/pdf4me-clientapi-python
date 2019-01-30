@@ -16,7 +16,7 @@ from test_helper.check import Check
 from test_helper.test_files import TestFiles
 
 
-class ExtractClientTest(unittest.TestCase):
+class SplitClientTest(unittest.TestCase):
     pdf4me_client = Pdf4meClient()
     split_client = SplitClient(pdf4me_client)
 
@@ -146,3 +146,6 @@ class ExtractClientTest(unittest.TestCase):
 
         self.assertTrue(self.check.below_not_zero(pdf_1_length, original_length))
         self.assertTrue(self.check.below_not_zero(pdf_2_length, original_length))
+
+
+print("test")

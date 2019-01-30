@@ -1,5 +1,8 @@
+import base64
+
 from pdf4me.helper.pdf4me_exceptions import Pdf4meClientException
 from pdf4me.model import CreateImages
+from pdf4me.helper.json_converter import JsonConverter
 
 
 class ImageClient(object):
@@ -42,6 +45,38 @@ class ImageClient(object):
 
         return self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
                                                            controller='Image/CreateThumbnail')
+
+    def create_thumbnails(self, width, page_nrs, image_format, file):
+        """Produces a thumbnail of the page referenced by the pageNr. Be aware of the one-indexing of the page numbers.
+
+        :param width: size of the produced thumbnail
+        :type width: int
+        :param page_nrs: number of the page which should be captured by the thumbnail
+        :type page_nrs: str
+        :param image_format: picture format of thumbnail, e.g. 'jpg'
+        :type image_format: str
+        :param file: file to capture thumbnails from
+        :type file: file handler, use the method get_file_handler from FileReader to obtain it
+        :return: bytes of produced thumbnail, can be directly written to image file on disk
+        """
+
+        streams = [('file', file)]
+        params = [('width', width), ('pageNrs', page_nrs), ('imageFormat', image_format)]
+
+        res = self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
+                                                          controller='Image/CreateThumbnails')
+
+        # get json
+        res = JsonConverter().load(res)
+
+        # extract the two documents
+        pdfs = []
+        for pdf in res:
+            pdfs.append(base64.b64decode(pdf))
+        # pdf_1 = base64.b64decode(res[0])
+        # pdf_2 = base64.b64decode(res[1])
+
+        return pdfs
 
     def __check_create_images_object_validity(self, create_images):
         """Checks whether the create_images object contains the essential information to be

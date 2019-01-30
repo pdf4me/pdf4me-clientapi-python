@@ -8,9 +8,9 @@ with open('README.md') as f:
 setup(
     name='pdf4me',
     version='0.8.2',
-    description='Provides expert functionality to convert, optimize, compress, produce, merge, split, ocr, enrich, archive, print documents and PDFs.',
+    description='Provides expert functionality to convert, optimize, merge, split, ocr, print documents & PDFs.',
     long_description=long_description,
-    long_description_content_type='text/markdown',
+    long_description_content_type='',
     url='https://dev-dev.pdf4me.com',
     author='Pdf4me',
     author_email='support-dev@pdf4me.com',
@@ -31,7 +31,7 @@ setup(
     install_requires=['adal', 'inflection', 'requests', 'keyring', 'azure-mgmt-datalake-analytics', 'jprops'],
     python_requires='>=2.7, <4',
     project_urls={
-        #'Documentation': 'https://packaging.python.org/tutorials/distributing-packages/',
+        # 'Documentation': 'https://packaging.python.org/tutorials/distributing-packages/',
         'Bug Reports': 'https://github.com/pdf4me/pdf4me-clientapi-python/issues',
         'Source': 'https://github.com/pdf4me/pdf4me-clientapi-python',
     },
