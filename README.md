@@ -83,5 +83,5 @@ In PyCharm they must be added to the project interpreter:
 5. You are ready to go
 
 #### Running the Test Cases
-In order for the test cases to run, a config.properties file containing the client_id and secret must be stored in the pdf4me\Pdf4mePythonClientApiTest folder. Please drop us an email (support-dev@pdf4me.com), so we can provide you the developer (clientId, secret) pair for testing the code of your pull request.
-The test cases are found in pdf4me\Pdf4mePythonClientApiTest\unittests.
+In order for the test cases to run, a config.properties file containing the token must be stored in the pdf4me\Pdf4mePythonClientApiTest folder. Please drop us an email (support-dev@pdf4me.com), so we can provide you the developer a token for testing the code of your pull request.
+The test cases are available in pdf4me\Pdf4mePythonClientApiTest\unittests.
