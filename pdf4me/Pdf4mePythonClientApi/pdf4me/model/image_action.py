@@ -180,8 +180,8 @@ class ImageAction(object):
         :param page_selection: The page_selection of this ImageAction.  # noqa: E501
         :type: PageSelection
         """
-        if page_selection is None:
-            raise ValueError("Invalid value for `page_selection`, must not be `None`")  # noqa: E501
+        # if page_selection is None:
+        #     raise ValueError("Invalid value for `page_selection`, must not be `None`")  # noqa: E501
 
         self._page_selection = page_selection
 

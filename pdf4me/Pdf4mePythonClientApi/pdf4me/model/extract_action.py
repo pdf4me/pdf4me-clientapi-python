@@ -71,8 +71,8 @@ class ExtractAction(object):
         :param extract_pages: The extract_pages of this ExtractAction.  # noqa: E501
         :type: list[int]
         """
-        if extract_pages is None:
-            raise ValueError("Invalid value for `extract_pages`, must not be `None`")  # noqa: E501
+        # if extract_pages is None:
+        #     raise ValueError("Invalid value for `extract_pages`, must not be `None`")  # noqa: E501
 
         self._extract_pages = extract_pages
 

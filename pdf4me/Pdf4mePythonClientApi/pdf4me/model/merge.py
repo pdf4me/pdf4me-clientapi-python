@@ -87,8 +87,8 @@ class Merge(object):
         :param documents: The documents of this Merge.  # noqa: E501
         :type: list[Document]
         """
-        if documents is None:
-            raise ValueError("Invalid value for `documents`, must not be `None`")  # noqa: E501
+        # if documents is None:
+        #     raise ValueError("Invalid value for `documents`, must not be `None`")  # noqa: E501
 
         self._documents = documents
 
