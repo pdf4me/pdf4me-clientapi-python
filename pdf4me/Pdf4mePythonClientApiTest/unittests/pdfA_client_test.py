@@ -470,8 +470,8 @@ class PdfAClientTest(unittest.TestCase):
 
         # validation
         self.assertIsNotNone(res)
-        self.assertIsNotNone(res['pdfValidation'])
-        validate = len(res['pdfValidation']['validations'])
+        self.assertIsNotNone(res['pdf_validation'])
+        validate = len(res['pdf_validation']['validations'])
         self.assertTrue(self.check.not_zero(validate))
 
     def test_validate_document_no_none_response(self):
@@ -493,8 +493,8 @@ class PdfAClientTest(unittest.TestCase):
 
         # validation
         self.assertIsNotNone(res)
-        self.assertIsNotNone(res['pdfValidation'])
-        validate = len(res['pdfValidation']['validations'])
+        self.assertIsNotNone(res['pdf_validation'])
+        validate = len(res['pdf_validation']['validations'])
         self.assertTrue(self.check.not_zero(validate))
 
     # Repair
