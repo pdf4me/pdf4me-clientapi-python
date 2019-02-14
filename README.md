@@ -27,13 +27,13 @@ Feature | Description
 
 ## Getting Started
 
-To get started get a Token by dropping us an email (support-dev@pdf4me.com).
+To get started get a Token by dropping us an email (support-dev@pdf4me.com) or registering in our [Pdf4me portal](https://portal.pdf4me.com/).
 
 The Token is required for Basic Authentication. The Pdf4me Client Api provides you already with the necessary implementation. You need only to get an instance for the Pdf4meClient as shown in the sample below.
 
 ```python
 """
-Either you store them in the config.properties file with keys client_id and secret
+Either you store them in the config.properties file with token
 Do not use any quotes:
 Correct: token=sample-not-working-key-aaaaaaa
 Incorrect: token="sample-not-working-key-aaaaaaa"
@@ -83,5 +83,5 @@ In PyCharm they must be added to the project interpreter:
 5. You are ready to go
 
 #### Running the Test Cases
-In order for the test cases to run, a config.properties file containing the token must be stored in the pdf4me\Pdf4mePythonClientApiTest folder. Please drop us an email (support-dev@pdf4me.com), so we can provide you the developer a token for testing the code of your pull request.
-The test cases are available in pdf4me\Pdf4mePythonClientApiTest\unittests.
+In order for the test cases to run, a config.properties file containing the token must be stored in the [pdf4me\Pdf4mePythonClientApiTest](https://github.com/pdf4me/pdf4me-clientapi-python/tree/master/pdf4me/Pdf4mePythonClientApiTest) folder. Please drop us an email (support-dev@pdf4me.com), so we can provide you the developer a token for testing the code of your pull request.
+The test cases are available in [pdf4me\Pdf4mePythonClientApiTest\unittests](https://github.com/pdf4me/pdf4me-clientapi-python/tree/master/pdf4me/Pdf4mePythonClientApiTest/unittests).

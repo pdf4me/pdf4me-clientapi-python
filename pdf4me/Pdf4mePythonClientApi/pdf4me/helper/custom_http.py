@@ -9,12 +9,14 @@ from pdf4me.helper.response_checker import ResponseChecker
 
 class CustomHttp(object):
 
-    def __init__(self, token):
+    def __init__(self, token, apiurl):
 
         self.token = token
         self.json_converter = JsonConverter()
-        self.url = "https://api-dev.pdf4me.com/"
-        self.userAgent = "pdf4me-python/0.8.4"
+        self.url = "https://api.pdf4me.com/"
+        if apiurl is not None and len(apiurl) != 0:
+            self.url = apiurl
+        self.userAgent = "pdf4me-python/0.8.5"
 
     def post_universal_object(self, universal_object, controller):
         """Sends a post request to the specified controller with the given
@@ -117,7 +119,7 @@ class CustomHttp(object):
             raise Pdf4meBackendException('HTTP 500 ' + status_reason + " : " + server_error)
         elif status_code != 200 and status_code != 204:
             error = response.text
-            raise Pdf4meBackendException('HTTP ' + status_code + ': ' + status_reason + " : " + error)
+            raise Pdf4meBackendException('HTTP ' + str(status_code) + ': ' + status_reason + " : " + error)
 
     def __check_docLogs_for_error_messages(self, response):
         '''

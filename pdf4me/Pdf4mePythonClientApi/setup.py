@@ -7,11 +7,11 @@ with open('README.md') as f:
 
 setup(
     name='pdf4me',
-    version='0.8.4',
+    version='0.8.5',
     description='Provides expert functionality to convert, optimize, merge, split, ocr, print documents & PDFs.',
     long_description=long_description,
     long_description_content_type='',
-    url='https://dev-dev.pdf4me.com',
+    url='https://portal.pdf4me.com/',
     author='Pdf4me',
     author_email='support-dev@pdf4me.com',
     classifiers=[
@@ -28,7 +28,8 @@ setup(
     ],
     keywords='pdf convert extract thumbnails merge optimize compress split stamp ocr archive',
     packages=find_packages(exclude=[]),
-    install_requires=['adal', 'inflection', 'requests', 'keyring', 'azure-mgmt-datalake-analytics', 'jprops'],
+    # install_requires=['adal', 'inflection', 'requests', 'keyring', 'azure-mgmt-datalake-analytics', 'jprops'],
+    install_requires=['inflection', 'requests', 'keyring', 'jprops'],
     python_requires='>=2.7, <4',
     project_urls={
         # 'Documentation': 'https://packaging.python.org/tutorials/distributing-packages/',
