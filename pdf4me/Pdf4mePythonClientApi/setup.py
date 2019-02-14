@@ -7,10 +7,10 @@ with open('README.md') as f:
 
 setup(
     name='pdf4me',
-    version='0.8.6',
+    version='0.8.7',
     description='Provides expert functionality to convert, optimize, merge, split, ocr, print documents & PDFs.',
     long_description=long_description,
-    long_description_content_type='',
+    long_description_content_type='text/markdown',
     url='https://portal.pdf4me.com/',
     author='Pdf4me',
     author_email='support-dev@pdf4me.com',
