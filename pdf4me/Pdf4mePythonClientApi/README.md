@@ -44,6 +44,10 @@ merged_pdf = merge_client.merge_2_pdfs(
 )
 ```
 
+## Documentation
+
+Please visit our [documentation](https://developer.pdf4me.com/docs/api/) for more information about all the functionalities provided and on how to use pdf4me.
+
 ## Recommendation
 
 It's recommended to create an instance of `Pdf4meClient` per thread in a multithreaded environment to avoid any potential issues.
