@@ -27,7 +27,7 @@ Feature | Description
 
 ## Getting Started
 
-To get started get a Token by dropping us an email (support-dev@pdf4me.com) or registering in our [Pdf4me portal](https://portal.pdf4me.com/).
+To get started get a Token by dropping us an [email](mailto:support-dev@pdf4me.com) or registering in our [Pdf4me portal](https://portal.pdf4me.com/).
 
 The Token is required for Basic Authentication. The Pdf4me Client Api provides you already with the necessary implementation. You need only to get an instance for the Pdf4meClient as shown in the sample below.
 
