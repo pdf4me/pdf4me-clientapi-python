@@ -307,8 +307,8 @@ class PdfAClient(object):
         streams = [('file', file)]
         params = []
 
-        return self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
-                                                           controller='PdfA/Metadata')
+        res = self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
+                                                          controller='PdfA/Metadata')
 
         # get json
         return JsonConverter().load(res)
