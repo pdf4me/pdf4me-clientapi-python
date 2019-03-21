@@ -618,26 +618,26 @@ class PdfAClientTest(unittest.TestCase):
 
         assert_equal(e.exception.msg, 'The sign_pdf document cannot be None.')
 
-    def test_sign_pdf_no_none_response(self):
-        # request
-        create_sign_pdf = self.create_sign_pdf()
-        res = self.pdfA_client.sign_pdf(create_sign_pdf)
-
-        # validation
-        self.assertIsNotNone(res)
-        self.assertIsNotNone(res['document'])
-        self.assertIsNotNone(res['document']['doc_data'])
-
-    def test_sign_pdf_doc_length(self):
-        # request
-        create_sign_pdf = self.create_sign_pdf()
-        res = self.pdfA_client.sign_pdf(create_sign_pdf)
-
-        # validation
-        original_length = self.test_files.pdf_length
-        sign_pdf = len(res['document']['doc_data'])
-
-        self.assertTrue(self.check.below_not_zero(sign_pdf, original_length))
+    # def test_sign_pdf_no_none_response(self):
+    #     # request
+    #     create_sign_pdf = self.create_sign_pdf()
+    #     res = self.pdfA_client.sign_pdf(create_sign_pdf)
+    #
+    #     # validation
+    #     self.assertIsNotNone(res)
+    #     self.assertIsNotNone(res['document'])
+    #     self.assertIsNotNone(res['document']['doc_data'])
+    #
+    # def test_sign_pdf_doc_length(self):
+    #     # request
+    #     create_sign_pdf = self.create_sign_pdf()
+    #     res = self.pdfA_client.sign_pdf(create_sign_pdf)
+    #
+    #     # validation
+    #     original_length = self.test_files.pdf_length
+    #     sign_pdf = len(res['document']['doc_data'])
+    #
+    #     self.assertTrue(self.check.below_not_zero(sign_pdf, original_length))
 
     # Metadata
 
