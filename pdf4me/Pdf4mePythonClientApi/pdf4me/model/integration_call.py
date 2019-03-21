@@ -33,6 +33,7 @@ class IntegrationCall(object):
     swagger_types = {
         'integration_name': 'str',
         'integration_type': 'str',
+        'integration_id': 'str',
         'status': 'str',
         'error_message': 'str',
         'retries': 'int',
@@ -40,19 +41,21 @@ class IntegrationCall(object):
     }
 
     attribute_map = {
-        'integration_name': 'IntegrationName',
-        'integration_type': 'IntegrationType',
+        'integration_name': 'integrationName',
+        'integration_type': 'integrationType',
+        'integration_id': 'integrationId',
         'status': 'status',
         'error_message': 'errorMessage',
         'retries': 'retries',
         'last_call_time': 'lastCallTime'
     }
 
-    def __init__(self, integration_name=None, integration_type=None, status=None, error_message=None, retries=None, last_call_time=None):  # noqa: E501
+    def __init__(self, integration_name=None, integration_type=None, integration_id=None, status=None, error_message=None, retries=None, last_call_time=None):  # noqa: E501
         """IntegrationCall - a model defined in Swagger"""  # noqa: E501
 
         self._integration_name = None
         self._integration_type = None
+        self._integration_id = None
         self._status = None
         self._error_message = None
         self._retries = None
@@ -63,6 +66,8 @@ class IntegrationCall(object):
             self.integration_name = integration_name
         if integration_type is not None:
             self.integration_type = integration_type
+        if integration_id is not None:
+            self.integration_id = integration_id
         if status is not None:
             self.status = status
         if error_message is not None:
@@ -113,6 +118,27 @@ class IntegrationCall(object):
         """
 
         self._integration_type = integration_type
+
+    @property
+    def integration_id(self):
+        """Gets the integration_id of this IntegrationCall.  # noqa: E501
+
+
+        :return: The integration_id of this IntegrationCall.  # noqa: E501
+        :rtype: str
+        """
+        return self._integration_id
+
+    @integration_id.setter
+    def integration_id(self, integration_id):
+        """Sets the integration_id of this IntegrationCall.
+
+
+        :param integration_id: The integration_id of this IntegrationCall.  # noqa: E501
+        :type: str
+        """
+
+        self._integration_id = integration_id
 
     @property
     def status(self):

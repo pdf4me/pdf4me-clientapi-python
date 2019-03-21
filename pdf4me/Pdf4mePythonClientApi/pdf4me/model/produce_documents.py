@@ -43,7 +43,7 @@ class ProduceDocuments(object):
         'pdf_a_action': 'PdfAAction',
         'optimize_action': 'OptimizeAction',
         'produce_output': 'ProduceOutput',
-        'job_id_extern': 'str',
+        'job_id_ext': 'str',
         'integrations': 'list[str]'
     }
 
@@ -54,11 +54,11 @@ class ProduceDocuments(object):
         'pdf_a_action': 'pdfAAction',
         'optimize_action': 'optimizeAction',
         'produce_output': 'produceOutput',
-        'job_id_extern': 'jobIdExtern',
+        'job_id_ext': 'jobIdExt',
         'integrations': 'integrations'
     }
 
-    def __init__(self, job_id=None, documents=None, ocr_action=None, pdf_a_action=None, optimize_action=None, produce_output=None, job_id_extern=None, integrations=None):  # noqa: E501
+    def __init__(self, job_id=None, documents=None, ocr_action=None, pdf_a_action=None, optimize_action=None, produce_output=None, job_id_ext=None, integrations=None):  # noqa: E501
         """ProduceDocuments - a model defined in Swagger"""  # noqa: E501
 
         self._job_id = None
@@ -67,7 +67,7 @@ class ProduceDocuments(object):
         self._pdf_a_action = None
         self._optimize_action = None
         self._produce_output = None
-        self._job_id_extern = None
+        self._job_id_ext = None
         self._integrations = None
         self.discriminator = None
 
@@ -83,8 +83,8 @@ class ProduceDocuments(object):
             self.optimize_action = optimize_action
         if produce_output is not None:
             self.produce_output = produce_output
-        if job_id_extern is not None:
-            self.job_id_extern = job_id_extern
+        if job_id_ext is not None:
+            self.job_id_ext = job_id_ext
         if integrations is not None:
             self.integrations = integrations
 
@@ -227,25 +227,25 @@ class ProduceDocuments(object):
         self._produce_output = produce_output
 
     @property
-    def job_id_extern(self):
-        """Gets the job_id_extern of this ProduceDocuments.  # noqa: E501
+    def job_id_ext(self):
+        """Gets the job_id_ext of this ProduceDocuments.  # noqa: E501
 
 
-        :return: The job_id_extern of this ProduceDocuments.  # noqa: E501
+        :return: The job_id_ext of this ProduceDocuments.  # noqa: E501
         :rtype: str
         """
-        return self._job_id_extern
+        return self._job_id_ext
 
-    @job_id_extern.setter
-    def job_id_extern(self, job_id_extern):
-        """Sets the job_id_extern of this ProduceDocuments.
+    @job_id_ext.setter
+    def job_id_ext(self, job_id_ext):
+        """Sets the job_id_ext of this ProduceDocuments.
 
 
-        :param job_id_extern: The job_id_extern of this ProduceDocuments.  # noqa: E501
+        :param job_id_ext: The job_id_ext of this ProduceDocuments.  # noqa: E501
         :type: str
         """
 
-        self._job_id_extern = job_id_extern
+        self._job_id_ext = job_id_ext
 
     @property
     def integrations(self):

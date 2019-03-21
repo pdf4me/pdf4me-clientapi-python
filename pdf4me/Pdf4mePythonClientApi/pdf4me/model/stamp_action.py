@@ -17,7 +17,6 @@ import re  # noqa: F401
 import six
 
 from pdf4me.model.image import Image  # noqa: F401,E501
-from pdf4me.model.key_value_pair_string_string import KeyValuePairStringString  # noqa: F401,E501
 from pdf4me.model.text import Text  # noqa: F401,E501
 
 
@@ -48,8 +47,7 @@ class StampAction(object):
         'align_y': 'str',
         'stamp_type': 'str',
         'text': 'Text',
-        'image': 'Image',
-        'custom_properties': 'list[KeyValuePairStringString]'
+        'image': 'Image'
     }
 
     attribute_map = {
@@ -66,11 +64,10 @@ class StampAction(object):
         'align_y': 'alignY',
         'stamp_type': 'stampType',
         'text': 'text',
-        'image': 'image',
-        'custom_properties': 'customProperties'
+        'image': 'image'
     }
 
-    def __init__(self, page_sequence=None, relative_pos_x=None, relative_pos_y=None, size_x=None, size_y=None, rotate=None, autoorientation=None, alpha=None, scale=None, align_x=None, align_y=None, stamp_type=None, text=None, image=None, custom_properties=None):  # noqa: E501
+    def __init__(self, page_sequence=None, relative_pos_x=None, relative_pos_y=None, size_x=None, size_y=None, rotate=None, autoorientation=None, alpha=None, scale=None, align_x=None, align_y=None, stamp_type=None, text=None, image=None):  # noqa: E501
         """StampAction - a model defined in Swagger"""  # noqa: E501
 
         self._page_sequence = None
@@ -87,7 +84,6 @@ class StampAction(object):
         self._stamp_type = None
         self._text = None
         self._image = None
-        self._custom_properties = None
         self.discriminator = None
 
         if page_sequence is not None:
@@ -117,8 +113,6 @@ class StampAction(object):
             self.text = text
         if image is not None:
             self.image = image
-        if custom_properties is not None:
-            self.custom_properties = custom_properties
 
     @property
     def page_sequence(self):
@@ -287,8 +281,8 @@ class StampAction(object):
         :param alpha: The alpha of this StampAction.  # noqa: E501
         :type: float
         """
-        # if alpha is None:
-        #     raise ValueError("Invalid value for `alpha`, must not be `None`")  # noqa: E501
+        if alpha is None:
+            raise ValueError("Invalid value for `alpha`, must not be `None`")  # noqa: E501
 
         self._alpha = alpha
 
@@ -443,27 +437,6 @@ class StampAction(object):
         """
 
         self._image = image
-
-    @property
-    def custom_properties(self):
-        """Gets the custom_properties of this StampAction.  # noqa: E501
-
-
-        :return: The custom_properties of this StampAction.  # noqa: E501
-        :rtype: list[KeyValuePairStringString]
-        """
-        return self._custom_properties
-
-    @custom_properties.setter
-    def custom_properties(self, custom_properties):
-        """Sets the custom_properties of this StampAction.
-
-
-        :param custom_properties: The custom_properties of this StampAction.  # noqa: E501
-        :type: list[KeyValuePairStringString]
-        """
-
-        self._custom_properties = custom_properties
 
     def to_dict(self):
         """Returns the model properties as a dict"""

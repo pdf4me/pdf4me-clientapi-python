@@ -36,8 +36,6 @@ class Page(object):
         'page_number': 'int',
         'rotate': 'float',
         'thumbnail': 'str',
-        'source_document_id': 'str',
-        'source_page_number': 'int',
         'page_url': 'str',
         'image_format': 'str'
     }
@@ -48,13 +46,11 @@ class Page(object):
         'page_number': 'pageNumber',
         'rotate': 'rotate',
         'thumbnail': 'thumbnail',
-        'source_document_id': 'sourceDocumentId',
-        'source_page_number': 'sourcePageNumber',
         'page_url': 'pageUrl',
         'image_format': 'imageFormat'
     }
 
-    def __init__(self, document_id=None, page_id=None, page_number=None, rotate=None, thumbnail=None, source_document_id=None, source_page_number=None, page_url=None, image_format=None):  # noqa: E501
+    def __init__(self, document_id=None, page_id=None, page_number=None, rotate=None, thumbnail=None, page_url=None, image_format=None):  # noqa: E501
         """Page - a model defined in Swagger"""  # noqa: E501
 
         self._document_id = None
@@ -62,8 +58,6 @@ class Page(object):
         self._page_number = None
         self._rotate = None
         self._thumbnail = None
-        self._source_document_id = None
-        self._source_page_number = None
         self._page_url = None
         self._image_format = None
         self.discriminator = None
@@ -78,10 +72,6 @@ class Page(object):
             self.rotate = rotate
         if thumbnail is not None:
             self.thumbnail = thumbnail
-        if source_document_id is not None:
-            self.source_document_id = source_document_id
-        if source_page_number is not None:
-            self.source_page_number = source_page_number
         if page_url is not None:
             self.page_url = page_url
         if image_format is not None:
@@ -193,48 +183,6 @@ class Page(object):
             raise ValueError(r"Invalid value for `thumbnail`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
 
         self._thumbnail = thumbnail
-
-    @property
-    def source_document_id(self):
-        """Gets the source_document_id of this Page.  # noqa: E501
-
-
-        :return: The source_document_id of this Page.  # noqa: E501
-        :rtype: str
-        """
-        return self._source_document_id
-
-    @source_document_id.setter
-    def source_document_id(self, source_document_id):
-        """Sets the source_document_id of this Page.
-
-
-        :param source_document_id: The source_document_id of this Page.  # noqa: E501
-        :type: str
-        """
-
-        self._source_document_id = source_document_id
-
-    @property
-    def source_page_number(self):
-        """Gets the source_page_number of this Page.  # noqa: E501
-
-
-        :return: The source_page_number of this Page.  # noqa: E501
-        :rtype: int
-        """
-        return self._source_page_number
-
-    @source_page_number.setter
-    def source_page_number(self, source_page_number):
-        """Sets the source_page_number of this Page.
-
-
-        :param source_page_number: The source_page_number of this Page.  # noqa: E501
-        :type: int
-        """
-
-        self._source_page_number = source_page_number
 
     @property
     def page_url(self):

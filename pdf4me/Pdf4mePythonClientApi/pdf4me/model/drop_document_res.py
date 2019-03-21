@@ -19,7 +19,6 @@ import six
 from pdf4me.model.doc_log import DocLog  # noqa: F401,E501
 from pdf4me.model.doc_metadata import DocMetadata  # noqa: F401,E501
 from pdf4me.model.pdf4me_document import Pdf4meDocument  # noqa: F401,E501
-from pdf4me.model.pricing import Pricing  # noqa: F401,E501
 
 
 class DropDocumentRes(object):
@@ -37,8 +36,8 @@ class DropDocumentRes(object):
     """
     swagger_types = {
         'job_id': 'str',
+        'job_id_ext': 'str',
         'doc_logs': 'list[DocLog]',
-        'pricing': 'Pricing',
         'document_list': 'list[Pdf4meDocument]',
         'document': 'Pdf4meDocument',
         'in_doc_metadata': 'DocMetadata',
@@ -47,20 +46,20 @@ class DropDocumentRes(object):
 
     attribute_map = {
         'job_id': 'jobId',
+        'job_id_ext': 'jobIdExt',
         'doc_logs': 'docLogs',
-        'pricing': 'pricing',
         'document_list': 'documentList',
         'document': 'document',
         'in_doc_metadata': 'inDocMetadata',
         'in_doc_metadata_list': 'inDocMetadataList'
     }
 
-    def __init__(self, job_id=None, doc_logs=None, pricing=None, document_list=None, document=None, in_doc_metadata=None, in_doc_metadata_list=None):  # noqa: E501
+    def __init__(self, job_id=None, job_id_ext=None, doc_logs=None, document_list=None, document=None, in_doc_metadata=None, in_doc_metadata_list=None):  # noqa: E501
         """DropDocumentRes - a model defined in Swagger"""  # noqa: E501
 
         self._job_id = None
+        self._job_id_ext = None
         self._doc_logs = None
-        self._pricing = None
         self._document_list = None
         self._document = None
         self._in_doc_metadata = None
@@ -69,10 +68,10 @@ class DropDocumentRes(object):
 
         if job_id is not None:
             self.job_id = job_id
+        if job_id_ext is not None:
+            self.job_id_ext = job_id_ext
         if doc_logs is not None:
             self.doc_logs = doc_logs
-        if pricing is not None:
-            self.pricing = pricing
         if document_list is not None:
             self.document_list = document_list
         if document is not None:
@@ -104,6 +103,27 @@ class DropDocumentRes(object):
         self._job_id = job_id
 
     @property
+    def job_id_ext(self):
+        """Gets the job_id_ext of this DropDocumentRes.  # noqa: E501
+
+
+        :return: The job_id_ext of this DropDocumentRes.  # noqa: E501
+        :rtype: str
+        """
+        return self._job_id_ext
+
+    @job_id_ext.setter
+    def job_id_ext(self, job_id_ext):
+        """Sets the job_id_ext of this DropDocumentRes.
+
+
+        :param job_id_ext: The job_id_ext of this DropDocumentRes.  # noqa: E501
+        :type: str
+        """
+
+        self._job_id_ext = job_id_ext
+
+    @property
     def doc_logs(self):
         """Gets the doc_logs of this DropDocumentRes.  # noqa: E501
 
@@ -123,27 +143,6 @@ class DropDocumentRes(object):
         """
 
         self._doc_logs = doc_logs
-
-    @property
-    def pricing(self):
-        """Gets the pricing of this DropDocumentRes.  # noqa: E501
-
-
-        :return: The pricing of this DropDocumentRes.  # noqa: E501
-        :rtype: Pricing
-        """
-        return self._pricing
-
-    @pricing.setter
-    def pricing(self, pricing):
-        """Sets the pricing of this DropDocumentRes.
-
-
-        :param pricing: The pricing of this DropDocumentRes.  # noqa: E501
-        :type: Pricing
-        """
-
-        self._pricing = pricing
 
     @property
     def document_list(self):

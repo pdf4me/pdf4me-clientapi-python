@@ -16,7 +16,7 @@ class CustomHttp(object):
         self.url = "https://api.pdf4me.com/"
         if apiurl is not None and len(apiurl) != 0:
             self.url = apiurl
-        self.userAgent = "pdf4me-python/0.8.8"
+        self.userAgent = "pdf4me-python/0.8.9"
 
     def post_universal_object(self, universal_object, controller):
         """Sends a post request to the specified controller with the given
@@ -116,7 +116,8 @@ class CustomHttp(object):
 
         if status_code == 500:
             server_error = self.json_converter.load(response.text)['error_message']
-            raise Pdf4meBackendException('HTTP 500 ' + status_reason + " : " + server_error)
+            trace_id = self.json_converter.load(response.text)['trace_id']
+            raise Pdf4meBackendException('HTTP 500 ' + status_reason + " : trace_id " + trace_id + " : " + server_error)
         elif status_code != 200 and status_code != 204:
             error = response.text
             raise Pdf4meBackendException('HTTP ' + str(status_code) + ': ' + status_reason + " : " + error)

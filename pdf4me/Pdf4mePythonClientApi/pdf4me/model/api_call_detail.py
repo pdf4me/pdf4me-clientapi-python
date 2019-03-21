@@ -16,6 +16,7 @@ import re  # noqa: F401
 
 import six
 
+from pdf4me.model.doc_log import DocLog  # noqa: F401,E501
 from pdf4me.model.document import Document  # noqa: F401,E501
 from pdf4me.model.integration_call import IntegrationCall  # noqa: F401,E501
 
@@ -37,10 +38,11 @@ class ApiCallDetail(object):
         'job_id': 'str',
         'application_id': 'str',
         'application_name': 'str',
-        'job_id_extern': 'str',
+        'job_id_ext': 'str',
         'integration_calls': 'list[IntegrationCall]',
         'feature': 'str',
         'status': 'str',
+        'error_code': 'str',
         'ip_address': 'str',
         'api_cost': 'int',
         'call_type': 'str',
@@ -54,17 +56,19 @@ class ApiCallDetail(object):
         'end_time': 'datetime',
         'action_req_json': 'str',
         'action_res_json': 'str',
-        'error_details': 'str'
+        'error_details': 'str',
+        'doc_logs': 'list[DocLog]'
     }
 
     attribute_map = {
         'job_id': 'jobId',
         'application_id': 'applicationId',
         'application_name': 'applicationName',
-        'job_id_extern': 'jobIdExtern',
+        'job_id_ext': 'jobIdExt',
         'integration_calls': 'integrationCalls',
         'feature': 'feature',
         'status': 'status',
+        'error_code': 'ErrorCode',
         'ip_address': 'ipAddress',
         'api_cost': 'apiCost',
         'call_type': 'callType',
@@ -78,19 +82,21 @@ class ApiCallDetail(object):
         'end_time': 'endTime',
         'action_req_json': 'actionReqJson',
         'action_res_json': 'actionResJson',
-        'error_details': 'errorDetails'
+        'error_details': 'errorDetails',
+        'doc_logs': 'docLogs'
     }
 
-    def __init__(self, job_id=None, application_id=None, application_name=None, job_id_extern=None, integration_calls=None, feature=None, status=None, ip_address=None, api_cost=None, call_type=None, user_agent=None, in_documents=None, out_documents=None, pages=None, doc_size=None, duration_ms=None, start_time=None, end_time=None, action_req_json=None, action_res_json=None, error_details=None):  # noqa: E501
+    def __init__(self, job_id=None, application_id=None, application_name=None, job_id_ext=None, integration_calls=None, feature=None, status=None, error_code=None, ip_address=None, api_cost=None, call_type=None, user_agent=None, in_documents=None, out_documents=None, pages=None, doc_size=None, duration_ms=None, start_time=None, end_time=None, action_req_json=None, action_res_json=None, error_details=None, doc_logs=None):  # noqa: E501
         """ApiCallDetail - a model defined in Swagger"""  # noqa: E501
 
         self._job_id = None
         self._application_id = None
         self._application_name = None
-        self._job_id_extern = None
+        self._job_id_ext = None
         self._integration_calls = None
         self._feature = None
         self._status = None
+        self._error_code = None
         self._ip_address = None
         self._api_cost = None
         self._call_type = None
@@ -105,6 +111,7 @@ class ApiCallDetail(object):
         self._action_req_json = None
         self._action_res_json = None
         self._error_details = None
+        self._doc_logs = None
         self.discriminator = None
 
         if job_id is not None:
@@ -113,14 +120,16 @@ class ApiCallDetail(object):
             self.application_id = application_id
         if application_name is not None:
             self.application_name = application_name
-        if job_id_extern is not None:
-            self.job_id_extern = job_id_extern
+        if job_id_ext is not None:
+            self.job_id_ext = job_id_ext
         if integration_calls is not None:
             self.integration_calls = integration_calls
         if feature is not None:
             self.feature = feature
         if status is not None:
             self.status = status
+        if error_code is not None:
+            self.error_code = error_code
         if ip_address is not None:
             self.ip_address = ip_address
         if api_cost is not None:
@@ -149,6 +158,8 @@ class ApiCallDetail(object):
             self.action_res_json = action_res_json
         if error_details is not None:
             self.error_details = error_details
+        if doc_logs is not None:
+            self.doc_logs = doc_logs
 
     @property
     def job_id(self):
@@ -214,25 +225,25 @@ class ApiCallDetail(object):
         self._application_name = application_name
 
     @property
-    def job_id_extern(self):
-        """Gets the job_id_extern of this ApiCallDetail.  # noqa: E501
+    def job_id_ext(self):
+        """Gets the job_id_ext of this ApiCallDetail.  # noqa: E501
 
 
-        :return: The job_id_extern of this ApiCallDetail.  # noqa: E501
+        :return: The job_id_ext of this ApiCallDetail.  # noqa: E501
         :rtype: str
         """
-        return self._job_id_extern
+        return self._job_id_ext
 
-    @job_id_extern.setter
-    def job_id_extern(self, job_id_extern):
-        """Sets the job_id_extern of this ApiCallDetail.
+    @job_id_ext.setter
+    def job_id_ext(self, job_id_ext):
+        """Sets the job_id_ext of this ApiCallDetail.
 
 
-        :param job_id_extern: The job_id_extern of this ApiCallDetail.  # noqa: E501
+        :param job_id_ext: The job_id_ext of this ApiCallDetail.  # noqa: E501
         :type: str
         """
 
-        self._job_id_extern = job_id_extern
+        self._job_id_ext = job_id_ext
 
     @property
     def integration_calls(self):
@@ -296,6 +307,27 @@ class ApiCallDetail(object):
         """
 
         self._status = status
+
+    @property
+    def error_code(self):
+        """Gets the error_code of this ApiCallDetail.  # noqa: E501
+
+
+        :return: The error_code of this ApiCallDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._error_code
+
+    @error_code.setter
+    def error_code(self, error_code):
+        """Sets the error_code of this ApiCallDetail.
+
+
+        :param error_code: The error_code of this ApiCallDetail.  # noqa: E501
+        :type: str
+        """
+
+        self._error_code = error_code
 
     @property
     def ip_address(self):
@@ -590,6 +622,27 @@ class ApiCallDetail(object):
         """
 
         self._error_details = error_details
+
+    @property
+    def doc_logs(self):
+        """Gets the doc_logs of this ApiCallDetail.  # noqa: E501
+
+
+        :return: The doc_logs of this ApiCallDetail.  # noqa: E501
+        :rtype: list[DocLog]
+        """
+        return self._doc_logs
+
+    @doc_logs.setter
+    def doc_logs(self, doc_logs):
+        """Sets the doc_logs of this ApiCallDetail.
+
+
+        :param doc_logs: The doc_logs of this ApiCallDetail.  # noqa: E501
+        :type: list[DocLog]
+        """
+
+        self._doc_logs = doc_logs
 
     def to_dict(self):
         """Returns the model properties as a dict"""

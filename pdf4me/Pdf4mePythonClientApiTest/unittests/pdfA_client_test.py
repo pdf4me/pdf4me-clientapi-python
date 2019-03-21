@@ -11,8 +11,7 @@ from pdf4me.client.pdf4me_client import Pdf4meClient
 from pdf4me.client.pdfA_client import PdfAClient
 from pdf4me.helper.file_reader import FileReader
 from pdf4me.helper.pdf4me_exceptions import Pdf4meClientException
-from pdf4me.model import CreatePdfA, Document, PdfAAction, Rotate, RotateAction, PdfRotate, Protect, ProtectAction, \
-    Validate, ValidateAction, Repair, RepairAction
+from pdf4me.model import CreatePdfA, Document, PdfAAction, Rotate, RotateAction, PdfRotate, Protect, ProtectAction, Validate, ValidateAction, Repair, RepairAction, SignPdf, SignAction
 from test_helper.check import Check
 from test_helper.test_files import TestFiles
 
@@ -578,3 +577,75 @@ class PdfAClientTest(unittest.TestCase):
         repair = self.check.get_doc_base64_length(res)
 
         self.assertTrue(self.check.below_not_zero(repair, original_length))
+
+    # SignPdf
+    def create_sign_pdf(self):
+        sign_pdf = SignPdf(
+            document=Document(
+                doc_data=self.test_files.pdf_data
+            ),
+            sign_action=SignAction(
+
+            )
+        )
+
+        return sign_pdf
+
+    def test_sign_pdf_throws_exception(self):
+        create_sign_pdf: SignPdf = None
+        with assert_raises(Pdf4meClientException) as e:
+            self.pdfA_client.sign_pdf(sign_pdf=create_sign_pdf)
+
+        assert_equal(e.exception.msg, 'The sign_pdf parameter cannot be None.')
+
+    def test_sign_pdf_document_throws_exception(self):
+        # prepare args
+        create_sign_pdf = self.create_sign_pdf()
+        create_sign_pdf.document = None
+
+        with assert_raises(Pdf4meClientException) as e:
+            self.pdfA_client.sign_pdf(sign_pdf=create_sign_pdf)
+
+        assert_equal(e.exception.msg, 'The sign_pdf document cannot be None.')
+
+    def test_sign_pdf_document_data_throws_exception(self):
+        # prepare args
+        create_sign_pdf = self.create_sign_pdf()
+        create_sign_pdf.document.doc_data = None
+
+        with assert_raises(Pdf4meClientException) as e:
+            self.pdfA_client.sign_pdf(sign_pdf=create_sign_pdf)
+
+        assert_equal(e.exception.msg, 'The sign_pdf document cannot be None.')
+
+    def test_sign_pdf_no_none_response(self):
+        # request
+        create_sign_pdf = self.create_sign_pdf()
+        res = self.pdfA_client.sign_pdf(create_sign_pdf)
+
+        # validation
+        self.assertIsNotNone(res)
+        self.assertIsNotNone(res['document'])
+        self.assertIsNotNone(res['document']['doc_data'])
+
+    def test_sign_pdf_doc_length(self):
+        # request
+        create_sign_pdf = self.create_sign_pdf()
+        res = self.pdfA_client.sign_pdf(create_sign_pdf)
+
+        # validation
+        original_length = self.test_files.pdf_length
+        sign_pdf = len(res['document']['doc_data'])
+
+        self.assertTrue(self.check.below_not_zero(sign_pdf, original_length))
+
+    # Metadata
+
+    def test_metadata_no_none_response(self):
+        # request
+        res = self.pdfA_client.metadata(
+            file=self.file_reader.get_file_handler(path=self.test_files.pdf_path)
+        )
+
+        # validation
+        self.assertIsNotNone(res)

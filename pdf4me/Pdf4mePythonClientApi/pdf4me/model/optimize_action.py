@@ -59,8 +59,7 @@ class OptimizeAction(object):
         'threshold_dpi': 'int',
         'strip': 'list[str]',
         'info_entries': 'list[KeyValuePairStringString]',
-        'flatten_signature_fields': 'bool',
-        'custom_properties': 'list[KeyValuePairStringString]'
+        'flatten_signature_fields': 'bool'
     }
 
     attribute_map = {
@@ -90,11 +89,10 @@ class OptimizeAction(object):
         'threshold_dpi': 'thresholdDPI',
         'strip': 'strip',
         'info_entries': 'infoEntries',
-        'flatten_signature_fields': 'flattenSignatureFields',
-        'custom_properties': 'customProperties'
+        'flatten_signature_fields': 'flattenSignatureFields'
     }
 
-    def __init__(self, profile=None, use_profile=None, remove_redundant_objects=None, subset_fonts=None, optimize_resources=None, force_compression_types=None, force_recompression=None, reduce_color_complexity=None, merge_embedded_fonts=None, bitonal_compressions=None, bitonal_resolution_dpi=None, bitonal_threshold_dpi=None, clip_images=None, continuous_compressions=None, linearize=None, image_quality=None, indexed_compressions=None, dithering_mode=None, color_resolution_dpi=None, color_threshold_dpi=None, monochrome_resolution_dpi=None, monochrome_threshold_dpi=None, resolution_dpi=None, threshold_dpi=None, strip=None, info_entries=None, flatten_signature_fields=None, custom_properties=None):  # noqa: E501
+    def __init__(self, profile=None, use_profile=None, remove_redundant_objects=None, subset_fonts=None, optimize_resources=None, force_compression_types=None, force_recompression=None, reduce_color_complexity=None, merge_embedded_fonts=None, bitonal_compressions=None, bitonal_resolution_dpi=None, bitonal_threshold_dpi=None, clip_images=None, continuous_compressions=None, linearize=None, image_quality=None, indexed_compressions=None, dithering_mode=None, color_resolution_dpi=None, color_threshold_dpi=None, monochrome_resolution_dpi=None, monochrome_threshold_dpi=None, resolution_dpi=None, threshold_dpi=None, strip=None, info_entries=None, flatten_signature_fields=None):  # noqa: E501
         """OptimizeAction - a model defined in Swagger"""  # noqa: E501
 
         self._profile = None
@@ -124,7 +122,6 @@ class OptimizeAction(object):
         self._strip = None
         self._info_entries = None
         self._flatten_signature_fields = None
-        self._custom_properties = None
         self.discriminator = None
 
         if profile is not None:
@@ -180,8 +177,6 @@ class OptimizeAction(object):
             self.info_entries = info_entries
         if flatten_signature_fields is not None:
             self.flatten_signature_fields = flatten_signature_fields
-        if custom_properties is not None:
-            self.custom_properties = custom_properties
 
     @property
     def profile(self):
@@ -843,27 +838,6 @@ class OptimizeAction(object):
         """
 
         self._flatten_signature_fields = flatten_signature_fields
-
-    @property
-    def custom_properties(self):
-        """Gets the custom_properties of this OptimizeAction.  # noqa: E501
-
-
-        :return: The custom_properties of this OptimizeAction.  # noqa: E501
-        :rtype: list[KeyValuePairStringString]
-        """
-        return self._custom_properties
-
-    @custom_properties.setter
-    def custom_properties(self, custom_properties):
-        """Sets the custom_properties of this OptimizeAction.
-
-
-        :param custom_properties: The custom_properties of this OptimizeAction.  # noqa: E501
-        :type: list[KeyValuePairStringString]
-        """
-
-        self._custom_properties = custom_properties
 
     def to_dict(self):
         """Returns the model properties as a dict"""

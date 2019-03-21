@@ -48,6 +48,7 @@ class DropDocumentReq(object):
         'trace_id': 'str',
         'request_id': 'str',
         'integration_setting': 'IntegrationSetting',
+        'job_id_ext': 'str',
         'documents': 'list[Pdf4meDocument]'
     }
 
@@ -65,10 +66,11 @@ class DropDocumentReq(object):
         'trace_id': 'traceId',
         'request_id': 'requestId',
         'integration_setting': 'integrationSetting',
+        'job_id_ext': 'jobIdExt',
         'documents': 'documents'
     }
 
-    def __init__(self, notification=None, job_id=None, document_id=None, user_id=None, url=None, document=None, file_name=None, cloud_storage_provider=None, cloud_storage_files=None, cloud_storage_files_desc=None, trace_id=None, request_id=None, integration_setting=None, documents=None):  # noqa: E501
+    def __init__(self, notification=None, job_id=None, document_id=None, user_id=None, url=None, document=None, file_name=None, cloud_storage_provider=None, cloud_storage_files=None, cloud_storage_files_desc=None, trace_id=None, request_id=None, integration_setting=None, job_id_ext=None, documents=None):  # noqa: E501
         """DropDocumentReq - a model defined in Swagger"""  # noqa: E501
 
         self._notification = None
@@ -84,6 +86,7 @@ class DropDocumentReq(object):
         self._trace_id = None
         self._request_id = None
         self._integration_setting = None
+        self._job_id_ext = None
         self._documents = None
         self.discriminator = None
 
@@ -113,6 +116,8 @@ class DropDocumentReq(object):
             self.request_id = request_id
         if integration_setting is not None:
             self.integration_setting = integration_setting
+        if job_id_ext is not None:
+            self.job_id_ext = job_id_ext
         if documents is not None:
             self.documents = documents
 
@@ -396,6 +401,27 @@ class DropDocumentReq(object):
         """
 
         self._integration_setting = integration_setting
+
+    @property
+    def job_id_ext(self):
+        """Gets the job_id_ext of this DropDocumentReq.  # noqa: E501
+
+
+        :return: The job_id_ext of this DropDocumentReq.  # noqa: E501
+        :rtype: str
+        """
+        return self._job_id_ext
+
+    @job_id_ext.setter
+    def job_id_ext(self, job_id_ext):
+        """Sets the job_id_ext of this DropDocumentReq.
+
+
+        :param job_id_ext: The job_id_ext of this DropDocumentReq.  # noqa: E501
+        :type: str
+        """
+
+        self._job_id_ext = job_id_ext
 
     @property
     def documents(self):

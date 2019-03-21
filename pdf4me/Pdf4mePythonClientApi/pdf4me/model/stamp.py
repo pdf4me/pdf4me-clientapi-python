@@ -37,7 +37,7 @@ class Stamp(object):
         'document': 'Document',
         'stamp_action': 'StampAction',
         'job_id': 'str',
-        'job_id_extern': 'str',
+        'job_id_ext': 'str',
         'integrations': 'list[str]'
     }
 
@@ -45,17 +45,17 @@ class Stamp(object):
         'document': 'document',
         'stamp_action': 'stampAction',
         'job_id': 'jobId',
-        'job_id_extern': 'jobIdExtern',
+        'job_id_ext': 'jobIdExt',
         'integrations': 'integrations'
     }
 
-    def __init__(self, document=None, stamp_action=None, job_id=None, job_id_extern=None, integrations=None):  # noqa: E501
+    def __init__(self, document=None, stamp_action=None, job_id=None, job_id_ext=None, integrations=None):  # noqa: E501
         """Stamp - a model defined in Swagger"""  # noqa: E501
 
         self._document = None
         self._stamp_action = None
         self._job_id = None
-        self._job_id_extern = None
+        self._job_id_ext = None
         self._integrations = None
         self.discriminator = None
 
@@ -63,8 +63,8 @@ class Stamp(object):
         self.stamp_action = stamp_action
         if job_id is not None:
             self.job_id = job_id
-        if job_id_extern is not None:
-            self.job_id_extern = job_id_extern
+        if job_id_ext is not None:
+            self.job_id_ext = job_id_ext
         if integrations is not None:
             self.integrations = integrations
 
@@ -114,7 +114,7 @@ class Stamp(object):
         :type: StampAction
         """
         # if stamp_action is None:
-        #    raise ValueError("Invalid value for `stamp_action`, must not be `None`")  # noqa: E501
+        #     raise ValueError("Invalid value for `stamp_action`, must not be `None`")  # noqa: E501
 
         self._stamp_action = stamp_action
 
@@ -140,25 +140,25 @@ class Stamp(object):
         self._job_id = job_id
 
     @property
-    def job_id_extern(self):
-        """Gets the job_id_extern of this Stamp.  # noqa: E501
+    def job_id_ext(self):
+        """Gets the job_id_ext of this Stamp.  # noqa: E501
 
 
-        :return: The job_id_extern of this Stamp.  # noqa: E501
+        :return: The job_id_ext of this Stamp.  # noqa: E501
         :rtype: str
         """
-        return self._job_id_extern
+        return self._job_id_ext
 
-    @job_id_extern.setter
-    def job_id_extern(self, job_id_extern):
-        """Sets the job_id_extern of this Stamp.
+    @job_id_ext.setter
+    def job_id_ext(self, job_id_ext):
+        """Sets the job_id_ext of this Stamp.
 
 
-        :param job_id_extern: The job_id_extern of this Stamp.  # noqa: E501
+        :param job_id_ext: The job_id_ext of this Stamp.  # noqa: E501
         :type: str
         """
 
-        self._job_id_extern = job_id_extern
+        self._job_id_ext = job_id_ext
 
     @property
     def integrations(self):

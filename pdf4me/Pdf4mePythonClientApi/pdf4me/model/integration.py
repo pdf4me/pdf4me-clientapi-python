@@ -45,7 +45,8 @@ class Integration(object):
         'mod_date': 'datetime',
         'mod_name': 'str',
         'url': 'str',
-        'request_type': 'str'
+        'request_type': 'str',
+        'execution_order': 'int'
     }
 
     attribute_map = {
@@ -61,10 +62,11 @@ class Integration(object):
         'mod_date': 'modDate',
         'mod_name': 'modName',
         'url': 'url',
-        'request_type': 'requestType'
+        'request_type': 'requestType',
+        'execution_order': 'executionOrder'
     }
 
-    def __init__(self, integration_id=None, folder=None, integration_alias=None, name=None, integration_type=None, integration_config=None, application_id=None, enabled=None, basic_token=None, mod_date=None, mod_name=None, url=None, request_type=None):  # noqa: E501
+    def __init__(self, integration_id=None, folder=None, integration_alias=None, name=None, integration_type=None, integration_config=None, application_id=None, enabled=None, basic_token=None, mod_date=None, mod_name=None, url=None, request_type=None, execution_order=None):  # noqa: E501
         """Integration - a model defined in Swagger"""  # noqa: E501
 
         self._integration_id = None
@@ -80,6 +82,7 @@ class Integration(object):
         self._mod_name = None
         self._url = None
         self._request_type = None
+        self._execution_order = None
         self.discriminator = None
 
         if integration_id is not None:
@@ -108,6 +111,8 @@ class Integration(object):
             self.url = url
         if request_type is not None:
             self.request_type = request_type
+        if execution_order is not None:
+            self.execution_order = execution_order
 
     @property
     def integration_id(self):
@@ -211,7 +216,7 @@ class Integration(object):
         :param integration_type: The integration_type of this Integration.  # noqa: E501
         :type: str
         """
-        allowed_values = ["azureStorage", "oneDrive", "sFTP", "fTP", "amazonS3", "amazonGlacier", "googleCloud", "googleDrive", "webHook", "dropbox"]  # noqa: E501
+        allowed_values = ["none", "azureStorage", "oneDrive", "sFTP", "fTP", "amazonS3", "amazonGlacier", "googleCloud", "googleDrive", "webHook", "dropbox", "azureBus", "awsSQS", "awsSNS", "azureEventHub", "signingSwissQuoVadisSealsign"]  # noqa: E501
         if integration_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `integration_type` ({0}), must be one of {1}"  # noqa: E501
@@ -393,6 +398,27 @@ class Integration(object):
             )
 
         self._request_type = request_type
+
+    @property
+    def execution_order(self):
+        """Gets the execution_order of this Integration.  # noqa: E501
+
+
+        :return: The execution_order of this Integration.  # noqa: E501
+        :rtype: int
+        """
+        return self._execution_order
+
+    @execution_order.setter
+    def execution_order(self, execution_order):
+        """Sets the execution_order of this Integration.
+
+
+        :param execution_order: The execution_order of this Integration.  # noqa: E501
+        :type: int
+        """
+
+        self._execution_order = execution_order
 
     def to_dict(self):
         """Returns the model properties as a dict"""

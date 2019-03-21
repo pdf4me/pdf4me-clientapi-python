@@ -44,6 +44,8 @@ class Pdf4meDocument(object):
         'document_id': 'str',
         'user_id': 'str',
         'name': 'str',
+        'file_name': 'str',
+        'file_extension': 'str',
         'ratio': 'float',
         'doc_status': 'str',
         'in_execution': 'bool',
@@ -73,6 +75,8 @@ class Pdf4meDocument(object):
         'document_id': 'documentId',
         'user_id': 'userId',
         'name': 'name',
+        'file_name': 'fileName',
+        'file_extension': 'fileExtension',
         'ratio': 'ratio',
         'doc_status': 'docStatus',
         'in_execution': 'inExecution',
@@ -93,7 +97,7 @@ class Pdf4meDocument(object):
         'document_url': 'documentUrl'
     }
 
-    def __init__(self, document_type=None, blob_ref=None, job_id=None, ref_document_id=None, ref_doc_action=None, document_id=None, user_id=None, name=None, ratio=None, doc_status=None, in_execution=None, order=None, show_doc=None, doc_data=None, thumbnail=None, pages=None, thumbnails=None, doc_logs=None, doc_metadata=None, original_doc_metadata=None, storage_provider_broker=None, storage_provider=None, storage_account_id=None, storage_provider_id=None, storage_provider_folder_id=None, document_url=None):  # noqa: E501
+    def __init__(self, document_type=None, blob_ref=None, job_id=None, ref_document_id=None, ref_doc_action=None, document_id=None, user_id=None, name=None, file_name=None, file_extension=None, ratio=None, doc_status=None, in_execution=None, order=None, show_doc=None, doc_data=None, thumbnail=None, pages=None, thumbnails=None, doc_logs=None, doc_metadata=None, original_doc_metadata=None, storage_provider_broker=None, storage_provider=None, storage_account_id=None, storage_provider_id=None, storage_provider_folder_id=None, document_url=None):  # noqa: E501
         """Pdf4meDocument - a model defined in Swagger"""  # noqa: E501
 
         self._document_type = None
@@ -104,6 +108,8 @@ class Pdf4meDocument(object):
         self._document_id = None
         self._user_id = None
         self._name = None
+        self._file_name = None
+        self._file_extension = None
         self._ratio = None
         self._doc_status = None
         self._in_execution = None
@@ -140,6 +146,10 @@ class Pdf4meDocument(object):
             self.user_id = user_id
         if name is not None:
             self.name = name
+        if file_name is not None:
+            self.file_name = file_name
+        if file_extension is not None:
+            self.file_extension = file_extension
         if ratio is not None:
             self.ratio = ratio
         if doc_status is not None:
@@ -352,6 +362,48 @@ class Pdf4meDocument(object):
         self._name = name
 
     @property
+    def file_name(self):
+        """Gets the file_name of this Pdf4meDocument.  # noqa: E501
+
+
+        :return: The file_name of this Pdf4meDocument.  # noqa: E501
+        :rtype: str
+        """
+        return self._file_name
+
+    @file_name.setter
+    def file_name(self, file_name):
+        """Sets the file_name of this Pdf4meDocument.
+
+
+        :param file_name: The file_name of this Pdf4meDocument.  # noqa: E501
+        :type: str
+        """
+
+        self._file_name = file_name
+
+    @property
+    def file_extension(self):
+        """Gets the file_extension of this Pdf4meDocument.  # noqa: E501
+
+
+        :return: The file_extension of this Pdf4meDocument.  # noqa: E501
+        :rtype: str
+        """
+        return self._file_extension
+
+    @file_extension.setter
+    def file_extension(self, file_extension):
+        """Sets the file_extension of this Pdf4meDocument.
+
+
+        :param file_extension: The file_extension of this Pdf4meDocument.  # noqa: E501
+        :type: str
+        """
+
+        self._file_extension = file_extension
+
+    @property
     def ratio(self):
         """Gets the ratio of this Pdf4meDocument.  # noqa: E501
 
@@ -390,7 +442,7 @@ class Pdf4meDocument(object):
         :param doc_status: The doc_status of this Pdf4meDocument.  # noqa: E501
         :type: str
         """
-        allowed_values = ["undef", "error", "finished", "uploaded", "loading", "loaded", "converting", "converted", "optimizing", "optimized", "doingOcr", "ocred", "doingZip", "stamping", "stamped", "processing"]  # noqa: E501
+        allowed_values = ["undef", "error", "finished", "uploaded", "loading", "loaded", "converting", "converted", "optimizing", "optimized", "doingOcr", "ocred", "doingZip", "stamping", "stamped", "processing", "signed"]  # noqa: E501
         if doc_status not in allowed_values:
             raise ValueError(
                 "Invalid value for `doc_status` ({0}), must be one of {1}"  # noqa: E501

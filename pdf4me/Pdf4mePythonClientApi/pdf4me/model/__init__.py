@@ -40,6 +40,9 @@ from pdf4me.model.execution_trigger import ExecutionTrigger
 from pdf4me.model.extract import Extract
 from pdf4me.model.extract_action import ExtractAction
 from pdf4me.model.extract_res import ExtractRes
+from pdf4me.model.extract_resources import ExtractResources
+from pdf4me.model.extract_resources_action import ExtractResourcesAction
+from pdf4me.model.extract_resources_res import ExtractResourcesRes
 from pdf4me.model.get_document_list_res import GetDocumentListRes
 from pdf4me.model.get_document_url_res import GetDocumentUrlRes
 from pdf4me.model.image import Image
@@ -51,6 +54,8 @@ from pdf4me.model.integration_setting import IntegrationSetting
 from pdf4me.model.job import Job
 from pdf4me.model.job_config import JobConfig
 from pdf4me.model.job_config_res import JobConfigRes
+from pdf4me.model.job_flow import JobFlow
+from pdf4me.model.job_flow_plan import JobFlowPlan
 from pdf4me.model.key_value_pair_string_object import KeyValuePairStringObject
 from pdf4me.model.key_value_pair_string_string import KeyValuePairStringString
 from pdf4me.model.merge import Merge
@@ -68,10 +73,11 @@ from pdf4me.model.pdf4me_document import Pdf4meDocument
 from pdf4me.model.pdf4me_exception import Pdf4meException
 from pdf4me.model.pdf_a_action import PdfAAction
 from pdf4me.model.pdf_font import PdfFont
+from pdf4me.model.pdf_outline import PdfOutline
+from pdf4me.model.pdf_resources import PdfResources
 from pdf4me.model.pdf_rotate import PdfRotate
 from pdf4me.model.pdf_validation import PdfValidation
 from pdf4me.model.pdf_validation_event import PdfValidationEvent
-from pdf4me.model.pricing import Pricing
 from pdf4me.model.produce_documents import ProduceDocuments
 from pdf4me.model.produce_documents_res import ProduceDocumentsRes
 from pdf4me.model.produce_output import ProduceOutput
@@ -94,7 +100,11 @@ from pdf4me.model.rotate_config import RotateConfig
 from pdf4me.model.rotate_res import RotateRes
 from pdf4me.model.run_job_res import RunJobRes
 from pdf4me.model.scan_barcode import ScanBarcode
+from pdf4me.model.sign_action import SignAction
+from pdf4me.model.sign_pdf import SignPdf
+from pdf4me.model.sign_pdf_res import SignPdfRes
 from pdf4me.model.signature_config import SignatureConfig
+from pdf4me.model.signing_provider import SigningProvider
 from pdf4me.model.split import Split
 from pdf4me.model.split_action import SplitAction
 from pdf4me.model.split_res import SplitRes

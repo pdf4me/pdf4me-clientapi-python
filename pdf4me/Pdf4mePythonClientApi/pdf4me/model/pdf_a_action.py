@@ -16,7 +16,6 @@ import re  # noqa: F401
 
 import six
 
-from pdf4me.model.key_value_pair_string_string import KeyValuePairStringString  # noqa: F401,E501
 from pdf4me.model.pdf_font import PdfFont  # noqa: F401,E501
 
 
@@ -39,8 +38,7 @@ class PdfAAction(object):
         'allow_downgrade': 'bool',
         'allow_upgrade': 'bool',
         'output_intent_profile': 'str',
-        'linearize': 'bool',
-        'custom_properties': 'list[KeyValuePairStringString]'
+        'linearize': 'bool'
     }
 
     attribute_map = {
@@ -49,11 +47,10 @@ class PdfAAction(object):
         'allow_downgrade': 'allowDowngrade',
         'allow_upgrade': 'allowUpgrade',
         'output_intent_profile': 'outputIntentProfile',
-        'linearize': 'linearize',
-        'custom_properties': 'customProperties'
+        'linearize': 'linearize'
     }
 
-    def __init__(self, fonts_to_subset=None, compliance=None, allow_downgrade=None, allow_upgrade=None, output_intent_profile=None, linearize=None, custom_properties=None):  # noqa: E501
+    def __init__(self, fonts_to_subset=None, compliance=None, allow_downgrade=None, allow_upgrade=None, output_intent_profile=None, linearize=None):  # noqa: E501
         """PdfAAction - a model defined in Swagger"""  # noqa: E501
 
         self._fonts_to_subset = None
@@ -62,7 +59,6 @@ class PdfAAction(object):
         self._allow_upgrade = None
         self._output_intent_profile = None
         self._linearize = None
-        self._custom_properties = None
         self.discriminator = None
 
         if fonts_to_subset is not None:
@@ -77,8 +73,6 @@ class PdfAAction(object):
             self.output_intent_profile = output_intent_profile
         if linearize is not None:
             self.linearize = linearize
-        if custom_properties is not None:
-            self.custom_properties = custom_properties
 
     @property
     def fonts_to_subset(self):
@@ -229,27 +223,6 @@ class PdfAAction(object):
         """
 
         self._linearize = linearize
-
-    @property
-    def custom_properties(self):
-        """Gets the custom_properties of this PdfAAction.  # noqa: E501
-
-
-        :return: The custom_properties of this PdfAAction.  # noqa: E501
-        :rtype: list[KeyValuePairStringString]
-        """
-        return self._custom_properties
-
-    @custom_properties.setter
-    def custom_properties(self, custom_properties):
-        """Sets the custom_properties of this PdfAAction.
-
-
-        :param custom_properties: The custom_properties of this PdfAAction.  # noqa: E501
-        :type: list[KeyValuePairStringString]
-        """
-
-        self._custom_properties = custom_properties
 
     def to_dict(self):
         """Returns the model properties as a dict"""

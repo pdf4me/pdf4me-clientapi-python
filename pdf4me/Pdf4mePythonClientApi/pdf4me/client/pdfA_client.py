@@ -1,6 +1,6 @@
 from pdf4me.helper.json_converter import JsonConverter
 from pdf4me.helper.pdf4me_exceptions import Pdf4meClientException
-from pdf4me.model import CreatePdfA, Rotate, Protect, Validate, Repair
+from pdf4me.model import CreatePdfA, Rotate, Protect, Validate, Repair, SignPdf, DocMetadata
 
 
 class PdfAClient(object):
@@ -268,3 +268,48 @@ class PdfAClient(object):
             raise Pdf4meClientException('The repair document cannot be None.')
         # elif repair.repair_action is None:
         #    raise Pdf4meClientException('The repair_action cannot be None.')
+
+    def sign_pdf(self, sign_pdf):
+        """The predefined rotation is carried out.
+
+        :param sign_pdf: SignPdf configuration
+        :type sign_pdf: SignPdf
+        :return: SignPdfRes, contains signed document.
+        """
+
+        # check sign_pdf validity
+        self.__check_sign_pdf_object_validity(sign_pdf)
+
+        res = self.pdf4me_client.custom_http.post_universal_object(universal_object=sign_pdf,
+                                                                   controller="PdfA/SignPdf")
+
+        return res
+
+    def __check_sign_pdf_object_validity(self, sign_pdf):
+        """checks whether the sign_pdf object contains the essential information to be
+        processed by the server."""
+
+        if sign_pdf is None:
+            raise Pdf4meClientException('The sign_pdf parameter cannot be None.')
+        elif sign_pdf.document is None or sign_pdf.document.doc_data is None:
+            raise Pdf4meClientException('The sign_pdf document cannot be None.')
+        elif sign_pdf.sign_action is None:
+            raise Pdf4meClientException('The sign_action cannot be None.')
+
+    def metadata(self, file):
+        """repairs selected pages of the document in given direction.
+
+        :param file: to be repaired
+        :type file: file handler, use the method get_file_handler from FileReader to obtain it
+        :return: DocMetadata, can be directly written to file on disk
+        """
+
+        streams = [('file', file)]
+        params = []
+
+        return self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
+                                                           controller='PdfA/Metadata')
+
+        # get json
+        return JsonConverter().load(res)
+

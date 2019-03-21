@@ -17,7 +17,6 @@ import re  # noqa: F401
 import six
 
 from pdf4me.model.custom_cms_config import CustomCMSConfig  # noqa: F401,E501
-from pdf4me.model.key_value_pair_string_string import KeyValuePairStringString  # noqa: F401,E501
 from pdf4me.model.page_selection import PageSelection  # noqa: F401,E501
 
 
@@ -56,8 +55,7 @@ class ImageAction(object):
         'filter_ratio': 'int',
         'image_extension': 'str',
         'color_space': 'str',
-        'compression': 'str',
-        'custom_properties': 'list[KeyValuePairStringString]'
+        'compression': 'str'
     }
 
     attribute_map = {
@@ -82,11 +80,10 @@ class ImageAction(object):
         'filter_ratio': 'filterRatio',
         'image_extension': 'imageExtension',
         'color_space': 'colorSpace',
-        'compression': 'compression',
-        'custom_properties': 'customProperties'
+        'compression': 'compression'
     }
 
-    def __init__(self, page_selection=None, center=None, fit_page=None, bits_per_pixel=None, bilevel_threshold=None, width_pixel=None, height_pixel=None, width_point=None, height_point=None, render_options=None, rotate_mode=None, preserve_aspect_ratio=None, image_quality=None, cms_engine=None, custom_cms_config=None, dithering=None, dpi=None, fill_order=None, filter_ratio=None, image_extension=None, color_space=None, compression=None, custom_properties=None):  # noqa: E501
+    def __init__(self, page_selection=None, center=None, fit_page=None, bits_per_pixel=None, bilevel_threshold=None, width_pixel=None, height_pixel=None, width_point=None, height_point=None, render_options=None, rotate_mode=None, preserve_aspect_ratio=None, image_quality=None, cms_engine=None, custom_cms_config=None, dithering=None, dpi=None, fill_order=None, filter_ratio=None, image_extension=None, color_space=None, compression=None):  # noqa: E501
         """ImageAction - a model defined in Swagger"""  # noqa: E501
 
         self._page_selection = None
@@ -111,7 +108,6 @@ class ImageAction(object):
         self._image_extension = None
         self._color_space = None
         self._compression = None
-        self._custom_properties = None
         self.discriminator = None
 
         self.page_selection = page_selection
@@ -157,8 +153,6 @@ class ImageAction(object):
             self.color_space = color_space
         if compression is not None:
             self.compression = compression
-        if custom_properties is not None:
-            self.custom_properties = custom_properties
 
     @property
     def page_selection(self):
@@ -180,8 +174,8 @@ class ImageAction(object):
         :param page_selection: The page_selection of this ImageAction.  # noqa: E501
         :type: PageSelection
         """
-        # if page_selection is None:
-        #     raise ValueError("Invalid value for `page_selection`, must not be `None`")  # noqa: E501
+        if page_selection is None:
+            raise ValueError("Invalid value for `page_selection`, must not be `None`")  # noqa: E501
 
         self._page_selection = page_selection
 
@@ -708,27 +702,6 @@ class ImageAction(object):
             )
 
         self._compression = compression
-
-    @property
-    def custom_properties(self):
-        """Gets the custom_properties of this ImageAction.  # noqa: E501
-
-
-        :return: The custom_properties of this ImageAction.  # noqa: E501
-        :rtype: list[KeyValuePairStringString]
-        """
-        return self._custom_properties
-
-    @custom_properties.setter
-    def custom_properties(self, custom_properties):
-        """Sets the custom_properties of this ImageAction.
-
-
-        :param custom_properties: The custom_properties of this ImageAction.  # noqa: E501
-        :type: list[KeyValuePairStringString]
-        """
-
-        self._custom_properties = custom_properties
 
     def to_dict(self):
         """Returns the model properties as a dict"""

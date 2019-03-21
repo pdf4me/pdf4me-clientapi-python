@@ -16,7 +16,6 @@ import re  # noqa: F401
 
 import six
 
-from pdf4me.model.key_value_pair_string_string import KeyValuePairStringString  # noqa: F401,E501
 from pdf4me.model.pdf_rotate import PdfRotate  # noqa: F401,E501
 
 
@@ -34,26 +33,21 @@ class RotateAction(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'rotation_list': 'list[PdfRotate]',
-        'custom_properties': 'list[KeyValuePairStringString]'
+        'rotation_list': 'list[PdfRotate]'
     }
 
     attribute_map = {
-        'rotation_list': 'rotationList',
-        'custom_properties': 'customProperties'
+        'rotation_list': 'rotationList'
     }
 
-    def __init__(self, rotation_list=None, custom_properties=None):  # noqa: E501
+    def __init__(self, rotation_list=None):  # noqa: E501
         """RotateAction - a model defined in Swagger"""  # noqa: E501
 
         self._rotation_list = None
-        self._custom_properties = None
         self.discriminator = None
 
         if rotation_list is not None:
             self.rotation_list = rotation_list
-        if custom_properties is not None:
-            self.custom_properties = custom_properties
 
     @property
     def rotation_list(self):
@@ -75,27 +69,6 @@ class RotateAction(object):
         """
 
         self._rotation_list = rotation_list
-
-    @property
-    def custom_properties(self):
-        """Gets the custom_properties of this RotateAction.  # noqa: E501
-
-
-        :return: The custom_properties of this RotateAction.  # noqa: E501
-        :rtype: list[KeyValuePairStringString]
-        """
-        return self._custom_properties
-
-    @custom_properties.setter
-    def custom_properties(self, custom_properties):
-        """Sets the custom_properties of this RotateAction.
-
-
-        :param custom_properties: The custom_properties of this RotateAction.  # noqa: E501
-        :type: list[KeyValuePairStringString]
-        """
-
-        self._custom_properties = custom_properties
 
     def to_dict(self):
         """Returns the model properties as a dict"""

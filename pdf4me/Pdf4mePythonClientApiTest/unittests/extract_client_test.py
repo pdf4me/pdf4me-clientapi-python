@@ -11,7 +11,7 @@ from pdf4me.client.extract_client import ExtractClient
 from pdf4me.client.pdf4me_client import Pdf4meClient
 from pdf4me.helper.file_reader import FileReader
 from pdf4me.helper.pdf4me_exceptions import Pdf4meClientException
-from pdf4me.model import Document, ExtractAction, Extract
+from pdf4me.model import Document, ExtractAction, Extract, ExtractResources, ExtractResourcesAction
 from test_helper.check import Check
 from test_helper.test_files import TestFiles
 
@@ -35,6 +35,23 @@ class ExtractClientTest(unittest.TestCase):
         )
 
         return extract
+
+    def create_extract_resource(self):
+        extract_resource = ExtractResources(
+            document=Document(
+                doc_data=self.test_files.pdf_data
+            ),
+            extract_resources_action=ExtractResourcesAction(
+                extract_fonts=1,
+                extract_images=1,
+                list_fonts=1,
+                list_images=1,
+                outlines=1,
+                xmp_metadata=1
+            )
+        )
+
+        return extract_resource
 
     def test_extract_throws_exception(self):
         with assert_raises(Pdf4meClientException) as e:
@@ -135,3 +152,40 @@ class ExtractClientTest(unittest.TestCase):
         shortened_pdf = self.check.get_doc_base64_length(res)
 
         self.assertTrue(self.check.below_not_zero(shortened_pdf, original_length))
+###############
+
+    def test_extract_resources_throws_exception(self):
+        with assert_raises(Pdf4meClientException) as e:
+            self.extract_client.extract_resources(None)
+
+        assert_equal(e.exception.msg, 'The extract_resources parameter cannot be None.')
+
+    def test_extract_resources_document_throws_exception(self):
+        # prepare args
+        extract_resources = self.create_extract_resource()
+        extract_resources.document = None
+
+        with assert_raises(Pdf4meClientException) as e:
+            self.extract_client.extract_resources(extract_resources=extract_resources)
+
+        assert_equal(e.exception.msg, 'The extract_resources document cannot be None.')
+
+    def test_extract_resources_document_data_throws_exception(self):
+        # prepare args
+        extract_resources = self.create_extract_resource()
+        extract_resources.document.doc_data = None
+
+        with assert_raises(Pdf4meClientException) as e:
+            self.extract_client.extract_resources(extract_resources=extract_resources)
+
+        assert_equal(e.exception.msg, 'The extract_resources document cannot be None.')
+
+    def test_extract_resources_action_throws_exception(self):
+        # prepare args
+        extract_resources = self.create_extract_resource()
+        extract_resources.extract_resources_action = None
+
+        with assert_raises(Pdf4meClientException) as e:
+            self.extract_client.extract_resources(extract_resources=extract_resources)
+
+        assert_equal(e.exception.msg, 'The extract_resources_action cannot be None.')

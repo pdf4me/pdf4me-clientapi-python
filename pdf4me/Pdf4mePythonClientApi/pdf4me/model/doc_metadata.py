@@ -34,12 +34,16 @@ class DocMetadata(object):
         'title': 'str',
         'subject': 'str',
         'page_count': 'int',
+        'author': 'str',
+        'creator': 'str',
+        'producer': 'str',
+        'creation_date': 'datetime',
+        'mod_date': 'datetime',
         'size': 'int',
         'is_encrypted': 'bool',
+        'is_linearized': 'bool',
         'pdf_compliance': 'str',
         'is_signed': 'bool',
-        'uploaded_mime_type': 'str',
-        'uploaded_file_size': 'int',
         'document_id': 'str'
     }
 
@@ -47,27 +51,35 @@ class DocMetadata(object):
         'title': 'title',
         'subject': 'subject',
         'page_count': 'pageCount',
+        'author': 'author',
+        'creator': 'creator',
+        'producer': 'producer',
+        'creation_date': 'creationDate',
+        'mod_date': 'modDate',
         'size': 'size',
         'is_encrypted': 'isEncrypted',
+        'is_linearized': 'isLinearized',
         'pdf_compliance': 'pdfCompliance',
         'is_signed': 'isSigned',
-        'uploaded_mime_type': 'uploadedMimeType',
-        'uploaded_file_size': 'uploadedFileSize',
         'document_id': 'documentId'
     }
 
-    def __init__(self, title=None, subject=None, page_count=None, size=None, is_encrypted=None, pdf_compliance=None, is_signed=None, uploaded_mime_type=None, uploaded_file_size=None, document_id=None):  # noqa: E501
+    def __init__(self, title=None, subject=None, page_count=None, author=None, creator=None, producer=None, creation_date=None, mod_date=None, size=None, is_encrypted=None, is_linearized=None, pdf_compliance=None, is_signed=None, document_id=None):  # noqa: E501
         """DocMetadata - a model defined in Swagger"""  # noqa: E501
 
         self._title = None
         self._subject = None
         self._page_count = None
+        self._author = None
+        self._creator = None
+        self._producer = None
+        self._creation_date = None
+        self._mod_date = None
         self._size = None
         self._is_encrypted = None
+        self._is_linearized = None
         self._pdf_compliance = None
         self._is_signed = None
-        self._uploaded_mime_type = None
-        self._uploaded_file_size = None
         self._document_id = None
         self.discriminator = None
 
@@ -75,15 +87,28 @@ class DocMetadata(object):
             self.title = title
         if subject is not None:
             self.subject = subject
-        self.page_count = page_count
-        self.size = size
-        self.is_encrypted = is_encrypted
+        if page_count is not None:
+            self.page_count = page_count
+        if author is not None:
+            self.author = author
+        if creator is not None:
+            self.creator = creator
+        if producer is not None:
+            self.producer = producer
+        if creation_date is not None:
+            self.creation_date = creation_date
+        if mod_date is not None:
+            self.mod_date = mod_date
+        if size is not None:
+            self.size = size
+        if is_encrypted is not None:
+            self.is_encrypted = is_encrypted
+        if is_linearized is not None:
+            self.is_linearized = is_linearized
         if pdf_compliance is not None:
             self.pdf_compliance = pdf_compliance
-        self.is_signed = is_signed
-        if uploaded_mime_type is not None:
-            self.uploaded_mime_type = uploaded_mime_type
-        self.uploaded_file_size = uploaded_file_size
+        if is_signed is not None:
+            self.is_signed = is_signed
         if document_id is not None:
             self.document_id = document_id
 
@@ -147,10 +172,113 @@ class DocMetadata(object):
         :param page_count: The page_count of this DocMetadata.  # noqa: E501
         :type: int
         """
-        if page_count is None:
-            raise ValueError("Invalid value for `page_count`, must not be `None`")  # noqa: E501
 
         self._page_count = page_count
+
+    @property
+    def author(self):
+        """Gets the author of this DocMetadata.  # noqa: E501
+
+
+        :return: The author of this DocMetadata.  # noqa: E501
+        :rtype: str
+        """
+        return self._author
+
+    @author.setter
+    def author(self, author):
+        """Sets the author of this DocMetadata.
+
+
+        :param author: The author of this DocMetadata.  # noqa: E501
+        :type: str
+        """
+
+        self._author = author
+
+    @property
+    def creator(self):
+        """Gets the creator of this DocMetadata.  # noqa: E501
+
+
+        :return: The creator of this DocMetadata.  # noqa: E501
+        :rtype: str
+        """
+        return self._creator
+
+    @creator.setter
+    def creator(self, creator):
+        """Sets the creator of this DocMetadata.
+
+
+        :param creator: The creator of this DocMetadata.  # noqa: E501
+        :type: str
+        """
+
+        self._creator = creator
+
+    @property
+    def producer(self):
+        """Gets the producer of this DocMetadata.  # noqa: E501
+
+
+        :return: The producer of this DocMetadata.  # noqa: E501
+        :rtype: str
+        """
+        return self._producer
+
+    @producer.setter
+    def producer(self, producer):
+        """Sets the producer of this DocMetadata.
+
+
+        :param producer: The producer of this DocMetadata.  # noqa: E501
+        :type: str
+        """
+
+        self._producer = producer
+
+    @property
+    def creation_date(self):
+        """Gets the creation_date of this DocMetadata.  # noqa: E501
+
+
+        :return: The creation_date of this DocMetadata.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._creation_date
+
+    @creation_date.setter
+    def creation_date(self, creation_date):
+        """Sets the creation_date of this DocMetadata.
+
+
+        :param creation_date: The creation_date of this DocMetadata.  # noqa: E501
+        :type: datetime
+        """
+
+        self._creation_date = creation_date
+
+    @property
+    def mod_date(self):
+        """Gets the mod_date of this DocMetadata.  # noqa: E501
+
+
+        :return: The mod_date of this DocMetadata.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._mod_date
+
+    @mod_date.setter
+    def mod_date(self, mod_date):
+        """Sets the mod_date of this DocMetadata.
+
+
+        :param mod_date: The mod_date of this DocMetadata.  # noqa: E501
+        :type: datetime
+        """
+
+        self._mod_date = mod_date
 
     @property
     def size(self):
@@ -170,8 +298,6 @@ class DocMetadata(object):
         :param size: The size of this DocMetadata.  # noqa: E501
         :type: int
         """
-        if size is None:
-            raise ValueError("Invalid value for `size`, must not be `None`")  # noqa: E501
 
         self._size = size
 
@@ -193,10 +319,29 @@ class DocMetadata(object):
         :param is_encrypted: The is_encrypted of this DocMetadata.  # noqa: E501
         :type: bool
         """
-        if is_encrypted is None:
-            raise ValueError("Invalid value for `is_encrypted`, must not be `None`")  # noqa: E501
 
         self._is_encrypted = is_encrypted
+
+    @property
+    def is_linearized(self):
+        """Gets the is_linearized of this DocMetadata.  # noqa: E501
+
+
+        :return: The is_linearized of this DocMetadata.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_linearized
+
+    @is_linearized.setter
+    def is_linearized(self, is_linearized):
+        """Sets the is_linearized of this DocMetadata.
+
+
+        :param is_linearized: The is_linearized of this DocMetadata.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_linearized = is_linearized
 
     @property
     def pdf_compliance(self):
@@ -237,54 +382,8 @@ class DocMetadata(object):
         :param is_signed: The is_signed of this DocMetadata.  # noqa: E501
         :type: bool
         """
-        if is_signed is None:
-            raise ValueError("Invalid value for `is_signed`, must not be `None`")  # noqa: E501
 
         self._is_signed = is_signed
-
-    @property
-    def uploaded_mime_type(self):
-        """Gets the uploaded_mime_type of this DocMetadata.  # noqa: E501
-
-
-        :return: The uploaded_mime_type of this DocMetadata.  # noqa: E501
-        :rtype: str
-        """
-        return self._uploaded_mime_type
-
-    @uploaded_mime_type.setter
-    def uploaded_mime_type(self, uploaded_mime_type):
-        """Sets the uploaded_mime_type of this DocMetadata.
-
-
-        :param uploaded_mime_type: The uploaded_mime_type of this DocMetadata.  # noqa: E501
-        :type: str
-        """
-
-        self._uploaded_mime_type = uploaded_mime_type
-
-    @property
-    def uploaded_file_size(self):
-        """Gets the uploaded_file_size of this DocMetadata.  # noqa: E501
-
-
-        :return: The uploaded_file_size of this DocMetadata.  # noqa: E501
-        :rtype: int
-        """
-        return self._uploaded_file_size
-
-    @uploaded_file_size.setter
-    def uploaded_file_size(self, uploaded_file_size):
-        """Sets the uploaded_file_size of this DocMetadata.
-
-
-        :param uploaded_file_size: The uploaded_file_size of this DocMetadata.  # noqa: E501
-        :type: int
-        """
-        if uploaded_file_size is None:
-            raise ValueError("Invalid value for `uploaded_file_size`, must not be `None`")  # noqa: E501
-
-        self._uploaded_file_size = uploaded_file_size
 
     @property
     def document_id(self):

@@ -18,7 +18,6 @@ import six
 
 from pdf4me.model.doc_log import DocLog  # noqa: F401,E501
 from pdf4me.model.doc_metadata import DocMetadata  # noqa: F401,E501
-from pdf4me.model.notification import Notification  # noqa: F401,E501
 from pdf4me.model.page import Page  # noqa: F401,E501
 
 
@@ -37,51 +36,53 @@ class Document(object):
     """
     swagger_types = {
         'document_id': 'str',
-        'document_id_extern': 'str',
         'name': 'str',
+        'file_name': 'str',
+        'file_extension': 'str',
         'doc_status': 'str',
         'pages': 'list[Page]',
         'doc_data': 'str',
         'doc_metadata': 'DocMetadata',
         'doc_logs': 'list[DocLog]',
-        'notification': 'Notification',
         'document_url': 'str'
     }
 
     attribute_map = {
         'document_id': 'documentId',
-        'document_id_extern': 'DocumentIdExtern',
         'name': 'name',
+        'file_name': 'fileName',
+        'file_extension': 'fileExtension',
         'doc_status': 'docStatus',
         'pages': 'pages',
         'doc_data': 'docData',
         'doc_metadata': 'docMetadata',
         'doc_logs': 'docLogs',
-        'notification': 'notification',
         'document_url': 'documentUrl'
     }
 
-    def __init__(self, document_id=None, document_id_extern=None, name=None, doc_status=None, pages=None, doc_data=None, doc_metadata=None, doc_logs=None, notification=None, document_url=None):  # noqa: E501
+    def __init__(self, document_id=None, name=None, file_name=None, file_extension=None, doc_status=None, pages=None, doc_data=None, doc_metadata=None, doc_logs=None, document_url=None):  # noqa: E501
         """Document - a model defined in Swagger"""  # noqa: E501
 
         self._document_id = None
-        self._document_id_extern = None
         self._name = None
+        self._file_name = None
+        self._file_extension = None
         self._doc_status = None
         self._pages = None
         self._doc_data = None
         self._doc_metadata = None
         self._doc_logs = None
-        self._notification = None
         self._document_url = None
         self.discriminator = None
 
         if document_id is not None:
             self.document_id = document_id
-        if document_id_extern is not None:
-            self.document_id_extern = document_id_extern
         if name is not None:
             self.name = name
+        if file_name is not None:
+            self.file_name = file_name
+        if file_extension is not None:
+            self.file_extension = file_extension
         if doc_status is not None:
             self.doc_status = doc_status
         if pages is not None:
@@ -92,8 +93,6 @@ class Document(object):
             self.doc_metadata = doc_metadata
         if doc_logs is not None:
             self.doc_logs = doc_logs
-        if notification is not None:
-            self.notification = notification
         if document_url is not None:
             self.document_url = document_url
 
@@ -121,27 +120,6 @@ class Document(object):
         self._document_id = document_id
 
     @property
-    def document_id_extern(self):
-        """Gets the document_id_extern of this Document.  # noqa: E501
-
-
-        :return: The document_id_extern of this Document.  # noqa: E501
-        :rtype: str
-        """
-        return self._document_id_extern
-
-    @document_id_extern.setter
-    def document_id_extern(self, document_id_extern):
-        """Sets the document_id_extern of this Document.
-
-
-        :param document_id_extern: The document_id_extern of this Document.  # noqa: E501
-        :type: str
-        """
-
-        self._document_id_extern = document_id_extern
-
-    @property
     def name(self):
         """Gets the name of this Document.  # noqa: E501
 
@@ -163,6 +141,48 @@ class Document(object):
         """
 
         self._name = name
+
+    @property
+    def file_name(self):
+        """Gets the file_name of this Document.  # noqa: E501
+
+
+        :return: The file_name of this Document.  # noqa: E501
+        :rtype: str
+        """
+        return self._file_name
+
+    @file_name.setter
+    def file_name(self, file_name):
+        """Sets the file_name of this Document.
+
+
+        :param file_name: The file_name of this Document.  # noqa: E501
+        :type: str
+        """
+
+        self._file_name = file_name
+
+    @property
+    def file_extension(self):
+        """Gets the file_extension of this Document.  # noqa: E501
+
+
+        :return: The file_extension of this Document.  # noqa: E501
+        :rtype: str
+        """
+        return self._file_extension
+
+    @file_extension.setter
+    def file_extension(self, file_extension):
+        """Sets the file_extension of this Document.
+
+
+        :param file_extension: The file_extension of this Document.  # noqa: E501
+        :type: str
+        """
+
+        self._file_extension = file_extension
 
     @property
     def doc_status(self):
@@ -274,27 +294,6 @@ class Document(object):
         """
 
         self._doc_logs = doc_logs
-
-    @property
-    def notification(self):
-        """Gets the notification of this Document.  # noqa: E501
-
-
-        :return: The notification of this Document.  # noqa: E501
-        :rtype: Notification
-        """
-        return self._notification
-
-    @notification.setter
-    def notification(self, notification):
-        """Sets the notification of this Document.
-
-
-        :param notification: The notification of this Document.  # noqa: E501
-        :type: Notification
-        """
-
-        self._notification = notification
 
     @property
     def document_url(self):

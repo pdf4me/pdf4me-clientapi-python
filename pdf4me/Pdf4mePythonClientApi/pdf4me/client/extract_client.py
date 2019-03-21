@@ -1,5 +1,5 @@
 from pdf4me.helper.pdf4me_exceptions import Pdf4meClientException
-from pdf4me.model import Extract
+from pdf4me.model import Extract, ExtractResources
 
 
 class ExtractClient(object):
@@ -39,6 +39,22 @@ class ExtractClient(object):
         return self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
                                                            controller='Extract/ExtractPages')
 
+    def extract_resources(self, extract_resources):
+        """The predefined extraction is carried out.
+
+        :param extract_resources: extraction configuration
+        :type extract_resources: ExtractResources
+        :return: ExtractResourcesRes, contains extracted resource info
+        """
+
+        # check extract_resources validity
+        self.__check_extract_resources_object_validity(extract_resources)
+
+        res = self.pdf4me_client.custom_http.post_universal_object(universal_object=extract_resources,
+                                                                   controller='Extract/ExtractResources')
+
+        return res
+
     def __check_extract_object_validity(self, extract):
         """Checks whether the extract object contains the essential information to be
         processed by the server."""
@@ -51,3 +67,14 @@ class ExtractClient(object):
             raise Pdf4meClientException('The extract_action cannot be None.')
         elif extract.extract_action.extract_pages is None or len(extract.extract_action.extract_pages) == 0:
             raise Pdf4meClientException('The extract_pages of extract_action cannot be None or empty.')
+
+    def __check_extract_resources_object_validity(self, extract_resources):
+        """Checks whether the extract_resources object contains the essential information to be
+        processed by the server."""
+
+        if extract_resources is None:
+            raise Pdf4meClientException('The extract_resources parameter cannot be None.')
+        elif extract_resources.document is None or extract_resources.document.doc_data is None:
+            raise Pdf4meClientException('The extract_resources document cannot be None.')
+        elif extract_resources.extract_resources_action is None:
+            raise Pdf4meClientException('The extract_resources_action cannot be None.')
