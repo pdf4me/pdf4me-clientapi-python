@@ -52,6 +52,34 @@ class SplitClient(object):
 
         return pdf_1, pdf_2
 
+    def split_recurring(self, page_nr, file):
+        """Splits the PDF after the pageNr, this results in two smaller PDF documents.
+
+        :param page_nr: determines after which page the split takes place
+        :type page_nr: str:
+        :param file: to split into two
+        :type file: file handler, use the method get_file_handler from FileReader to obtain it
+        :return: bytes of resulting file, can be directly written to file on disk
+        """
+
+        streams = [('file', file)]
+        params = [('pageNr', page_nr)]
+
+        res = self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
+                                                          controller='Split/SplitRecurring')
+
+        # get json
+        res = JsonConverter().load(res)
+
+        # extract the two documents
+        pdfs = []
+        for pdf in res:
+            pdfs.append(base64.b64decode(pdf))
+        # pdf_1 = base64.b64decode(res[0])
+        # pdf_2 = base64.b64decode(res[1])
+
+        return pdfs
+
     def __check_split_object_validity(self, split):
         """Checks whether the split object contains the essential information to be
         processed by the server."""
