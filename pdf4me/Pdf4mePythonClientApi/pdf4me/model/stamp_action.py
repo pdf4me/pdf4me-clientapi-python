@@ -281,8 +281,8 @@ class StampAction(object):
         :param alpha: The alpha of this StampAction.  # noqa: E501
         :type: float
         """
-        if alpha is None:
-            raise ValueError("Invalid value for `alpha`, must not be `None`")  # noqa: E501
+        # if alpha is None:
+        #     raise ValueError("Invalid value for `alpha`, must not be `None`")  # noqa: E501
 
         self._alpha = alpha
 
