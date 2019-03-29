@@ -198,7 +198,7 @@ class OptimizeAction(object):
         :param profile: The profile of this OptimizeAction.  # noqa: E501
         :type: str
         """
-        allowed_values = ["default", "web", "print", "max"]  # noqa: E501
+        allowed_values = ["max", "web", "print"]  # noqa: E501
         if profile not in allowed_values:
             raise ValueError(
                 "Invalid value for `profile` ({0}), must be one of {1}"  # noqa: E501

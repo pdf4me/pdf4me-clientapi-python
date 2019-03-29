@@ -14,6 +14,7 @@ Feature | Description
 **Protect** | Protects or Unlocks your document with given password.
 **Validation** | Validate your document for PDF/A compliance.
 **Repair** | Repairs your document.
+**Barcode** | Reads all types of barcode embedded in document or creates them
 
 ## Getting Started
 

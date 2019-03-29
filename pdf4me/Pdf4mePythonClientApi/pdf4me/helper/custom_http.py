@@ -16,7 +16,7 @@ class CustomHttp(object):
         self.url = "https://api.pdf4me.com/"
         if apiurl is not None and len(apiurl) != 0:
             self.url = apiurl
-        self.userAgent = "pdf4me-python/0.8.13"
+        self.userAgent = "pdf4me-python/0.8.14"
 
     def post_universal_object(self, universal_object, controller):
         """Sends a post request to the specified controller with the given

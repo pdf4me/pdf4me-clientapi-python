@@ -45,6 +45,7 @@ from pdf4me.model.extract_resources_action import ExtractResourcesAction
 from pdf4me.model.extract_resources_res import ExtractResourcesRes
 from pdf4me.model.get_document_list_res import GetDocumentListRes
 from pdf4me.model.get_document_url_res import GetDocumentUrlRes
+from pdf4me.model.get_user_pref_res import GetUserPrefRes
 from pdf4me.model.image import Image
 from pdf4me.model.image_action import ImageAction
 from pdf4me.model.integration import Integration
@@ -121,6 +122,7 @@ from pdf4me.model.usage_application_res import UsageApplicationRes
 from pdf4me.model.usage_subscription import UsageSubscription
 from pdf4me.model.usage_subscription_req import UsageSubscriptionReq
 from pdf4me.model.usage_subscription_res import UsageSubscriptionRes
+from pdf4me.model.user_preference import UserPreference
 from pdf4me.model.validate import Validate
 from pdf4me.model.validate_action import ValidateAction
 from pdf4me.model.validate_res import ValidateRes
