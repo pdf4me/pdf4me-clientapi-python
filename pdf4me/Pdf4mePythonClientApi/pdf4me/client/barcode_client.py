@@ -9,7 +9,7 @@ class BarcodeClient(object):
         self.pdf4me_client = pdf4me_client
 
     def read_barcodes(self, read_barcodes):
-        """The predefined stamp is carried out.
+        """The predefined read barcodes setting is carried out.
 
         :param read_barcodes: read barcode configuration
         :type read_barcodes: ReadBarcodes
@@ -87,12 +87,12 @@ class BarcodeClient(object):
 
 
     def __check_read_barcodes_object_validity(self, read_barcodes):
-        """checks whether the stamp object contains the essential information to be
+        """checks whether the read_barcodes object contains the essential information to be
         processed by the server."""
 
         if read_barcodes is None:
             raise Pdf4meClientException('The read_barcodes parameter cannot be None.')
         elif read_barcodes.document is None or read_barcodes.document.doc_data is None:
-            raise Pdf4meClientException('The stamp document cannot be None.')
+            raise Pdf4meClientException('The read_barcodes document cannot be None.')
         # elif read_barcodes.barcode_action is None:
-        #     raise Pdf4meClientException('The stamp_action cannot be None.')
+        #     raise Pdf4meClientException('The read_barcodes_action cannot be None.')
