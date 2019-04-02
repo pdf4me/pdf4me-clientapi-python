@@ -74,8 +74,8 @@ class BarcodeClient(object):
                                 'ucc128','upc12','upca','upcawith2addon','upcawith5addon','upce','upcewith2addon',
                                 'upcewith5addon','upus10','uspsimpackage','uspsintelligentmail','uspspostnet10',
                                 'uspspostnet11','uspspostnet12','uspspostnet5','uspspostnet6','uspspostnet9','vin')
-        :param content: to be read barcode form
-        :type content: file handler, use the method get_file_handler from FileReader to obtain it
+        :param content: text to be converted to barcode
+        :type content: str
         :return: bytes of resulting file, can be directly written to file on disk
         """
 
