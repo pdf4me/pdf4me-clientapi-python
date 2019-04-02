@@ -82,12 +82,9 @@ class BarcodeClient(object):
         streams = None
         params = [('barcodType', barcode_type), ('content', content)]
 
-        res = self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
-                                                           controller='Barcode/ReadBarcodesByType')
+        return self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
+                                                           controller='Barcode/CreateBarcodeByType')
 
-        json_response = JsonConverter().load(res)
-
-        return json_response
 
     def __check_read_barcodes_object_validity(self, read_barcodes):
         """checks whether the stamp object contains the essential information to be
