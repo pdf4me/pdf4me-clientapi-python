@@ -8,7 +8,7 @@ We have integrated our unittests into the build process.
  > python 3.6: ![Build](https://ynoox.visualstudio.com/_apis/public/build/definitions/2e29c2f0-3f4a-40e1-a4b1-1cc465571206/290/badge)
 
 
-The Pdf4me Client API is a python package which connects to its highly scalable SaaS cloud service with many functionalities to solve your document and PDF requirements. The SaaS API provides expert functionality to convert, optimize, compress, produce, merge, split, ocr, enrich,  archive, rotate, protect, validate, repair, print documents and PDF's.
+The [Pdf4me Client API](https://developer.pdf4me.com/) is a python package which connects to its highly scalable SaaS cloud service with many functionalities to solve your document and PDF requirements. The SaaS API provides expert functionality to convert, optimize, compress, produce, merge, split, ocr, enrich,  archive, rotate, protect, validate, repair, print documents and PDF's.
 
 Feature | Description 
 ------------ | ------------- 
@@ -85,3 +85,6 @@ In PyCharm they must be added to the project interpreter:
 #### Running the Test Cases
 In order for the test cases to run, a config.properties file containing the token must be stored in the [pdf4me\Pdf4mePythonClientApiTest](https://github.com/pdf4me/pdf4me-clientapi-python/tree/master/pdf4me/Pdf4mePythonClientApiTest) folder. Please drop us an [email](mailto:support-dev@pdf4me.com), so we can provide you the developer a token for testing the code of your pull request.
 The test cases are available in [pdf4me\Pdf4mePythonClientApiTest\unittests](https://github.com/pdf4me/pdf4me-clientapi-python/tree/master/pdf4me/Pdf4mePythonClientApiTest/unittests).
+
+#### PDF4me Consumer
+Those who are looking for PDF4me online tool can find it at [PDF4me.com](https://pdf4me.com/)
