@@ -34,23 +34,26 @@ class UsageSubscriptionReq(object):
         'subscription_id': 'str',
         'date_from': 'datetime',
         'trace_id': 'str',
-        'job_id': 'str'
+        'job_id': 'str',
+        'subscription_usage': 'SubscriptionUsage'
     }
 
     attribute_map = {
         'subscription_id': 'subscriptionId',
         'date_from': 'dateFrom',
         'trace_id': 'traceId',
-        'job_id': 'jobId'
+        'job_id': 'jobId',
+        'subscription_usage': 'subscriptionUsage'
     }
 
-    def __init__(self, subscription_id=None, date_from=None, trace_id=None, job_id=None):  # noqa: E501
+    def __init__(self, subscription_id=None, date_from=None, trace_id=None, job_id=None, subscription_usage=None):  # noqa: E501
         """UsageSubscriptionReq - a model defined in Swagger"""  # noqa: E501
 
         self._subscription_id = None
         self._date_from = None
         self._trace_id = None
         self._job_id = None
+        self._subscription_usage = None
         self.discriminator = None
 
         if subscription_id is not None:
@@ -61,6 +64,8 @@ class UsageSubscriptionReq(object):
             self.trace_id = trace_id
         if job_id is not None:
             self.job_id = job_id
+        if subscription_usage is not None:
+            self.subscription_usage = subscription_usage
 
     @property
     def subscription_id(self):
@@ -145,6 +150,27 @@ class UsageSubscriptionReq(object):
         """
 
         self._job_id = job_id
+
+    @property
+    def subscription_usage(self):
+        """Gets the subscription_usage of this UsageSubscriptionReq.  # noqa: E501
+
+
+        :return: The subscription_usage of this UsageSubscriptionReq.  # noqa: E501
+        :rtype: SubscriptionUsage
+        """
+        return self._subscription_usage
+
+    @subscription_usage.setter
+    def subscription_usage(self, subscription_usage):
+        """Sets the subscription_usage of this UsageSubscriptionReq.
+
+
+        :param subscription_usage: The subscription_usage of this UsageSubscriptionReq.  # noqa: E501
+        :type: SubscriptionUsage
+        """
+
+        self._subscription_usage = subscription_usage
 
     def to_dict(self):
         """Returns the model properties as a dict"""

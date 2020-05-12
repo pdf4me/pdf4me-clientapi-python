@@ -50,7 +50,8 @@ class ReadBarcodeAction(object):
         'image_erode': 'int',
         'image_dilate': 'int',
         'image_sharp': 'int',
-        'image_invert': 'int'
+        'image_invert': 'int',
+        'action_id': 'str'
     }
 
     attribute_map = {
@@ -73,10 +74,11 @@ class ReadBarcodeAction(object):
         'image_erode': 'imageErode',
         'image_dilate': 'imageDilate',
         'image_sharp': 'imageSharp',
-        'image_invert': 'imageInvert'
+        'image_invert': 'imageInvert',
+        'action_id': 'actionId'
     }
 
-    def __init__(self, barcode_types=None, barcode_orientation=None, barcodes_to_read=None, scan_interval=None, quiet_zone_size=None, pdf_reading_type=None, pdf_render_dpi=None, threshold_mode=None, threshold_count=None, threshold_step=None, scan_page=None, i2of5_checksum=None, code11_checksum=None, code39_checksum=None, code93_checksum=None, image_despeckle=None, image_erode=None, image_dilate=None, image_sharp=None, image_invert=None):  # noqa: E501
+    def __init__(self, barcode_types=None, barcode_orientation=None, barcodes_to_read=None, scan_interval=None, quiet_zone_size=None, pdf_reading_type=None, pdf_render_dpi=None, threshold_mode=None, threshold_count=None, threshold_step=None, scan_page=None, i2of5_checksum=None, code11_checksum=None, code39_checksum=None, code93_checksum=None, image_despeckle=None, image_erode=None, image_dilate=None, image_sharp=None, image_invert=None, action_id=None):  # noqa: E501
         """ReadBarcodeAction - a model defined in Swagger"""  # noqa: E501
 
         self._barcode_types = None
@@ -99,6 +101,7 @@ class ReadBarcodeAction(object):
         self._image_dilate = None
         self._image_sharp = None
         self._image_invert = None
+        self._action_id = None
         self.discriminator = None
 
         if barcode_types is not None:
@@ -141,6 +144,8 @@ class ReadBarcodeAction(object):
             self.image_sharp = image_sharp
         if image_invert is not None:
             self.image_invert = image_invert
+        if action_id is not None:
+            self.action_id = action_id
 
     @property
     def barcode_types(self):
@@ -593,6 +598,27 @@ class ReadBarcodeAction(object):
         """
 
         self._image_invert = image_invert
+
+    @property
+    def action_id(self):
+        """Gets the action_id of this ReadBarcodeAction.  # noqa: E501
+
+
+        :return: The action_id of this ReadBarcodeAction.  # noqa: E501
+        :rtype: str
+        """
+        return self._action_id
+
+    @action_id.setter
+    def action_id(self, action_id):
+        """Sets the action_id of this ReadBarcodeAction.
+
+
+        :param action_id: The action_id of this ReadBarcodeAction.  # noqa: E501
+        :type: str
+        """
+
+        self._action_id = action_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

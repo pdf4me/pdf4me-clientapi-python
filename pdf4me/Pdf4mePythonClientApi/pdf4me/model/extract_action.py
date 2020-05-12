@@ -31,20 +31,30 @@ class ExtractAction(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'extract_pages': 'list[int]'
+        'extract_pages': 'list[int]',
+        'delete_selected_pages': 'bool',
+        'action_id': 'str'
     }
 
     attribute_map = {
-        'extract_pages': 'extractPages'
+        'extract_pages': 'extractPages',
+        'delete_selected_pages': 'deleteSelectedPages',
+        'action_id': 'actionId'
     }
 
-    def __init__(self, extract_pages=None):  # noqa: E501
+    def __init__(self, extract_pages=None, delete_selected_pages=None, action_id=None):  # noqa: E501
         """ExtractAction - a model defined in Swagger"""  # noqa: E501
 
         self._extract_pages = None
+        self._delete_selected_pages = None
+        self._action_id = None
         self.discriminator = None
 
         self.extract_pages = extract_pages
+        if delete_selected_pages is not None:
+            self.delete_selected_pages = delete_selected_pages
+        if action_id is not None:
+            self.action_id = action_id
 
     @property
     def extract_pages(self):
@@ -65,9 +75,51 @@ class ExtractAction(object):
         :type: list[int]
         """
         # if extract_pages is None:
-        #    raise ValueError("Invalid value for `extract_pages`, must not be `None`")  # noqa: E501
+        #     raise ValueError("Invalid value for `extract_pages`, must not be `None`")  # noqa: E501
 
         self._extract_pages = extract_pages
+
+    @property
+    def delete_selected_pages(self):
+        """Gets the delete_selected_pages of this ExtractAction.  # noqa: E501
+
+
+        :return: The delete_selected_pages of this ExtractAction.  # noqa: E501
+        :rtype: bool
+        """
+        return self._delete_selected_pages
+
+    @delete_selected_pages.setter
+    def delete_selected_pages(self, delete_selected_pages):
+        """Sets the delete_selected_pages of this ExtractAction.
+
+
+        :param delete_selected_pages: The delete_selected_pages of this ExtractAction.  # noqa: E501
+        :type: bool
+        """
+
+        self._delete_selected_pages = delete_selected_pages
+
+    @property
+    def action_id(self):
+        """Gets the action_id of this ExtractAction.  # noqa: E501
+
+
+        :return: The action_id of this ExtractAction.  # noqa: E501
+        :rtype: str
+        """
+        return self._action_id
+
+    @action_id.setter
+    def action_id(self, action_id):
+        """Sets the action_id of this ExtractAction.
+
+
+        :param action_id: The action_id of this ExtractAction.  # noqa: E501
+        :type: str
+        """
+
+        self._action_id = action_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

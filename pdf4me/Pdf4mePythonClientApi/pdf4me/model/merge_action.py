@@ -31,14 +31,42 @@ class MergeAction(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'action_id': 'str'
     }
 
     attribute_map = {
+        'action_id': 'actionId'
     }
 
-    def __init__(self):  # noqa: E501
+    def __init__(self, action_id=None):  # noqa: E501
         """MergeAction - a model defined in Swagger"""  # noqa: E501
+
+        self._action_id = None
         self.discriminator = None
+
+        if action_id is not None:
+            self.action_id = action_id
+
+    @property
+    def action_id(self):
+        """Gets the action_id of this MergeAction.  # noqa: E501
+
+
+        :return: The action_id of this MergeAction.  # noqa: E501
+        :rtype: str
+        """
+        return self._action_id
+
+    @action_id.setter
+    def action_id(self, action_id):
+        """Sets the action_id of this MergeAction.
+
+
+        :param action_id: The action_id of this MergeAction.  # noqa: E501
+        :type: str
+        """
+
+        self._action_id = action_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

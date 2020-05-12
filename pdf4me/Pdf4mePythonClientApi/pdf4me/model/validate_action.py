@@ -31,21 +31,26 @@ class ValidateAction(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'pdf_conformance': 'str'
+        'pdf_conformance': 'str',
+        'action_id': 'str'
     }
 
     attribute_map = {
-        'pdf_conformance': 'pdfConformance'
+        'pdf_conformance': 'pdfConformance',
+        'action_id': 'actionId'
     }
 
-    def __init__(self, pdf_conformance=None):  # noqa: E501
+    def __init__(self, pdf_conformance=None, action_id=None):  # noqa: E501
         """ValidateAction - a model defined in Swagger"""  # noqa: E501
 
         self._pdf_conformance = None
+        self._action_id = None
         self.discriminator = None
 
         if pdf_conformance is not None:
             self.pdf_conformance = pdf_conformance
+        if action_id is not None:
+            self.action_id = action_id
 
     @property
     def pdf_conformance(self):
@@ -73,6 +78,27 @@ class ValidateAction(object):
             )
 
         self._pdf_conformance = pdf_conformance
+
+    @property
+    def action_id(self):
+        """Gets the action_id of this ValidateAction.  # noqa: E501
+
+
+        :return: The action_id of this ValidateAction.  # noqa: E501
+        :rtype: str
+        """
+        return self._action_id
+
+    @action_id.setter
+    def action_id(self, action_id):
+        """Sets the action_id of this ValidateAction.
+
+
+        :param action_id: The action_id of this ValidateAction.  # noqa: E501
+        :type: str
+        """
+
+        self._action_id = action_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

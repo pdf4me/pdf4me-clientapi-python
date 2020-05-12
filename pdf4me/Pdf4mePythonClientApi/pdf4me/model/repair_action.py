@@ -36,7 +36,8 @@ class RepairAction(object):
         'recover_xref': 'bool',
         'rebuild_fonts': 'bool',
         'rebuild_fonts_as_type1': 'bool',
-        'rebuild_streams': 'bool'
+        'rebuild_streams': 'bool',
+        'action_id': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class RepairAction(object):
         'recover_xref': 'recoverXREF',
         'rebuild_fonts': 'rebuildFonts',
         'rebuild_fonts_as_type1': 'rebuildFontsAsType1',
-        'rebuild_streams': 'rebuildStreams'
+        'rebuild_streams': 'rebuildStreams',
+        'action_id': 'actionId'
     }
 
-    def __init__(self, analyze_only=None, recover_pages=None, recover_xref=None, rebuild_fonts=None, rebuild_fonts_as_type1=None, rebuild_streams=None):  # noqa: E501
+    def __init__(self, analyze_only=None, recover_pages=None, recover_xref=None, rebuild_fonts=None, rebuild_fonts_as_type1=None, rebuild_streams=None, action_id=None):  # noqa: E501
         """RepairAction - a model defined in Swagger"""  # noqa: E501
 
         self._analyze_only = None
@@ -57,6 +59,7 @@ class RepairAction(object):
         self._rebuild_fonts = None
         self._rebuild_fonts_as_type1 = None
         self._rebuild_streams = None
+        self._action_id = None
         self.discriminator = None
 
         if analyze_only is not None:
@@ -71,6 +74,8 @@ class RepairAction(object):
             self.rebuild_fonts_as_type1 = rebuild_fonts_as_type1
         if rebuild_streams is not None:
             self.rebuild_streams = rebuild_streams
+        if action_id is not None:
+            self.action_id = action_id
 
     @property
     def analyze_only(self):
@@ -197,6 +202,27 @@ class RepairAction(object):
         """
 
         self._rebuild_streams = rebuild_streams
+
+    @property
+    def action_id(self):
+        """Gets the action_id of this RepairAction.  # noqa: E501
+
+
+        :return: The action_id of this RepairAction.  # noqa: E501
+        :rtype: str
+        """
+        return self._action_id
+
+    @action_id.setter
+    def action_id(self, action_id):
+        """Sets the action_id of this RepairAction.
+
+
+        :param action_id: The action_id of this RepairAction.  # noqa: E501
+        :type: str
+        """
+
+        self._action_id = action_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

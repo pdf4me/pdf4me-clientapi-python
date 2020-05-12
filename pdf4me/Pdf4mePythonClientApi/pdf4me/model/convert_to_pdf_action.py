@@ -32,25 +32,30 @@ class ConvertToPdfAction(object):
     """
     swagger_types = {
         'pdf_conformance': 'str',
-        'conversion_mode': 'str'
+        'conversion_mode': 'str',
+        'action_id': 'str'
     }
 
     attribute_map = {
         'pdf_conformance': 'pdfConformance',
-        'conversion_mode': 'conversionMode'
+        'conversion_mode': 'conversionMode',
+        'action_id': 'actionId'
     }
 
-    def __init__(self, pdf_conformance=None, conversion_mode=None):  # noqa: E501
+    def __init__(self, pdf_conformance=None, conversion_mode=None, action_id=None):  # noqa: E501
         """ConvertToPdfAction - a model defined in Swagger"""  # noqa: E501
 
         self._pdf_conformance = None
         self._conversion_mode = None
+        self._action_id = None
         self.discriminator = None
 
         if pdf_conformance is not None:
             self.pdf_conformance = pdf_conformance
         if conversion_mode is not None:
             self.conversion_mode = conversion_mode
+        if action_id is not None:
+            self.action_id = action_id
 
     @property
     def pdf_conformance(self):
@@ -105,6 +110,27 @@ class ConvertToPdfAction(object):
             )
 
         self._conversion_mode = conversion_mode
+
+    @property
+    def action_id(self):
+        """Gets the action_id of this ConvertToPdfAction.  # noqa: E501
+
+
+        :return: The action_id of this ConvertToPdfAction.  # noqa: E501
+        :rtype: str
+        """
+        return self._action_id
+
+    @action_id.setter
+    def action_id(self, action_id):
+        """Sets the action_id of this ConvertToPdfAction.
+
+
+        :param action_id: The action_id of this ConvertToPdfAction.  # noqa: E501
+        :type: str
+        """
+
+        self._action_id = action_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

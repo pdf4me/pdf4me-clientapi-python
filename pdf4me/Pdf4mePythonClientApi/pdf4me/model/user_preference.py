@@ -31,98 +31,26 @@ class UserPreference(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'user_preference_id': 'str',
-        'user_id': 'str',
         'pref_key': 'str',
-        'preference_data': 'str',
-        'creation_name': 'str',
-        'creation_date': 'datetime',
-        'mod_name': 'str',
-        'mod_date': 'datetime'
+        'preference_data': 'str'
     }
 
     attribute_map = {
-        'user_preference_id': 'userPreferenceId',
-        'user_id': 'userId',
         'pref_key': 'prefKey',
-        'preference_data': 'preferenceData',
-        'creation_name': 'creationName',
-        'creation_date': 'creationDate',
-        'mod_name': 'modName',
-        'mod_date': 'modDate'
+        'preference_data': 'preferenceData'
     }
 
-    def __init__(self, user_preference_id=None, user_id=None, pref_key=None, preference_data=None, creation_name=None, creation_date=None, mod_name=None, mod_date=None):  # noqa: E501
+    def __init__(self, pref_key=None, preference_data=None):  # noqa: E501
         """UserPreference - a model defined in Swagger"""  # noqa: E501
 
-        self._user_preference_id = None
-        self._user_id = None
         self._pref_key = None
         self._preference_data = None
-        self._creation_name = None
-        self._creation_date = None
-        self._mod_name = None
-        self._mod_date = None
         self.discriminator = None
 
-        if user_preference_id is not None:
-            self.user_preference_id = user_preference_id
-        if user_id is not None:
-            self.user_id = user_id
         if pref_key is not None:
             self.pref_key = pref_key
         if preference_data is not None:
             self.preference_data = preference_data
-        if creation_name is not None:
-            self.creation_name = creation_name
-        if creation_date is not None:
-            self.creation_date = creation_date
-        if mod_name is not None:
-            self.mod_name = mod_name
-        if mod_date is not None:
-            self.mod_date = mod_date
-
-    @property
-    def user_preference_id(self):
-        """Gets the user_preference_id of this UserPreference.  # noqa: E501
-
-
-        :return: The user_preference_id of this UserPreference.  # noqa: E501
-        :rtype: str
-        """
-        return self._user_preference_id
-
-    @user_preference_id.setter
-    def user_preference_id(self, user_preference_id):
-        """Sets the user_preference_id of this UserPreference.
-
-
-        :param user_preference_id: The user_preference_id of this UserPreference.  # noqa: E501
-        :type: str
-        """
-
-        self._user_preference_id = user_preference_id
-
-    @property
-    def user_id(self):
-        """Gets the user_id of this UserPreference.  # noqa: E501
-
-
-        :return: The user_id of this UserPreference.  # noqa: E501
-        :rtype: str
-        """
-        return self._user_id
-
-    @user_id.setter
-    def user_id(self, user_id):
-        """Sets the user_id of this UserPreference.
-
-
-        :param user_id: The user_id of this UserPreference.  # noqa: E501
-        :type: str
-        """
-
-        self._user_id = user_id
 
     @property
     def pref_key(self):
@@ -165,90 +93,6 @@ class UserPreference(object):
         """
 
         self._preference_data = preference_data
-
-    @property
-    def creation_name(self):
-        """Gets the creation_name of this UserPreference.  # noqa: E501
-
-
-        :return: The creation_name of this UserPreference.  # noqa: E501
-        :rtype: str
-        """
-        return self._creation_name
-
-    @creation_name.setter
-    def creation_name(self, creation_name):
-        """Sets the creation_name of this UserPreference.
-
-
-        :param creation_name: The creation_name of this UserPreference.  # noqa: E501
-        :type: str
-        """
-
-        self._creation_name = creation_name
-
-    @property
-    def creation_date(self):
-        """Gets the creation_date of this UserPreference.  # noqa: E501
-
-
-        :return: The creation_date of this UserPreference.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._creation_date
-
-    @creation_date.setter
-    def creation_date(self, creation_date):
-        """Sets the creation_date of this UserPreference.
-
-
-        :param creation_date: The creation_date of this UserPreference.  # noqa: E501
-        :type: datetime
-        """
-
-        self._creation_date = creation_date
-
-    @property
-    def mod_name(self):
-        """Gets the mod_name of this UserPreference.  # noqa: E501
-
-
-        :return: The mod_name of this UserPreference.  # noqa: E501
-        :rtype: str
-        """
-        return self._mod_name
-
-    @mod_name.setter
-    def mod_name(self, mod_name):
-        """Sets the mod_name of this UserPreference.
-
-
-        :param mod_name: The mod_name of this UserPreference.  # noqa: E501
-        :type: str
-        """
-
-        self._mod_name = mod_name
-
-    @property
-    def mod_date(self):
-        """Gets the mod_date of this UserPreference.  # noqa: E501
-
-
-        :return: The mod_date of this UserPreference.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._mod_date
-
-    @mod_date.setter
-    def mod_date(self, mod_date):
-        """Sets the mod_date of this UserPreference.
-
-
-        :param mod_date: The mod_date of this UserPreference.  # noqa: E501
-        :type: datetime
-        """
-
-        self._mod_date = mod_date
 
     def to_dict(self):
         """Returns the model properties as a dict"""

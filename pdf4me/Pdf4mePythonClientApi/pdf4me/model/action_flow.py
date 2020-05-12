@@ -33,21 +33,47 @@ class ActionFlow(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'name': 'str',
         'actions': 'list[Pdf4meAction]'
     }
 
     attribute_map = {
+        'name': 'name',
         'actions': 'actions'
     }
 
-    def __init__(self, actions=None):  # noqa: E501
+    def __init__(self, name=None, actions=None):  # noqa: E501
         """ActionFlow - a model defined in Swagger"""  # noqa: E501
 
+        self._name = None
         self._actions = None
         self.discriminator = None
 
+        if name is not None:
+            self.name = name
         if actions is not None:
             self.actions = actions
+
+    @property
+    def name(self):
+        """Gets the name of this ActionFlow.  # noqa: E501
+
+
+        :return: The name of this ActionFlow.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this ActionFlow.
+
+
+        :param name: The name of this ActionFlow.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
 
     @property
     def actions(self):

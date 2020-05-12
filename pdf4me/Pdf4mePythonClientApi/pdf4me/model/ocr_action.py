@@ -34,23 +34,26 @@ class OcrAction(object):
         'stapel': 'str',
         'businesss_card_reco': 'bool',
         'full_text_search': 'bool',
-        'output_type': 'str'
+        'output_type': 'str',
+        'action_id': 'str'
     }
 
     attribute_map = {
         'stapel': 'stapel',
         'businesss_card_reco': 'businesssCardReco',
         'full_text_search': 'fullTextSearch',
-        'output_type': 'outputType'
+        'output_type': 'outputType',
+        'action_id': 'actionId'
     }
 
-    def __init__(self, stapel=None, businesss_card_reco=None, full_text_search=None, output_type=None):  # noqa: E501
+    def __init__(self, stapel=None, businesss_card_reco=None, full_text_search=None, output_type=None, action_id=None):  # noqa: E501
         """OcrAction - a model defined in Swagger"""  # noqa: E501
 
         self._stapel = None
         self._businesss_card_reco = None
         self._full_text_search = None
         self._output_type = None
+        self._action_id = None
         self.discriminator = None
 
         if stapel is not None:
@@ -61,6 +64,8 @@ class OcrAction(object):
             self.full_text_search = full_text_search
         if output_type is not None:
             self.output_type = output_type
+        if action_id is not None:
+            self.action_id = action_id
 
     @property
     def stapel(self):
@@ -151,6 +156,27 @@ class OcrAction(object):
             )
 
         self._output_type = output_type
+
+    @property
+    def action_id(self):
+        """Gets the action_id of this OcrAction.  # noqa: E501
+
+
+        :return: The action_id of this OcrAction.  # noqa: E501
+        :rtype: str
+        """
+        return self._action_id
+
+    @action_id.setter
+    def action_id(self, action_id):
+        """Sets the action_id of this OcrAction.
+
+
+        :param action_id: The action_id of this OcrAction.  # noqa: E501
+        :type: str
+        """
+
+        self._action_id = action_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

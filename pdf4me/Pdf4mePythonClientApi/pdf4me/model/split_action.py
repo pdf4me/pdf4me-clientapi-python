@@ -34,23 +34,26 @@ class SplitAction(object):
         'split_after_page': 'int',
         'split_sequence': 'list[int]',
         'recurring_split_after_page': 'int',
-        'barcode_starts_with': 'str'
+        'barcode_starts_with': 'str',
+        'action_id': 'str'
     }
 
     attribute_map = {
         'split_after_page': 'splitAfterPage',
         'split_sequence': 'splitSequence',
         'recurring_split_after_page': 'recurringSplitAfterPage',
-        'barcode_starts_with': 'barcodeStartsWith'
+        'barcode_starts_with': 'barcodeStartsWith',
+        'action_id': 'actionId'
     }
 
-    def __init__(self, split_after_page=None, split_sequence=None, recurring_split_after_page=None, barcode_starts_with=None):  # noqa: E501
+    def __init__(self, split_after_page=None, split_sequence=None, recurring_split_after_page=None, barcode_starts_with=None, action_id=None):  # noqa: E501
         """SplitAction - a model defined in Swagger"""  # noqa: E501
 
         self._split_after_page = None
         self._split_sequence = None
         self._recurring_split_after_page = None
         self._barcode_starts_with = None
+        self._action_id = None
         self.discriminator = None
 
         if split_after_page is not None:
@@ -61,6 +64,8 @@ class SplitAction(object):
             self.recurring_split_after_page = recurring_split_after_page
         if barcode_starts_with is not None:
             self.barcode_starts_with = barcode_starts_with
+        if action_id is not None:
+            self.action_id = action_id
 
     @property
     def split_after_page(self):
@@ -145,6 +150,27 @@ class SplitAction(object):
         """
 
         self._barcode_starts_with = barcode_starts_with
+
+    @property
+    def action_id(self):
+        """Gets the action_id of this SplitAction.  # noqa: E501
+
+
+        :return: The action_id of this SplitAction.  # noqa: E501
+        :rtype: str
+        """
+        return self._action_id
+
+    @action_id.setter
+    def action_id(self, action_id):
+        """Sets the action_id of this SplitAction.
+
+
+        :param action_id: The action_id of this SplitAction.  # noqa: E501
+        :type: str
+        """
+
+        self._action_id = action_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -34,23 +34,26 @@ class ProtectAction(object):
         'user_password': 'str',
         'owner_password': 'str',
         'unlock': 'bool',
-        'permissions': 'list[str]'
+        'permissions': 'list[str]',
+        'action_id': 'str'
     }
 
     attribute_map = {
         'user_password': 'userPassword',
         'owner_password': 'ownerPassword',
         'unlock': 'unlock',
-        'permissions': 'permissions'
+        'permissions': 'permissions',
+        'action_id': 'actionId'
     }
 
-    def __init__(self, user_password=None, owner_password=None, unlock=None, permissions=None):  # noqa: E501
+    def __init__(self, user_password=None, owner_password=None, unlock=None, permissions=None, action_id=None):  # noqa: E501
         """ProtectAction - a model defined in Swagger"""  # noqa: E501
 
         self._user_password = None
         self._owner_password = None
         self._unlock = None
         self._permissions = None
+        self._action_id = None
         self.discriminator = None
 
         if user_password is not None:
@@ -61,6 +64,8 @@ class ProtectAction(object):
             self.unlock = unlock
         if permissions is not None:
             self.permissions = permissions
+        if action_id is not None:
+            self.action_id = action_id
 
     @property
     def user_password(self):
@@ -152,6 +157,27 @@ class ProtectAction(object):
             )
 
         self._permissions = permissions
+
+    @property
+    def action_id(self):
+        """Gets the action_id of this ProtectAction.  # noqa: E501
+
+
+        :return: The action_id of this ProtectAction.  # noqa: E501
+        :rtype: str
+        """
+        return self._action_id
+
+    @action_id.setter
+    def action_id(self, action_id):
+        """Sets the action_id of this ProtectAction.
+
+
+        :param action_id: The action_id of this ProtectAction.  # noqa: E501
+        :type: str
+        """
+
+        self._action_id = action_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

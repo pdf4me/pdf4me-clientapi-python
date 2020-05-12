@@ -37,7 +37,9 @@ class Page(object):
         'rotate': 'float',
         'thumbnail': 'str',
         'page_url': 'str',
-        'image_format': 'str'
+        'image_format': 'str',
+        'page_width': 'int',
+        'page_height': 'int'
     }
 
     attribute_map = {
@@ -47,10 +49,12 @@ class Page(object):
         'rotate': 'rotate',
         'thumbnail': 'thumbnail',
         'page_url': 'pageUrl',
-        'image_format': 'imageFormat'
+        'image_format': 'imageFormat',
+        'page_width': 'pageWidth',
+        'page_height': 'pageHeight'
     }
 
-    def __init__(self, document_id=None, page_id=None, page_number=None, rotate=None, thumbnail=None, page_url=None, image_format=None):  # noqa: E501
+    def __init__(self, document_id=None, page_id=None, page_number=None, rotate=None, thumbnail=None, page_url=None, image_format=None, page_width=None, page_height=None):  # noqa: E501
         """Page - a model defined in Swagger"""  # noqa: E501
 
         self._document_id = None
@@ -60,6 +64,8 @@ class Page(object):
         self._thumbnail = None
         self._page_url = None
         self._image_format = None
+        self._page_width = None
+        self._page_height = None
         self.discriminator = None
 
         if document_id is not None:
@@ -76,6 +82,10 @@ class Page(object):
             self.page_url = page_url
         if image_format is not None:
             self.image_format = image_format
+        if page_width is not None:
+            self.page_width = page_width
+        if page_height is not None:
+            self.page_height = page_height
 
     @property
     def document_id(self):
@@ -225,6 +235,48 @@ class Page(object):
         """
 
         self._image_format = image_format
+
+    @property
+    def page_width(self):
+        """Gets the page_width of this Page.  # noqa: E501
+
+
+        :return: The page_width of this Page.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_width
+
+    @page_width.setter
+    def page_width(self, page_width):
+        """Sets the page_width of this Page.
+
+
+        :param page_width: The page_width of this Page.  # noqa: E501
+        :type: int
+        """
+
+        self._page_width = page_width
+
+    @property
+    def page_height(self):
+        """Gets the page_height of this Page.  # noqa: E501
+
+
+        :return: The page_height of this Page.  # noqa: E501
+        :rtype: int
+        """
+        return self._page_height
+
+    @page_height.setter
+    def page_height(self, page_height):
+        """Sets the page_height of this Page.
+
+
+        :param page_height: The page_height of this Page.  # noqa: E501
+        :type: int
+        """
+
+        self._page_height = page_height
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -36,7 +36,9 @@ class ExtractResourcesAction(object):
         'list_fonts': 'bool',
         'list_images': 'bool',
         'outlines': 'bool',
-        'xmp_metadata': 'bool'
+        'xmp_metadata': 'bool',
+        'extract_text': 'bool',
+        'action_id': 'str'
     }
 
     attribute_map = {
@@ -45,10 +47,12 @@ class ExtractResourcesAction(object):
         'list_fonts': 'listFonts',
         'list_images': 'listImages',
         'outlines': 'outlines',
-        'xmp_metadata': 'xmpMetadata'
+        'xmp_metadata': 'xmpMetadata',
+        'extract_text': 'extractText',
+        'action_id': 'actionId'
     }
 
-    def __init__(self, extract_fonts=None, extract_images=None, list_fonts=None, list_images=None, outlines=None, xmp_metadata=None):  # noqa: E501
+    def __init__(self, extract_fonts=None, extract_images=None, list_fonts=None, list_images=None, outlines=None, xmp_metadata=None, extract_text=None, action_id=None):  # noqa: E501
         """ExtractResourcesAction - a model defined in Swagger"""  # noqa: E501
 
         self._extract_fonts = None
@@ -57,6 +61,8 @@ class ExtractResourcesAction(object):
         self._list_images = None
         self._outlines = None
         self._xmp_metadata = None
+        self._extract_text = None
+        self._action_id = None
         self.discriminator = None
 
         if extract_fonts is not None:
@@ -71,6 +77,10 @@ class ExtractResourcesAction(object):
             self.outlines = outlines
         if xmp_metadata is not None:
             self.xmp_metadata = xmp_metadata
+        if extract_text is not None:
+            self.extract_text = extract_text
+        if action_id is not None:
+            self.action_id = action_id
 
     @property
     def extract_fonts(self):
@@ -205,6 +215,48 @@ class ExtractResourcesAction(object):
         """
 
         self._xmp_metadata = xmp_metadata
+
+    @property
+    def extract_text(self):
+        """Gets the extract_text of this ExtractResourcesAction.  # noqa: E501
+
+
+        :return: The extract_text of this ExtractResourcesAction.  # noqa: E501
+        :rtype: bool
+        """
+        return self._extract_text
+
+    @extract_text.setter
+    def extract_text(self, extract_text):
+        """Sets the extract_text of this ExtractResourcesAction.
+
+
+        :param extract_text: The extract_text of this ExtractResourcesAction.  # noqa: E501
+        :type: bool
+        """
+
+        self._extract_text = extract_text
+
+    @property
+    def action_id(self):
+        """Gets the action_id of this ExtractResourcesAction.  # noqa: E501
+
+
+        :return: The action_id of this ExtractResourcesAction.  # noqa: E501
+        :rtype: str
+        """
+        return self._action_id
+
+    @action_id.setter
+    def action_id(self, action_id):
+        """Sets the action_id of this ExtractResourcesAction.
+
+
+        :param action_id: The action_id of this ExtractResourcesAction.  # noqa: E501
+        :type: str
+        """
+
+        self._action_id = action_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
