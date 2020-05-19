@@ -152,7 +152,7 @@ class BarcodeClient(object):
                   ('width', width)]
 
         return self.pdf4me_client.custom_http.post_wrapper(octet_streams=streams, values=params,
-                                                           controller='/Barcode/AddBarcodeByType')
+                                                           controller='Barcode/AddBarcodeByType')
 
     def split_by_barcode(self, split_by_barcode_req):
         """Splits the file based on the barcode type
@@ -166,7 +166,7 @@ class BarcodeClient(object):
         self.__check_split_by_barcode_req_object_validity(split_by_barcode_req)
 
         res = self.pdf4me_client.custom_http.post_universal_object(universal_object=split_by_barcode_req,
-                                                                   controller='/Barcode/SplitByBarcode')
+                                                                   controller='Barcode/SplitByBarcode')
 
         return res
 
@@ -200,5 +200,5 @@ class BarcodeClient(object):
             raise Pdf4meClientException('The split_by_barcode_req parameter cannot be None.')
         elif split_by_barcode_req.document is None or split_by_barcode_req.document.doc_data is None:
             raise Pdf4meClientException('The split_by_barcode_req document cannot be None.')
-        # elif split_by_barcode_req.barcode_action is None:
-        #     raise Pdf4meClientException('split_by_barcode_req_action cannot be None.')
+        elif split_by_barcode_req.split_by_barcode_action is None:
+            raise Pdf4meClientException('The split_by_barcode_action cannot be None.')
