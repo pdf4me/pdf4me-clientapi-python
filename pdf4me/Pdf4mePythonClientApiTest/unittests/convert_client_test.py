@@ -215,10 +215,10 @@ class ConvertClientTest(unittest.TestCase):
         res = self.convert_client.convert_to_pdf(convert_to_pdf=convert_to_pdf)
 
         # validation
-        original_length = self.test_files.jpg_length
+        # original_length = self.test_files.jpg_length
         pdf_length = len(res['document']['doc_data'])
 
-        self.assertTrue(self.check.above(pdf_length, original_length))
+        self.assertTrue(self.check.not_zero(pdf_length))
 
     """zip"""
 
@@ -390,10 +390,10 @@ class ConvertClientTest(unittest.TestCase):
         )
 
         # validation
-        original_length = self.test_files.jpg_length
+        # original_length = self.test_files.jpg_length
         pdf_length = self.check.get_doc_base64_length(res)
 
-        self.assertTrue(self.check.above(pdf_length, original_length))
+        self.assertTrue(self.check.not_zero(pdf_length))
 
     """zip"""
 
