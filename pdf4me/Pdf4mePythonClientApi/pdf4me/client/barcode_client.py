@@ -178,8 +178,8 @@ class BarcodeClient(object):
             raise Pdf4meClientException('The read_barcodes parameter cannot be None.')
         elif read_barcodes.document is None or read_barcodes.document.doc_data is None:
             raise Pdf4meClientException('The read_barcodes document cannot be None.')
-        # elif read_barcodes.barcode_action is None:
-        #     raise Pdf4meClientException('The read_barcodes_action cannot be None.')
+        elif read_barcodes.read_barcode_action is None:
+            raise Pdf4meClientException('The read_barcode_action cannot be None.')
 
     def __check_add_barcode_object_validity(self, add_barcode):
         """checks whether the add_barcode object contains the essential information to be

@@ -19,6 +19,11 @@ class TestFiles(object):
         self.pdf_data_2 = self.file_reader.get_file_data(self.pdf_path_2)
         self.pdf_length_2 = len(self.pdf_data_2)
 
+        self.pdf_barcode_name = 'datamatrix.pdf'
+        self.pdf_barcode_path = os.getcwd() + '/../datamatrix.pdf'
+        self.pdf_barcode_data = self.file_reader.get_file_data(self.pdf_barcode_path)
+        self.pdf_barcode_length = len(self.pdf_barcode_data)
+
         self.text_name = 'txt.txt'
         self.text_path = os.getcwd() + '/../txt.txt'
         self.text_data = self.file_reader.get_file_data(self.text_path)
