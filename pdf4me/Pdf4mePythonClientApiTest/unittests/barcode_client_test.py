@@ -1,3 +1,13 @@
+
+
+import sys
+
+sys.path.append('../../Pdf4mePythonClientApi')
+sys.path.append('../../Pdf4mePythonClientApiTest')
+
+from nose.tools import assert_raises, assert_equal
+import unittest
+
 from test_helper.test_files import TestFiles
 from test_helper.check import Check
 from pdf4me.model import ReadBarcodes, Document, ReadBarcodeAction, AddBarcode, AddBarcodeAction, BarcodeColor, \
@@ -6,12 +16,8 @@ from pdf4me.helper.pdf4me_exceptions import Pdf4meClientException
 from pdf4me.helper.file_reader import FileReader
 from pdf4me.client.pdf4me_client import Pdf4meClient
 from pdf4me.client.barcode_client import BarcodeClient
-from nose.tools import assert_raises, assert_equal
-import unittest
-import sys
 
-sys.path.append('../../Pdf4mePythonClientApi')
-sys.path.append('../../Pdf4mePythonClientApiTest')
+
 
 
 class BarcodeClientTest(unittest.TestCase):
