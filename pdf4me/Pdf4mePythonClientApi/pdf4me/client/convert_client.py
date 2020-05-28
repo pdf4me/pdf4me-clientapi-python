@@ -51,7 +51,7 @@ class ConvertClient(object):
         self.__check_convert_from_pdf_object_validity(convert_from_pdf)
 
         res = self.pdf4me_client.custom_http.post_universal_object(universal_object=convert_from_pdf,
-                                                                   controller='/ConvertFromPdf/ConvertFromPdf')
+                                                                   controller='ConvertFromPdf/ConvertFromPdf')
 
         return res
 
