@@ -106,7 +106,7 @@ class Pdf4meAction(object):
         :param action_type: The action_type of this Pdf4meAction.  # noqa: E501
         :type: str
         """
-        allowed_values = ["undef", "user", "optimize", "pdfA", "ocr", "converter", "convertToPdf", "stamp", "split", "merge", "extractResources", "thumbnail", "image", "extract", "readBarcode", "createBarcode", "protect", "repair", "rotate", "sign", "produce", "convertFromPdf", "splitByBarcode", "jobFlow", "swissQRCode", "addBarcode", "prepareForPrint"]  # noqa: E501
+        allowed_values = ["undef", "user", "optimize", "pdfA", "ocr", "converter", "convertToPdf", "stamp", "split", "merge", "extractResources", "thumbnail", "image", "extract", "readBarcode", "createBarcode", "protect", "repair", "rotate", "sign", "produce", "convertFromPdf", "splitByBarcode", "jobFlow", "swissQRCode", "addBarcode", "prepareForPrint", "urlToPdf", "htmlToPdf", "mdToPdf"]  # noqa: E501
         if action_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `action_type` ({0}), must be one of {1}"  # noqa: E501

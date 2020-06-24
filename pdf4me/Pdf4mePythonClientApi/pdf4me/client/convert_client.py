@@ -1,5 +1,5 @@
 from pdf4me.helper.pdf4me_exceptions import Pdf4meClientException
-from pdf4me.model import ConvertToPdf
+from pdf4me.model import ConvertToPdf, ConvertFromPdf
 
 
 class ConvertClient(object):

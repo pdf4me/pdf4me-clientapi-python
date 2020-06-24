@@ -103,6 +103,66 @@ class CustomHttp(object):
 
         return res.content
 
+    def get_object(self, query_strings, controller):
+        """Sends a get request to the specified controller with the given query strings.
+
+        :param query_strings: params to be sent
+        :type query_strings: str
+        :param controller: swagger controller
+        :type controller: str
+        :return: post response
+        """
+
+        # prepare post request
+        request_url = self.url + controller
+        headers = {
+            'Authorization': 'Basic ' + self.token,
+            'User-Agent': self.userAgent
+        }
+
+        # send request
+        res = requests.get(request_url, data=query_strings, headers=headers)
+
+        # check status code
+        self.__check_status_code(res)
+
+        # check docLogs for error messages
+        self.__check_docLogs_for_error_messages(res)
+
+        # read content from response
+        json_response = self.json_converter.load(res.text)
+
+        return json_response
+
+    def get_wrapper(self, query_strings, controller):
+        """Sends a get request to the specified controller with the given
+        query string and returns a file
+
+        :param query_strings: params to be sent
+        :type query_strings: str
+        :param controller: swagger controller
+        :type controller: str
+        :return: file
+        """
+
+        # prepare post request
+        request_url = self.url + controller
+        headers = {
+            'Authorization': 'Basic ' + self.token,
+            'User-Agent': self.userAgent
+        }
+
+        # send request
+        res = requests.get(request_url, data=query_strings, headers=headers)
+
+        # check status code
+        self.__check_status_code(res)
+
+        # check docLogs for error messages
+        self.__check_docLogs_for_error_messages(res)
+
+        return res.content
+
     def __check_status_code(self, response):
         '''
         Checks whether the status code is either 200 or 204, otw. throws a Pdf4meBackendException.

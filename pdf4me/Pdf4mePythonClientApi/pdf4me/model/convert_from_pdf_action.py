@@ -34,6 +34,9 @@ class ConvertFromPdfAction(object):
         'output_format': 'str',
         'quality_type': 'str',
         'single_page': 'bool',
+        'doc_author': 'str',
+        'doc_title': 'str',
+        'cover_thumbnail': 'str',
         'action_id': 'str'
     }
 
@@ -41,15 +44,21 @@ class ConvertFromPdfAction(object):
         'output_format': 'outputFormat',
         'quality_type': 'qualityType',
         'single_page': 'singlePage',
+        'doc_author': 'docAuthor',
+        'doc_title': 'docTitle',
+        'cover_thumbnail': 'coverThumbnail',
         'action_id': 'actionId'
     }
 
-    def __init__(self, output_format=None, quality_type=None, single_page=None, action_id=None):  # noqa: E501
+    def __init__(self, output_format=None, quality_type=None, single_page=None, doc_author=None, doc_title=None, cover_thumbnail=None, action_id=None):  # noqa: E501
         """ConvertFromPdfAction - a model defined in Swagger"""  # noqa: E501
 
         self._output_format = None
         self._quality_type = None
         self._single_page = None
+        self._doc_author = None
+        self._doc_title = None
+        self._cover_thumbnail = None
         self._action_id = None
         self.discriminator = None
 
@@ -59,6 +68,12 @@ class ConvertFromPdfAction(object):
             self.quality_type = quality_type
         if single_page is not None:
             self.single_page = single_page
+        if doc_author is not None:
+            self.doc_author = doc_author
+        if doc_title is not None:
+            self.doc_title = doc_title
+        if cover_thumbnail is not None:
+            self.cover_thumbnail = cover_thumbnail
         if action_id is not None:
             self.action_id = action_id
 
@@ -80,7 +95,7 @@ class ConvertFromPdfAction(object):
         :param output_format: The output_format of this ConvertFromPdfAction.  # noqa: E501
         :type: str
         """
-        allowed_values = ["none", "docX", "excel", "pptx", "pdfOcr", "textOcr", "epub"]  # noqa: E501
+        allowed_values = ["none", "docX", "excel", "pptx", "pdfOcr", "textOcr", "epub", "mobi"]  # noqa: E501
         if output_format not in allowed_values:
             raise ValueError(
                 "Invalid value for `output_format` ({0}), must be one of {1}"  # noqa: E501
@@ -136,6 +151,71 @@ class ConvertFromPdfAction(object):
         """
 
         self._single_page = single_page
+
+    @property
+    def doc_author(self):
+        """Gets the doc_author of this ConvertFromPdfAction.  # noqa: E501
+
+
+        :return: The doc_author of this ConvertFromPdfAction.  # noqa: E501
+        :rtype: str
+        """
+        return self._doc_author
+
+    @doc_author.setter
+    def doc_author(self, doc_author):
+        """Sets the doc_author of this ConvertFromPdfAction.
+
+
+        :param doc_author: The doc_author of this ConvertFromPdfAction.  # noqa: E501
+        :type: str
+        """
+
+        self._doc_author = doc_author
+
+    @property
+    def doc_title(self):
+        """Gets the doc_title of this ConvertFromPdfAction.  # noqa: E501
+
+
+        :return: The doc_title of this ConvertFromPdfAction.  # noqa: E501
+        :rtype: str
+        """
+        return self._doc_title
+
+    @doc_title.setter
+    def doc_title(self, doc_title):
+        """Sets the doc_title of this ConvertFromPdfAction.
+
+
+        :param doc_title: The doc_title of this ConvertFromPdfAction.  # noqa: E501
+        :type: str
+        """
+
+        self._doc_title = doc_title
+
+    @property
+    def cover_thumbnail(self):
+        """Gets the cover_thumbnail of this ConvertFromPdfAction.  # noqa: E501
+
+
+        :return: The cover_thumbnail of this ConvertFromPdfAction.  # noqa: E501
+        :rtype: str
+        """
+        return self._cover_thumbnail
+
+    @cover_thumbnail.setter
+    def cover_thumbnail(self, cover_thumbnail):
+        """Sets the cover_thumbnail of this ConvertFromPdfAction.
+
+
+        :param cover_thumbnail: The cover_thumbnail of this ConvertFromPdfAction.  # noqa: E501
+        :type: str
+        """
+        if cover_thumbnail is not None and not re.search(r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$', cover_thumbnail):  # noqa: E501
+            raise ValueError("Invalid value for `cover_thumbnail`, must be a follow pattern or equal to `/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/`")  # noqa: E501
+
+        self._cover_thumbnail = cover_thumbnail
 
     @property
     def action_id(self):
