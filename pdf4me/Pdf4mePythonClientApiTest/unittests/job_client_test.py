@@ -4,6 +4,7 @@ sys.path.append('../../Pdf4mePythonClientApi')
 sys.path.append('../../Pdf4mePythonClientApiTest')
 
 import unittest
+# from datetime import datetime
 
 # from nose.tools import assert_raises, assert_equal, assert_not_equal
 
@@ -18,7 +19,7 @@ from test_helper.test_files import TestFiles
 from pdf4me.helper.json_converter import JsonConverter
 
 
-class StampClientTest(unittest.TestCase):
+class JobClientTest(unittest.TestCase):
     pdf4me_client = Pdf4meClient()
     job_client = JobClient(pdf4me_client)
 
@@ -33,6 +34,7 @@ class StampClientTest(unittest.TestCase):
         job_flow = JobFlow(
             # job_flow_id='548A29E3-B481-46B8-9DA7-50E1958495FF',
             name='TestJobFlow',
+            active = True,
             action_flow=ActionFlow(
                 name='TestJobFlow',
                 actions=[
@@ -71,12 +73,14 @@ class StampClientTest(unittest.TestCase):
     def test_save_job_flow_plan(self):
         # request
         job_flow_plan = JobFlowPlan(
+            job_flow_plan_id='C1CDACEC-D8FB-4D6C-9C00-F56C20888641',
             job_flow_id='548A29E3-B481-46B8-9DA7-50E1958495FF',
             machine_id='ABCDEFGHJIKL',
             enabled=False,
+            active=True,
             source_folder=StorageFolder(
                 storage_type="localSystem",
-                folder_name="c:\\temp",
+                folder_name="c:\\temp1",
                 host="varun's pc"
             ),
             target_folder=StorageFolder(
@@ -85,14 +89,21 @@ class StampClientTest(unittest.TestCase):
                 host="varun's pc"
             ),
             execution_trigger=ExecutionTrigger(
-                # start_time=datetime,
-                cron_trigger='1x34v',
+                # start_time=datetime(
+                #     year=2020,
+                #     month=7,
+                #     day=9,
+                #     hour=17,
+                #     minute=3,
+                #     second=30
+                # ),
+                cron_trigger='',
                 continues=False
             )
         )
 
         # res = self.job_client.save_job_flow_plan(job_flow_plan)
-
+        #
         # print(res)
 
         # validation

@@ -48,6 +48,7 @@ class JsonConverter(object):
         for key in obj.keys():
             number_of_keys += 1
         current = 1
+        new_obj = dict()
         # replace keys
         for key in obj.keys():
             if current > number_of_keys:
@@ -56,9 +57,9 @@ class JsonConverter(object):
             # camelize and remove leading '_'
             new_key = inflection.camelize(key)[1:]
             if new_key != key:
-                obj[new_key] = obj[key]
-                del obj[key]
-        return obj
+                new_obj[new_key] = obj[key]
+                # del obj[key]
+        return new_obj
 
     def __convert_keys_to_snake_case(self, obj):
         """Converts all keys to snake_case."""
@@ -68,6 +69,7 @@ class JsonConverter(object):
         for key in obj.keys():
             number_of_keys += 1
         current = 1
+        new_obj = dict()
         # replace keys
         for key in obj.keys():
             if current > number_of_keys:
@@ -76,6 +78,6 @@ class JsonConverter(object):
             # switch to snake_case
             new_key = inflection.underscore(key)
             if new_key != key:
-                obj[new_key] = obj[key]
-                del obj[key]
-        return obj
+                new_obj[new_key] = obj[key]
+                # del obj[key]
+        return new_obj
