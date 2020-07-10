@@ -56,8 +56,8 @@ class JsonConverter(object):
             current += 1
             # camelize and remove leading '_'
             new_key = inflection.camelize(key)[1:]
-            if new_key != key:
-                new_obj[new_key] = obj[key]
+            # if new_key != key:
+            new_obj[new_key] = obj[key]
                 # del obj[key]
         return new_obj
 
@@ -77,7 +77,7 @@ class JsonConverter(object):
             current += 1
             # switch to snake_case
             new_key = inflection.underscore(key)
-            if new_key != key:
-                new_obj[new_key] = obj[key]
+            # if new_key != key:
+            new_obj[new_key] = obj[key]
                 # del obj[key]
         return new_obj
