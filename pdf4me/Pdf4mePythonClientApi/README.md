@@ -1,20 +1,20 @@
 The Pdf4me Client API is a python package which connects to its highly scalable SaaS cloud service with many functionalities to solve your document and PDF requirements. The SaaS API provides expert functionality to convert, optimize, compress, produce, merge, split, ocr, enrich, archive, print documents and PDF's.
 
-Feature | Description 
------------- | ------------- 
-**Optimize** | PDF's can often be optimized by removing structural redundancy. This leads to much smaller PDF's.
-**Merge** | Multiple PDF's can be merged into single optimized PDFs.
-**Split** | A PDF can be splitted into multiple PDF's.
-**Extract** | From a PDF extract multiple pages into a new document.
-**Images** | Extract images from your document, can be any type of document.
-**Create Pdf/A** | Create a archive conform PDF/A including xmp Metadata.
-**Convert to PDF** | Convert your documents from any format to a proper PDF document.
-**Stamp** | Stamp your document with text or images.
-**Rotate** | Rotates pages in your document.
-**Protect** | Protects or Unlocks your document with given password.
-**Validation** | Validate your document for PDF/A compliance.
-**Repair** | Repairs your document.
-**Barcode** | Reads all types of barcode embedded in document or creates them
+| Feature            | Description                                                                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------- |
+| **Optimize**       | PDF's can often be optimized by removing structural redundancy. This leads to much smaller PDF's. |
+| **Merge**          | Multiple PDF's can be merged into single optimized PDFs.                                          |
+| **Split**          | A PDF can be splitted into multiple PDF's.                                                        |
+| **Extract**        | From a PDF extract multiple pages into a new document.                                            |
+| **Images**         | Extract images from your document, can be any type of document.                                   |
+| **Create Pdf/A**   | Create a archive conform PDF/A including xmp Metadata.                                            |
+| **Convert to PDF** | Convert your documents from any format to a proper PDF document.                                  |
+| **Stamp**          | Stamp your document with text or images.                                                          |
+| **Rotate**         | Rotates pages in your document.                                                                   |
+| **Protect**        | Protects or Unlocks your document with given password.                                            |
+| **Validation**     | Validate your document for PDF/A compliance.                                                      |
+| **Repair**         | Repairs your document.                                                                            |
+| **Barcode**        | Reads all types of barcode embedded in document or creates them                                   |
 
 ## Getting Started
 
@@ -24,7 +24,7 @@ The Token is required for Authentication. The Pdf4me Client Api provides you alr
 
 ```python
 """
-Either you store them in the config.properties file with token 
+Either you store them in the config.properties file with token
 Do not use any quotes:
 Correct: token=sample-not-working-key-aaaaaaa
 Incorrect: token="sample-not-working-key-aaaaaaa"
@@ -47,7 +47,7 @@ merged_pdf = merge_client.merge_2_pdfs(
 
 ## Documentation
 
-Please visit our [documentation](https://developer.pdf4me.com/docs/api/) for more information about all the functionalities provided and on how to use pdf4me.
+Please visit our [documentation](https://developer.pdf4me.com/docs/api/getting-started/) for more information about all the functionalities provided and on how to use pdf4me.
 
 ## Recommendation
 
