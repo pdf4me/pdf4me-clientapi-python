@@ -62,3 +62,12 @@ class UserClient(object):
         """
         return self.pdf4me_client.custom_http.post_universal_object(universal_object=user_preference_req,
                                                                     controller='User/SaveUserPreference')
+
+    def get_email(self):
+        """get_email
+
+        :return: GetEmailRes
+        """
+        params = []
+
+        return self.pdf4me_client.custom_http.get_object(query_strings=params, controller='User/GetEmail')

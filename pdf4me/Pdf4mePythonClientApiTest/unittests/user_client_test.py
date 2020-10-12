@@ -28,5 +28,14 @@ class UserClientTest(unittest.TestCase):
         self.assertIsNotNone(res)
         # print(res)
 
+    def test_get_email(self):
+        # request
+        res = self.user_client.get_email()
+
+        # validation
+        self.assertIsNotNone(res)
+        print(res)
+
+
 
 
